@@ -1,0 +1,51 @@
+html {
+    background-color: #000000;
+    color: #FAFAFA;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.body {
+    background-color: rgba(50, 50, 50, 0.7);
+    border-radius: 50px;
+    text-align: center;
+    width: 1000px;
+    padding-top: 20px;
+    padding-bottom: 60px;
+    color: aqua;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.heading {
+    color: yellow;
+}
+
+canvas {
+    border-radius: 30px;
+}
+
+/** Image Reference
+ * Paz, Boaz. (2018). Mirrorball Slots [png].
+ * Retrieved January 27, 2019, from https://www.pinterest.ca/pin/437201076302692054/
+ */
+.background {
+    background: url(/Assets/images/casino-bg.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

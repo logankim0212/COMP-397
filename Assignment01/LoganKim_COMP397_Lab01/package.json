@@ -1,0 +1,22 @@
+{
+  "name": "logankim_comp397_lab01",
+  "version": "1.0.0",
+  "description": "This game is an online slot machine game that Logan Kim built for his  assignment 01 for COMP-397, Web Game Programming.",
+  "main": "game.js",
+  "repository": "https://github.com/logankim0212/COMP-397",
+  "author": "Logan Kim",
+  "license": "MIT",
+  "dependencies": {
+    "createjs": "^1.0.1",
+    "easeljs": "^1.0.2",
+    "preloadjs": "^1.0.1",
+    "soundjs": "^1.0.1",
+    "tweenjs": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/easeljs": "^1.0.0",
+    "@types/preloadjs": "^0.6.32",
+    "@types/soundjs": "^0.6.27",
+    "@types/tweenjs": "^1.0.0"
+  }
+}
