@@ -41,6 +41,9 @@ let Game = (function () {
     let deathlyHallows: number = 0;
     let counter: number = 0;
 
+    // jackpot flag
+    let jackpotFlag: boolean = false;
+
     // start function
     function Start(): void {
         console.log(`%c Game Started!`, "color: lightblue; font-size: 20px; font-weight: bold;");
@@ -205,10 +208,11 @@ let Game = (function () {
             }
             else if (deathlyHallows == 3) {
                 winnings = jackpot;
-                if (jackpot > 0) {
+                alert("You Won the $" + jackpot + " Jackpot!!");
+
+                if (jackpot >= 3000) {
                     jackpot -= 2000;
                 }
-                alert("You Won the $" + jackpot + " Jackpot!!");
             }
             else if (trainStation == 2) {
                 winnings = coinsPlayed * 2;
@@ -247,6 +251,9 @@ let Game = (function () {
         lblWinnerPaid.setText(winnings.toString());
         resetTally();
         ButtonsOn();
+
+        // set jackpot flag to false
+        jackpotFlag = false;
     }
 
     // spin reels fucntion
@@ -254,7 +261,11 @@ let Game = (function () {
         let outCome: Array<number> = [0, 0, 0];
 
         for (let spin: number = 0; spin < 3; spin++) {
-            outCome[spin] = Math.floor((Math.random() * 65) + 1);
+            if (!jackpotFlag) {
+                outCome[spin] = Math.floor((Math.random() * 65) + 1);
+            } else {
+                outCome[spin] = 65;
+            }
             switch (outCome[spin]) {
                 case CheckRange(outCome[spin], 1, 27):  // 41.5% probability
                     SetReelImages(spin, util.TICKET_PATH);
@@ -383,6 +394,16 @@ let Game = (function () {
                 break;
             default:
                 break;
+        }
+    }
+
+    // jackpot keydown cheat event
+    window.addEventListener('keydown', JackpotCheck, true);
+
+    // jackpot keydown cheat function
+    function JackpotCheck(event: KeyboardEvent): void {
+        if (event.keyCode == util.Keys.P) {
+            jackpotFlag = true;
         }
     }
 
