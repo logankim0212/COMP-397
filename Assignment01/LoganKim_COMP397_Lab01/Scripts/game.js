@@ -6,6 +6,16 @@ let Game = (function () {
     let canvas = document.getElementsByTagName('canvas')[0];
     let stage;
     let background;
+    let lblCredits;
+    let lblWinnerPaid;
+    let lblBet;
+    // game variables
+    const CREDITS = 1000;
+    let balance = CREDITS;
+    const BETS = 10;
+    let coinsPlayed = BETS;
+    let winnings = 0;
+    let jackpot = 5000;
     function Start() {
         console.log(`%c Game Started!`, "color: lightblue; font-size: 20px; font-weight: bold;");
         stage = new createjs.Stage(canvas);
@@ -22,8 +32,16 @@ let Game = (function () {
         InitialSetup();
     }
     function InitialSetup() {
+        // set background
         background = new objects.Image(util.BACKGROUND_PATH, 0, 0, 840, 480, false);
         stage.addChild(background);
+        // set labels
+        lblCredits = new objects.Label(CREDITS.toString(), "20px", "Arial", "#FFFFFF", 100, 327, true);
+        stage.addChild(lblCredits);
+        lblWinnerPaid = new objects.Label("0", "20px", "Arial", "#FFFFFF", 269, 327, true);
+        stage.addChild(lblWinnerPaid);
+        lblBet = new objects.Label(BETS.toString(), "20px", "Arial", "#FFFFFF", 437, 327, true);
+        stage.addChild(lblBet);
     }
     window.addEventListener('load', Start);
 })();
