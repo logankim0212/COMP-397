@@ -27,25 +27,44 @@ let Game = (function () {
     let winnings: number = 0;
     let jackpot: number = 5000;
 
+    // reel variables
+    let firstReel: objects.Image;
+    let secondReel: objects.Image;
+    let thirdReel: objects.Image;
+    let ticket: number = 0;
+    let trainStation: number = 0;
+    let hufflepuff: number = 0;
+    let ravenclaw: number = 0;
+    let gryffindor: number = 0;
+    let slytherin: number = 0;
+    let hogwarts: number = 0;
+    let deathlyHallows: number = 0;
+    let counter: number = 0;
 
+    // start function
     function Start(): void {
         console.log(`%c Game Started!`, "color: lightblue; font-size: 20px; font-weight: bold;");
         stage = new createjs.Stage(canvas);
         createjs.Ticker.framerate = 60; // 60 FPS
         createjs.Ticker.on('tick', Update);
         stage.enableMouseOver(20);
+
+        // call main
         Main();
     }
 
+    // update stage
     function Update(): void {
         stage.update();
     }
 
+    // main function
     function Main(): void {
         console.log(`%c Main Started...`, "color: green; font-size: 16px;");
         InitialSetup();
     }
 
+    // setup initial elements
     function InitialSetup(): void {
         // set background
         background = new objects.Image(util.BACKGROUND_PATH, 0, 0, 840, 480, false)
@@ -75,10 +94,19 @@ let Game = (function () {
         btnBetMax.HoverOn();
         btnSpin.HoverOn();
 
+        // set initial reels
+        firstReel = new objects.Image(util.TICKET_PATH, 39, 103, 145, 133, false)
+        stage.addChild(firstReel);
+        secondReel = new objects.Image(util.TICKET_PATH, 197, 103, 145, 133, false)
+        stage.addChild(secondReel);
+        thirdReel = new objects.Image(util.TICKET_PATH, 355, 103, 145, 133, false)
+        stage.addChild(thirdReel);
+
         // enable buttons
         ButtonsOn();
     }
 
+    // enable buttons
     function ButtonsOn(): void {
         resetOn = btnReset.on("click", function () { BtnReset(); });
         betOneOn = btnBetOne.on("click", function () { BetOne(); });
@@ -86,6 +114,7 @@ let Game = (function () {
         spinOn = btnSpin.on("click", function () { Spin(); });
     }
 
+    // disable buttons
     function ButtonsOff(): void {
         btnReset.off("click", resetOn);
         btnBetOne.off("click", betOneOn);
@@ -93,6 +122,7 @@ let Game = (function () {
         btnSpin.off("click", spinOn);
     }
 
+    // reset button function
     function BtnReset(): void {
         balance = CREDITS;
         coinsPlayed = BETS;
@@ -102,6 +132,7 @@ let Game = (function () {
         lblBet.setText(coinsPlayed.toString());
     }
 
+    // bet one button function
     function BetOne(): void {
         switch (Number(lblBet.text)) {
             case 10:
@@ -119,14 +150,18 @@ let Game = (function () {
         }
     }
 
+    // bet max button function
     function BetMax(): void {
         coinsPlayed = 30;
         lblBet.setText(coinsPlayed.toString());
+
+        // spin reels
         Spin();
     }
 
+    // spin button function
     function Spin(): void {
-        // validation
+        // player balance validation
         if (balance - coinsPlayed >= 0) {
             // reduce balance and set winnigns to 0
             balance -= Number(lblBet.text);
@@ -134,10 +169,220 @@ let Game = (function () {
             lblCredits.setText(balance.toString());
             lblWinnerPaid.setText(winnings.toString());
 
-            // spin reels
+            // disable buttons
+            ButtonsOff();
 
+            // spin reels
+            counter = 0;
+            ShowRandom();
+            setTimeout(function () { SpinReels(); }, 1000);
+            setTimeout(function () { DetermineWinning(); }, 1100);
         } else {
             alert("Please recharge your credits to continue! \nCurrent Balance: " + balance);
+        }
+    }
+
+    // check winning condition
+    function DetermineWinning(): void {
+        if (ticket == 0) {
+            if (trainStation == 3) {
+                winnings = coinsPlayed * 10;
+            }
+            else if (hufflepuff == 3) {
+                winnings = coinsPlayed * 20;
+            }
+            else if (ravenclaw == 3) {
+                winnings = coinsPlayed * 30;
+            }
+            else if (gryffindor == 3) {
+                winnings = coinsPlayed * 40;
+            }
+            else if (slytherin == 3) {
+                winnings = coinsPlayed * 50;
+            }
+            else if (hogwarts == 3) {
+                winnings = coinsPlayed * 75;
+            }
+            else if (deathlyHallows == 3) {
+                winnings = jackpot;
+                if (jackpot > 0) {
+                    jackpot -= 2000;
+                }
+                alert("You Won the $" + jackpot + " Jackpot!!");
+            }
+            else if (trainStation == 2) {
+                winnings = coinsPlayed * 2;
+            }
+            else if (hufflepuff == 2) {
+                winnings = coinsPlayed * 2;
+            }
+            else if (ravenclaw == 2) {
+                winnings = coinsPlayed * 3;
+            }
+            else if (gryffindor == 2) {
+                winnings = coinsPlayed * 4;
+            }
+            else if (slytherin == 2) {
+                winnings = coinsPlayed * 5;
+            }
+            else if (hogwarts == 2) {
+                winnings = coinsPlayed * 10;
+            }
+            else if (deathlyHallows == 2) {
+                winnings = coinsPlayed * 20;
+            }
+            else if (deathlyHallows == 1) {
+                winnings = coinsPlayed * 5;
+            }
+            else {
+                winnings = coinsPlayed * 1;
+            }
+        } else {
+            winnings = 0;
+        }
+
+        // update labels
+        balance += winnings;
+        lblCredits.setText(balance.toString());
+        lblWinnerPaid.setText(winnings.toString());
+        resetTally();
+        ButtonsOn();
+    }
+
+    // spin reels fucntion
+    function SpinReels(): void {
+        let outCome: Array<number> = [0, 0, 0];
+
+        for (let spin: number = 0; spin < 3; spin++) {
+            outCome[spin] = Math.floor((Math.random() * 65) + 1);
+            switch (outCome[spin]) {
+                case CheckRange(outCome[spin], 1, 27):  // 41.5% probability
+                    SetReelImages(spin, util.TICKET_PATH);
+                    ticket++;
+                    break;
+                case CheckRange(outCome[spin], 28, 37): // 15.4% probability
+                    SetReelImages(spin, util.TRAIN_STATION_PATH);
+                    trainStation++;
+                    break;
+                case CheckRange(outCome[spin], 38, 46): // 13.8% probability
+                    SetReelImages(spin, util.HUFFLEPUFF_PATH);
+                    hufflepuff++;
+                    break;
+                case CheckRange(outCome[spin], 47, 54): // 12.3% probability
+                    SetReelImages(spin, util.RAVENCLAW_PATH);
+                    ravenclaw++;
+                    break;
+                case CheckRange(outCome[spin], 55, 59): //  7.7% probability
+                    SetReelImages(spin, util.GRYFFINDOR_PATH);
+                    gryffindor++;
+                    break;
+                case CheckRange(outCome[spin], 60, 62): //  4.6% probability
+                    SetReelImages(spin, util.SLYTHERIN_PATH);
+                    slytherin++;
+                    break;
+                case CheckRange(outCome[spin], 63, 64): //  3.1% probability
+                    SetReelImages(spin, util.HOGWARTS_PATH);
+                    hogwarts++;
+                    break;
+                case CheckRange(outCome[spin], 65, 65): //  1.5% probability
+                    SetReelImages(spin, util.DEATHLY_HALLOWS_PATH);
+                    deathlyHallows++;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    // reel rotation animation
+    function ShowRandom(): void {
+        for (let spin: number = 0; spin < 3; spin++) {
+            let outCome: number = Math.floor((Math.random() * 65) + 1);
+            switch (outCome) {
+                case CheckRange(outCome, 1, 27):  // 41.5% probability
+                    SetReelImages(spin, util.TICKET_PATH);
+                    break;
+                case CheckRange(outCome, 28, 37): // 15.4% probability
+                    SetReelImages(spin, util.TRAIN_STATION_PATH);
+                    break;
+                case CheckRange(outCome, 38, 46): // 13.8% probability
+                    SetReelImages(spin, util.HUFFLEPUFF_PATH);
+                    break;
+                case CheckRange(outCome, 47, 54): // 12.3% probability
+                    SetReelImages(spin, util.RAVENCLAW_PATH);
+                    break;
+                case CheckRange(outCome, 55, 59): //  7.7% probability
+                    SetReelImages(spin, util.GRYFFINDOR_PATH);
+                    break;
+                case CheckRange(outCome, 60, 62): //  4.6% probability
+                    SetReelImages(spin, util.SLYTHERIN_PATH);
+                    break;
+                case CheckRange(outCome, 63, 64): //  3.1% probability
+                    SetReelImages(spin, util.HOGWARTS_PATH);
+                    break;
+                case CheckRange(outCome, 65, 65): //  1.5% probability
+                    SetReelImages(spin, util.DEATHLY_HALLOWS_PATH);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        // repeat using recursion
+        if (counter < 3) {
+            counter++;
+            setTimeout(function () { ShowRandom(); }, 250);
+            console.log(counter);
+        }
+    }
+
+    // reset tally variables
+    function resetTally(): void {
+        ticket = 0;
+        trainStation = 0;
+        hufflepuff = 0;
+        ravenclaw = 0;
+        gryffindor = 0;
+        slytherin = 0;
+        hogwarts = 0;
+        deathlyHallows = 0;
+    }
+
+    // check range
+    function CheckRange(value: number, lowerBounds: number, upperBounds: number): number {
+        if (value >= lowerBounds && value <= upperBounds) {
+            return value;
+        }
+        else {
+            return -1;
+        }
+    }
+
+    // set images for all reels
+    function SetReelImages(location: number, path: string): void {
+        let xVal: number = 0;
+
+        switch (location) {
+            case 0:
+                xVal = 39;
+                stage.removeChild(firstReel);
+                firstReel = new objects.Image(path, xVal, 103, 145, 133, false)
+                stage.addChild(firstReel);
+                break;
+            case 1:
+                xVal = 197;
+                stage.removeChild(secondReel);
+                secondReel = new objects.Image(path, xVal, 103, 145, 133, false)
+                stage.addChild(secondReel);
+                break;
+            case 2:
+                xVal = 355;
+                stage.removeChild(thirdReel);
+                thirdReel = new objects.Image(path, xVal, 103, 145, 133, false)
+                stage.addChild(thirdReel);
+                break;
+            default:
+                break;
         }
     }
 
