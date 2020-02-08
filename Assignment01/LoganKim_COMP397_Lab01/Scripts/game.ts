@@ -4,6 +4,7 @@ let Game = (function () {
     // canvas variables
     let canvas: HTMLCanvasElement = document.getElementsByTagName('canvas')[0];
     let stage: createjs.Stage;
+    let background: objects.Image;
 
     function Start(): void {
         console.log(`%c Game Started!`, "color: lightblue; font-size: 20px; font-weight: bold;");
@@ -20,6 +21,12 @@ let Game = (function () {
 
     function Main(): void {
         console.log(`%c Main Started...`, "color: green; font-size: 16px;");
+        InitialSetup();
+    }
+
+    function InitialSetup(): void {
+        background = new objects.Image(util.BACKGROUND_PATH, 0, 0, 840, 480, false)
+        stage.addChild(background);
     }
 
     window.addEventListener('load', Start);
