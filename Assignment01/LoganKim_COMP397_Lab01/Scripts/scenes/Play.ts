@@ -1,44 +1,47 @@
 module scenes {
     export class Play extends objects.Scene {
         // PRIVATE INSTANCE MEMBERS
-        background: objects.Image;
+        private background: objects.Image;
         // labels
-        lblQuit: objects.Label;
-        lblCredits: objects.Label;
-        lblWinnerPaid: objects.Label;
-        lblBet: objects.Label;
+        private lblQuit: objects.Label;
+        private lblCredits: objects.Label;
+        private lblWinnerPaid: objects.Label;
+        private lblBet: objects.Label;
         // buttons
-        btnReset: objects.Image;
-        btnBetOne: objects.Image;
-        btnBetMax: objects.Image;
-        btnSpin: objects.Image;
-        resetOn: Function;
-        betOneOn: Function;
-        betMaxOn: Function;
-        spinOn: Function;
+        private btnReset: objects.Image;
+        private btnBetOne: objects.Image;
+        private btnBetMax: objects.Image;
+        private btnSpin: objects.Image;
+        private resetOn: Function;
+        private betOneOn: Function;
+        private betMaxOn: Function;
+        private spinOn: Function;
         // game variables
-        CREDITS = 1000;
-        balance: number = this.CREDITS;
-        BETS = 10;
-        coinsPlayed: number = this.BETS;
-        winnings: number = 0;
-        jackpot: number = 5000;
+        private CREDITS = 1000;
+        private balance: number = this.CREDITS;
+        private BETS = 10;
+        private coinsPlayed: number = this.BETS;
+        private winnings: number = 0;
+        private jackpot: number = 5000;
         // reel variables
-        firstReel: objects.Image;
-        secondReel: objects.Image;
-        thirdReel: objects.Image;
-        ticket: number = 0;
-        trainStation: number = 0;
-        hufflepuff: number = 0;
-        ravenclaw: number = 0;
-        gryffindor: number = 0;
-        slytherin: number = 0;
-        hogwarts: number = 0;
-        deathlyHallows: number = 0;
-        counter: number = 0;
+        private firstReel: objects.Image;
+        private secondReel: objects.Image;
+        private thirdReel: objects.Image;
+        private ticket: number = 0;
+        private trainStation: number = 0;
+        private hufflepuff: number = 0;
+        private ravenclaw: number = 0;
+        private gryffindor: number = 0;
+        private slytherin: number = 0;
+        private hogwarts: number = 0;
+        private deathlyHallows: number = 0;
+        private counter: number = 0;
         // jackpot flag
-        jackpotFlag: boolean = false;
-
+        private jackpotFlag: boolean = false;
+        // sound
+        private engineSound: createjs.AbstractSoundInstance;
+        private buttonSound: createjs.AbstractSoundInstance;
+        private beepSound: createjs.AbstractSoundInstance;
         // PUBLIC PROPERTIES
 
         // CONSTRUCTOR
@@ -69,6 +72,15 @@ module scenes {
             this.betOneOn = new Function();
             this.betMaxOn = new Function();
             this.spinOn = new Function();
+
+            // play background music
+            this.engineSound = createjs.Sound.play("backgroundSound");
+            this.engineSound.volume = 1;
+            this.engineSound.loop = -1; // loop forever
+
+            // initialize sounds
+            this.buttonSound = createjs.Sound.play("");
+            this.beepSound = createjs.Sound.play("");
 
             // jackpot keydown cheat function
             window.addEventListener('keydown', e => {
@@ -107,6 +119,7 @@ module scenes {
             window.addEventListener('keydown', e => {
                 if (e.keyCode == util.Keys.Q) {
                     config.Game.SCENE_STATE = scenes.State.END;
+                    this.engineSound.stop();
                 }
             });
             // this.quitButton.on("click", function() {
@@ -150,6 +163,17 @@ module scenes {
             this.ButtonsOn();
         }
 
+        // sound effects
+        public ButtonClickSound():void {
+            this.buttonSound = createjs.Sound.play("buttonSound");
+            this.buttonSound.volume = 0.2;
+        }
+
+        public BeepSound():void {
+            this.beepSound = createjs.Sound.play("beepSound");
+            this.beepSound.volume = 0.2;
+        }
+
         // enable buttons
         public ButtonsOn(): void {
             this.resetOn = this.btnReset.on("click", () => { this.BtnReset(); });
@@ -174,6 +198,7 @@ module scenes {
             this.lblCredits.setText(this.balance.toString());
             this.lblWinnerPaid.setText(this.winnings.toString());
             this.lblBet.setText(this.coinsPlayed.toString());
+            this.ButtonClickSound();
         }
 
         // bet one button function
@@ -192,6 +217,7 @@ module scenes {
                     this.lblBet.setText(this.coinsPlayed.toString());
                     break;
             }
+            this.ButtonClickSound();
         }
 
         // bet max button function
@@ -224,6 +250,7 @@ module scenes {
             } else {
                 alert("Please recharge your credits to continue! \nCurrent Balance: " + this.balance);
             }
+            this.ButtonClickSound();
         }
 
         // check winning condition
@@ -344,6 +371,7 @@ module scenes {
                         break;
                 }
             }
+            this.BeepSound();
         }
 
         // reel rotation animation
@@ -379,6 +407,8 @@ module scenes {
                         break;
                 }
             }
+
+            this.BeepSound();
 
             // repeat using recursion
             if (this.counter < 3) {

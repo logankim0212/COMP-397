@@ -3,10 +3,10 @@ module scenes
     export class Start extends objects.Scene
     {
         // PRIVATE INSTANCE MEMBERS
-        background:objects.Image;
-        startLabelCasino:objects.Label;
-        startLabelGame:objects.Label;
-        startButton:objects.Image;
+        private background:objects.Image;
+        private startLabelCasino:objects.Label;
+        private startLabelGame:objects.Label;
+        private startButton:objects.Image;
 
         // PUBLIC PROPERTIES
 

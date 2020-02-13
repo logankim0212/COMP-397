@@ -6,10 +6,24 @@ let Game = (function () {
     let stage: createjs.Stage;
     let currentSceneState: scenes.State;
     let currentScene: objects.Scene;
+    let assetManager: createjs.LoadQueue;
+
+    // assets
+    let assetManifest = [
+        { id: "backgroundSound", src: "./Assets/audio/background.mp3" },
+        { id: "buttonSound", src: "./Assets/audio/button.mp3" },
+        { id: "beepSound", src: "./Assets/audio/beep.mp3" }
+    ];
 
     // start function
     function Start(): void {
         console.log(`%c Game Started`, "color: blue; font-size:20px;");
+        // preload assets
+        assetManager = new createjs.LoadQueue();
+        assetManager.installPlugin(createjs.Sound); // enable sound preloading
+        assetManager.loadManifest(assetManifest); // preloads all assets listed in the manifest
+
+        // canvas stage setup
         stage = new createjs.Stage(canvas);
         config.Game.STAGE = stage; // create a reference to the Global Stage
         createjs.Ticker.framerate = 60; // declare the framerate as 60FPS

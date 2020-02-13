@@ -3,9 +3,9 @@ module scenes
     export class End extends objects.Scene
     {
         // PRIVATE INSTANCE MEMBERS
-        background:objects.Image;
-        endLabelCasino:objects.Label;
-        restartButton:objects.Image;
+        private background:objects.Image;
+        private endLabelCasino:objects.Label;
+        private restartButton:objects.Image;
 
         // PUBLIC PROPERTIES
 

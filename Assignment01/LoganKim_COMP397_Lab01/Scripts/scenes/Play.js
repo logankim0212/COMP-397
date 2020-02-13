@@ -45,6 +45,13 @@ var scenes;
             this.betOneOn = new Function();
             this.betMaxOn = new Function();
             this.spinOn = new Function();
+            // play background music
+            this.engineSound = createjs.Sound.play("backgroundSound");
+            this.engineSound.volume = 1;
+            this.engineSound.loop = -1; // loop forever
+            // initialize sounds
+            this.buttonSound = createjs.Sound.play("");
+            this.beepSound = createjs.Sound.play("");
             // jackpot keydown cheat function
             window.addEventListener('keydown', e => {
                 if (e.keyCode == 80 /* P */) {
@@ -76,6 +83,7 @@ var scenes;
             window.addEventListener('keydown', e => {
                 if (e.keyCode == 81 /* Q */) {
                     config.Game.SCENE_STATE = scenes.State.END;
+                    this.engineSound.stop();
                 }
             });
             // this.quitButton.on("click", function() {
@@ -111,6 +119,15 @@ var scenes;
             // enable buttons
             this.ButtonsOn();
         }
+        // sound effects
+        ButtonClickSound() {
+            this.buttonSound = createjs.Sound.play("buttonSound");
+            this.buttonSound.volume = 0.2;
+        }
+        BeepSound() {
+            this.beepSound = createjs.Sound.play("beepSound");
+            this.beepSound.volume = 0.2;
+        }
         // enable buttons
         ButtonsOn() {
             this.resetOn = this.btnReset.on("click", () => { this.BtnReset(); });
@@ -133,6 +150,7 @@ var scenes;
             this.lblCredits.setText(this.balance.toString());
             this.lblWinnerPaid.setText(this.winnings.toString());
             this.lblBet.setText(this.coinsPlayed.toString());
+            this.ButtonClickSound();
         }
         // bet one button function
         BetOne() {
@@ -150,6 +168,7 @@ var scenes;
                     this.lblBet.setText(this.coinsPlayed.toString());
                     break;
             }
+            this.ButtonClickSound();
         }
         // bet max button function
         BetMax() {
@@ -178,6 +197,7 @@ var scenes;
             else {
                 alert("Please recharge your credits to continue! \nCurrent Balance: " + this.balance);
             }
+            this.ButtonClickSound();
         }
         // check winning condition
         DetermineWinning() {
@@ -294,6 +314,7 @@ var scenes;
                         break;
                 }
             }
+            this.BeepSound();
         }
         // reel rotation animation
         ShowRandom() {
@@ -328,6 +349,7 @@ var scenes;
                         break;
                 }
             }
+            this.BeepSound();
             // repeat using recursion
             if (this.counter < 3) {
                 this.counter++;
