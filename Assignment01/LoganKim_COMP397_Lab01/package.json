@@ -1,10 +1,10 @@
 {
   "name": "logankim_comp397_lab01",
   "version": "1.0.0",
-  "description": "This game is an online slot machine game that Logan Kim built for his  assignment 01 for COMP-397, Web Game Programming.",
+  "description": "Wingardium Luckiosa is a single players single-screen slot machine game designed with Harry Potter theme. This game will contain three screens: start, game and end. Player will lose once they lost all of their credits; however, they can continue to play as long as they want if they have enough credit.",
   "main": "game.js",
   "repository": "https://github.com/logankim0212/COMP-397",
-  "author": "Logan Kim",
+  "author": "Logan J. Kim - 300973239",
   "license": "MIT",
   "dependencies": {
     "createjs": "^1.0.1",

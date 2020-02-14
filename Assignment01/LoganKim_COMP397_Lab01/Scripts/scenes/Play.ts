@@ -1,3 +1,16 @@
+/**
+ * Logan J. Kim
+ * 300973239
+ * February 6, 2020
+ * 
+ * Description:
+ * Wingardium Luckiosa is a single players single-screen slot machine game designed with Harry Potter theme.
+ * This game will contain three screens: start, game and end. Player will lose once they lost all of their credits;
+ * however, they can continue to play as long as they want if they have enough credit.
+ *
+ * Version:
+ * v1.0 Alpha Release
+ */
 module scenes {
     export class Play extends objects.Scene {
         // PRIVATE INSTANCE MEMBERS
@@ -174,17 +187,17 @@ module scenes {
         }
 
         // sound effects
-        public ButtonClickSound():void {
+        public ButtonClickSound(): void {
             this.buttonSound = createjs.Sound.play("buttonSound");
             this.buttonSound.volume = 0.2;
         }
 
-        public BeepSound():void {
+        public BeepSound(): void {
             this.beepSound = createjs.Sound.play("beepSound");
             this.beepSound.volume = 0.2;
         }
 
-        public JackpotSound():void {
+        public JackpotSound(): void {
             this.jackpotSound = createjs.Sound.play("jackpotSound");
             this.jackpotSound.volume = 0.5;
         }
