@@ -39,9 +39,9 @@ module scenes
 
         public Start(): void 
         {
-            this.background = new objects.Image(util.END_SCREEN_PATH, 0, 0, util.STAGE_W, util.STAGE_H, false)
+            this.background = new objects.Image(config.END_SCREEN_PATH, 0, 0, config.STAGE_W, config.STAGE_H, false)
             this.endLabelCasino = new objects.Label("Thank you for playing!", "40px","Arial", "#ffff00", 420, 50, true);
-            this.restartButton = new objects.Image(util.BTN_HOME_PATH, 420, 400, 200, 100, true);
+            this.restartButton = new objects.Image(config.BTN_HOME_PATH, 420, 400, 200, 100, true);
             this.restartButton.HoverOn();
 
             this.Main();

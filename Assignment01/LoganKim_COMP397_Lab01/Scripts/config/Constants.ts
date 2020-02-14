@@ -11,7 +11,7 @@
  * Version:
  * v1.0 Alpha Release
  */
-module util {
+module config {
     // image paths
     // background
     export const START_SCREEN_PATH: string = './Assets/images/backgrounds/start-bg.png';

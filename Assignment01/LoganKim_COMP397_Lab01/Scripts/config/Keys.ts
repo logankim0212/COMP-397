@@ -11,7 +11,7 @@
  * Version:
  * v1.0 Alpha Release
  */
-module util {
+module config {
     // reference: https://gist.github.com/cjcliffe/1185173
     export const enum Keys {
         BACKSPACE = 8,

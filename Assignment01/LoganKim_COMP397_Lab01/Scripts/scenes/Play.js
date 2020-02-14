@@ -111,8 +111,8 @@ var scenes;
         }
         InitialSetup() {
             // set background
-            this.background = new objects.Image(util.SLOTMACHINE_PATH, 0, 0, 840, 480, false);
-            this.winningRule = new objects.Image(util.WINNING_RULE_PATH, 530, 10, 300, 450, false);
+            this.background = new objects.Image(config.SLOTMACHINE_PATH, 0, 0, 840, 480, false);
+            this.winningRule = new objects.Image(config.WINNING_RULE_PATH, 530, 10, 300, 450, false);
             // set labels
             this.lblQuit = new objects.Label("Please hit \"Q\" to quit the game.", "15px", "Arial", "#00FFFF", 685, 467, true);
             this.lblCredits = new objects.Label(this.CREDITS.toString(), "20px", "Arial", "#FFFFFF", 100, 327, true);
@@ -120,19 +120,19 @@ var scenes;
             this.lblBet = new objects.Label(this.BETS.toString(), "20px", "Arial", "#FFFFFF", 437, 327, true);
             this.lblJackpot = new objects.Label(this.jackpot.toString(), "30px", "Arial", "#00FFFF", 735, 25, true);
             // set buttons
-            this.btnReset = new objects.Image(util.BTN_RESET_PATH, 83, 416, 100, 72, true);
-            this.btnBetOne = new objects.Image(util.BTN_BET_ONE_PATH, 206, 416, 100, 72, true);
-            this.btnBetMax = new objects.Image(util.BTN_BET_MAX_PATH, 328, 416, 100, 72, true);
-            this.btnSpin = new objects.Image(util.BTN_SPIN_PATH, 451, 416, 100, 72, true);
+            this.btnReset = new objects.Image(config.BTN_RESET_PATH, 83, 416, 100, 72, true);
+            this.btnBetOne = new objects.Image(config.BTN_BET_ONE_PATH, 206, 416, 100, 72, true);
+            this.btnBetMax = new objects.Image(config.BTN_BET_MAX_PATH, 328, 416, 100, 72, true);
+            this.btnSpin = new objects.Image(config.BTN_SPIN_PATH, 451, 416, 100, 72, true);
             // set hover on effects
             this.btnReset.HoverOn();
             this.btnBetOne.HoverOn();
             this.btnBetMax.HoverOn();
             this.btnSpin.HoverOn();
             // set initial reels
-            this.firstReel = new objects.Image(util.TICKET_PATH, 39, 103, 145, 133, false);
-            this.secondReel = new objects.Image(util.TICKET_PATH, 197, 103, 145, 133, false);
-            this.thirdReel = new objects.Image(util.TICKET_PATH, 355, 103, 145, 133, false);
+            this.firstReel = new objects.Image(config.TICKET_PATH, 39, 103, 145, 133, false);
+            this.secondReel = new objects.Image(config.TICKET_PATH, 197, 103, 145, 133, false);
+            this.thirdReel = new objects.Image(config.TICKET_PATH, 355, 103, 145, 133, false);
             this.resetOn = new Function();
             this.betOneOn = new Function();
             this.betMaxOn = new Function();
@@ -316,35 +316,35 @@ var scenes;
                 }
                 switch (outCome[spin]) {
                     case this.CheckRange(outCome[spin], 1, 27): // 41.5% probability
-                        this.SetReelImages(spin, util.TICKET_PATH);
+                        this.SetReelImages(spin, config.TICKET_PATH);
                         this.ticket++;
                         break;
                     case this.CheckRange(outCome[spin], 28, 37): // 15.4% probability
-                        this.SetReelImages(spin, util.TRAIN_STATION_PATH);
+                        this.SetReelImages(spin, config.TRAIN_STATION_PATH);
                         this.trainStation++;
                         break;
                     case this.CheckRange(outCome[spin], 38, 46): // 13.8% probability
-                        this.SetReelImages(spin, util.HUFFLEPUFF_PATH);
+                        this.SetReelImages(spin, config.HUFFLEPUFF_PATH);
                         this.hufflepuff++;
                         break;
                     case this.CheckRange(outCome[spin], 47, 54): // 12.3% probability
-                        this.SetReelImages(spin, util.RAVENCLAW_PATH);
+                        this.SetReelImages(spin, config.RAVENCLAW_PATH);
                         this.ravenclaw++;
                         break;
                     case this.CheckRange(outCome[spin], 55, 59): //  7.7% probability
-                        this.SetReelImages(spin, util.GRYFFINDOR_PATH);
+                        this.SetReelImages(spin, config.GRYFFINDOR_PATH);
                         this.gryffindor++;
                         break;
                     case this.CheckRange(outCome[spin], 60, 62): //  4.6% probability
-                        this.SetReelImages(spin, util.SLYTHERIN_PATH);
+                        this.SetReelImages(spin, config.SLYTHERIN_PATH);
                         this.slytherin++;
                         break;
                     case this.CheckRange(outCome[spin], 63, 64): //  3.1% probability
-                        this.SetReelImages(spin, util.HOGWARTS_PATH);
+                        this.SetReelImages(spin, config.HOGWARTS_PATH);
                         this.hogwarts++;
                         break;
                     case this.CheckRange(outCome[spin], 65, 65): //  1.5% probability
-                        this.SetReelImages(spin, util.DEATHLY_HALLOWS_PATH);
+                        this.SetReelImages(spin, config.DEATHLY_HALLOWS_PATH);
                         this.deathlyHallows++;
                         break;
                     default:
@@ -359,28 +359,28 @@ var scenes;
                 let outCome = Math.floor((Math.random() * 65) + 1);
                 switch (outCome) {
                     case this.CheckRange(outCome, 1, 27): // 41.5% probability
-                        this.SetReelImages(spin, util.TICKET_PATH);
+                        this.SetReelImages(spin, config.TICKET_PATH);
                         break;
                     case this.CheckRange(outCome, 28, 37): // 15.4% probability
-                        this.SetReelImages(spin, util.TRAIN_STATION_PATH);
+                        this.SetReelImages(spin, config.TRAIN_STATION_PATH);
                         break;
                     case this.CheckRange(outCome, 38, 46): // 13.8% probability
-                        this.SetReelImages(spin, util.HUFFLEPUFF_PATH);
+                        this.SetReelImages(spin, config.HUFFLEPUFF_PATH);
                         break;
                     case this.CheckRange(outCome, 47, 54): // 12.3% probability
-                        this.SetReelImages(spin, util.RAVENCLAW_PATH);
+                        this.SetReelImages(spin, config.RAVENCLAW_PATH);
                         break;
                     case this.CheckRange(outCome, 55, 59): //  7.7% probability
-                        this.SetReelImages(spin, util.GRYFFINDOR_PATH);
+                        this.SetReelImages(spin, config.GRYFFINDOR_PATH);
                         break;
                     case this.CheckRange(outCome, 60, 62): //  4.6% probability
-                        this.SetReelImages(spin, util.SLYTHERIN_PATH);
+                        this.SetReelImages(spin, config.SLYTHERIN_PATH);
                         break;
                     case this.CheckRange(outCome, 63, 64): //  3.1% probability
-                        this.SetReelImages(spin, util.HOGWARTS_PATH);
+                        this.SetReelImages(spin, config.HOGWARTS_PATH);
                         break;
                     case this.CheckRange(outCome, 65, 65): //  1.5% probability
-                        this.SetReelImages(spin, util.DEATHLY_HALLOWS_PATH);
+                        this.SetReelImages(spin, config.DEATHLY_HALLOWS_PATH);
                         break;
                     default:
                         break;
