@@ -480,7 +480,6 @@ module scenes {
             if (this.counter < 3) {
                 this.counter++;
                 setTimeout(() => { this.ShowRandom() }, 250);
-                console.log(this.counter);
             }
         }
 
