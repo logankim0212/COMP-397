@@ -26,6 +26,7 @@ let Game = (function () {
         { id: "backgroundSound", src: "./Assets/audio/background.mp3" },
         { id: "buttonSound", src: "./Assets/audio/button.mp3" },
         { id: "beepSound", src: "./Assets/audio/beep.mp3" },
+        { id: "winningSound", src: "./Assets/audio/winning.mp3" },
         { id: "jackpotSound", src: "./Assets/audio/jackpot.mp3" }
     ];
 

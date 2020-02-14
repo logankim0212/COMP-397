@@ -67,6 +67,7 @@ var scenes;
             // initialize sounds
             this.buttonSound = createjs.Sound.play("");
             this.beepSound = createjs.Sound.play("");
+            this.winningSound = createjs.Sound.play("");
             this.jackpotSound = createjs.Sound.play("");
             // jackpot keydown cheat function
             window.addEventListener('keydown', e => {
@@ -148,9 +149,13 @@ var scenes;
             this.beepSound = createjs.Sound.play("beepSound");
             this.beepSound.volume = 0.2;
         }
+        WinningSound() {
+            this.winningSound = createjs.Sound.play("winningSound");
+            this.winningSound.volume = 0.5;
+        }
         JackpotSound() {
             this.jackpotSound = createjs.Sound.play("jackpotSound");
-            this.jackpotSound.volume = 0.5;
+            this.jackpotSound.volume = 0.6;
         }
         // enable buttons
         ButtonsOn() {
@@ -283,6 +288,12 @@ var scenes;
             else {
                 this.winnings = 0;
             }
+            // play sound
+            if (this.winnings != 0 && !this.jackpotFlag) {
+                this.WinningSound();
+            }
+            // mute jackpot sound if alert closed
+            this.jackpotSound.volume = 0;
             // update labels
             this.balance += this.winnings;
             this.lblCredits.setText(this.balance.toString());

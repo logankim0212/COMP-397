@@ -57,6 +57,7 @@ module scenes {
         private engineSound: createjs.AbstractSoundInstance;
         private buttonSound: createjs.AbstractSoundInstance;
         private beepSound: createjs.AbstractSoundInstance;
+        private winningSound: createjs.AbstractSoundInstance;
         private jackpotSound: createjs.AbstractSoundInstance;
         // PUBLIC PROPERTIES
 
@@ -99,6 +100,7 @@ module scenes {
             // initialize sounds
             this.buttonSound = createjs.Sound.play("");
             this.beepSound = createjs.Sound.play("");
+            this.winningSound = createjs.Sound.play("");
             this.jackpotSound = createjs.Sound.play("");
 
             // jackpot keydown cheat function
@@ -197,9 +199,14 @@ module scenes {
             this.beepSound.volume = 0.2;
         }
 
+        public WinningSound(): void {
+            this.winningSound = createjs.Sound.play("winningSound");
+            this.winningSound.volume = 0.5;
+        }
+
         public JackpotSound(): void {
             this.jackpotSound = createjs.Sound.play("jackpotSound");
-            this.jackpotSound.volume = 0.5;
+            this.jackpotSound.volume = 0.6;
         }
 
         // enable buttons
@@ -341,6 +348,14 @@ module scenes {
             } else {
                 this.winnings = 0;
             }
+
+            // play sound
+            if (this.winnings != 0 && !this.jackpotFlag) {
+                this.WinningSound();
+            }
+
+            // mute jackpot sound if alert closed
+            this.jackpotSound.volume = 0;
 
             // update labels
             this.balance += this.winnings;
