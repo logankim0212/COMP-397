@@ -111,7 +111,7 @@ var scenes;
             this.lblCredits = new objects.Label(this.CREDITS.toString(), "20px", "Arial", "#FFFFFF", 264, 340, true);
             this.lblWinnerPaid = new objects.Label("0", "20px", "Arial", "#FFFFFF", 440, 340, true);
             this.lblBet = new objects.Label(this.BETS.toString(), "20px", "Arial", "#FFFFFF", 612, 340, true);
-            this.lblJackpot = new objects.Label(this.jackpot.toString(), "35px", "Arial", "#00FFFF", 1090, 33, true);
+            this.lblJackpot = new objects.Label(this.jackpot.toString(), "35px", "Arial", "#00FFFF", 1090, 26, true);
             // set buttons
             this.btnQuit = new objects.Image(config.BTN_QUIT_PATH, 115, 432, 146, 82, true);
             this.btnReset = new objects.Image(config.BTN_RESET_PATH, 277, 432, 146, 82, true);
