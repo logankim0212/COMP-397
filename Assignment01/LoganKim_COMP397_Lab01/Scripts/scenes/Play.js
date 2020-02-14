@@ -111,7 +111,7 @@ var scenes;
             this.lblCredits = new objects.Label(this.CREDITS.toString(), "20px", "Arial", "#FFFFFF", 264, 340, true);
             this.lblWinnerPaid = new objects.Label("0", "20px", "Arial", "#FFFFFF", 440, 340, true);
             this.lblBet = new objects.Label(this.BETS.toString(), "20px", "Arial", "#FFFFFF", 612, 340, true);
-            this.lblJackpot = new objects.Label(this.jackpot.toString(), "35px", "Arial", "#00FFFF", 1090, 26, true);
+            this.lblJackpot = new objects.Label(this.jackpot.toString(), "35px", "Arial", "#00FFFF", 1090, 28, true);
             // set buttons
             this.btnQuit = new objects.Image(config.BTN_QUIT_PATH, 115, 432, 146, 82, true);
             this.btnReset = new objects.Image(config.BTN_RESET_PATH, 277, 432, 146, 82, true);
@@ -347,7 +347,7 @@ var scenes;
                     outCome[spin] = Math.floor((Math.random() * 65) + 1);
                 }
                 else {
-                    outCome[spin] = 65;
+                    outCome[spin] = 100;
                 }
                 switch (outCome[spin]) {
                     case this.CheckRange(outCome[spin], 1, 30): // 30% probability
