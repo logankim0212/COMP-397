@@ -8,8 +8,9 @@
  * This game will contain three screens: start, game and end. Player will lose once they lost all of their credits;
  * however, they can continue to play as long as they want if they have enough credit.
  *
- * Version:
- * v1.0 Alpha Release
+ * Versions:
+ * v2.0 Beta Release - Five reels
+ * v1.0 Alpha Release - Three reels
  */
 module config {
     // image paths
@@ -21,6 +22,7 @@ module config {
     //buttons
     export const BTN_PLAY_PATH: string = './Assets/images/buttons/btn-play.png';
     export const BTN_HOME_PATH: string = './Assets/images/buttons/btn-home.png';
+    export const BTN_QUIT_PATH: string = './Assets/images/buttons/btn-quit.png';
     export const BTN_RESET_PATH: string = './Assets/images/buttons/btn-reset.png';
     export const BTN_BET_ONE_PATH: string = './Assets/images/buttons/btn-bet_one.png';
     export const BTN_BET_MAX_PATH: string = './Assets/images/buttons/btn-bet_max.png';
@@ -36,6 +38,8 @@ module config {
     export const DEATHLY_HALLOWS_PATH: string = './Assets/images/reels/deathlyHallows.png';
 
     // stage variables
-    export const STAGE_W: number = 840;
-    export const STAGE_H: number = 480;
+    export const STAGE_W: number = 1200;
+    export const STAGE_H: number = 500;
+    export const STAGE_HALF_W: number = 600;
+    export const STAGE_HALF_H: number = 250;
 }

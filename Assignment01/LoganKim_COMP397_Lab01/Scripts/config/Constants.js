@@ -9,8 +9,9 @@
  * This game will contain three screens: start, game and end. Player will lose once they lost all of their credits;
  * however, they can continue to play as long as they want if they have enough credit.
  *
- * Version:
- * v1.0 Alpha Release
+ * Versions:
+ * v2.0 Beta Release - Five reels
+ * v1.0 Alpha Release - Three reels
  */
 var config;
 (function (config) {
@@ -23,6 +24,7 @@ var config;
     //buttons
     config.BTN_PLAY_PATH = './Assets/images/buttons/btn-play.png';
     config.BTN_HOME_PATH = './Assets/images/buttons/btn-home.png';
+    config.BTN_QUIT_PATH = './Assets/images/buttons/btn-quit.png';
     config.BTN_RESET_PATH = './Assets/images/buttons/btn-reset.png';
     config.BTN_BET_ONE_PATH = './Assets/images/buttons/btn-bet_one.png';
     config.BTN_BET_MAX_PATH = './Assets/images/buttons/btn-bet_max.png';
@@ -37,7 +39,9 @@ var config;
     config.HOGWARTS_PATH = './Assets/images/reels/hogwarts.png';
     config.DEATHLY_HALLOWS_PATH = './Assets/images/reels/deathlyHallows.png';
     // stage variables
-    config.STAGE_W = 840;
-    config.STAGE_H = 480;
+    config.STAGE_W = 1200;
+    config.STAGE_H = 500;
+    config.STAGE_HALF_W = 600;
+    config.STAGE_HALF_H = 250;
 })(config || (config = {}));
 //# sourceMappingURL=Constants.js.map

@@ -8,8 +8,9 @@
  * This game will contain three screens: start, game and end. Player will lose once they lost all of their credits;
  * however, they can continue to play as long as they want if they have enough credit.
  *
- * Version:
- * v1.0 Alpha Release
+ * Versions:
+ * v2.0 Beta Release - Five reels
+ * v1.0 Alpha Release - Three reels
  */
 module objects {
     export abstract class GameObject extends createjs.Bitmap {
