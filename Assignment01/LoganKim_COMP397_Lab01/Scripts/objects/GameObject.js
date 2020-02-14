@@ -24,7 +24,7 @@ var objects;
          * @param {boolean} [isCentered=false]
          * @memberof GameObject
          */
-        constructor(imagePath = "./Assets/images/placeholder.png", x = 0, y = 0, centered = false) {
+        constructor(imagePath = "./Assingnment01/LoganKim_COMP397_Lab01/Assets/images/placeholder.png", x = 0, y = 0, centered = false) {
             super(imagePath);
             // MEMBER VARIABLES
             this._width = 0;
