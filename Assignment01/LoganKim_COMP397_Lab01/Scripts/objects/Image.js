@@ -15,7 +15,7 @@
 var objects;
 (function (objects) {
     class Image extends objects.GameObject {
-        constructor(imagePath = "./Assingnment01/LoganKim_COMP397_Lab01/Assets/images/placeholder.png", x = 0, y = 0, width = 0, height = 0, isCentered = false) {
+        constructor(imagePath = "./Assets/images/placeholder.png", x = 0, y = 0, width = 0, height = 0, isCentered = false) {
             super(imagePath, x, y, isCentered);
             super.CustomSize(width, height, isCentered);
             this.Start();

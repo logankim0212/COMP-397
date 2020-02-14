@@ -88,7 +88,7 @@ module objects {
          * @param {boolean} [isCentered=false]
          * @memberof GameObject
          */
-        constructor(imagePath: string = "./Assingnment01/LoganKim_COMP397_Lab01/Assets/images/placeholder.png",
+        constructor(imagePath: string = "./Assets/images/placeholder.png",
             x: number = 0, y: number = 0, centered: boolean = false) {
             super(imagePath);
             this.isColliding = false;

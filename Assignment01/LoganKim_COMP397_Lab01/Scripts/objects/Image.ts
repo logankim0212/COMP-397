@@ -13,7 +13,7 @@
  */
 module objects {
     export class Image extends GameObject {
-        constructor(imagePath: string = "./Assingnment01/LoganKim_COMP397_Lab01/Assets/images/placeholder.png", x: number = 0, y: number = 0, width: number = 0, height: number = 0, isCentered: boolean = false) {
+        constructor(imagePath: string = "./Assets/images/placeholder.png", x: number = 0, y: number = 0, width: number = 0, height: number = 0, isCentered: boolean = false) {
             super(imagePath, x, y, isCentered);
             super.CustomSize(width, height, isCentered);
             this.Start();
