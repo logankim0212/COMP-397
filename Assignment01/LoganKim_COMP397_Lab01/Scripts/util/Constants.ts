@@ -1,9 +1,10 @@
 module util {
     // image paths
     // background
-    export const START_SCREEN_PATH: string = './Assets/images/backgrounds/background.png';
-    export const SLOTMACHINE_PATH: string = './Assets/images/backgrounds/slotmachine.png';
-    export const END_SCREEN_PATH: string = './Assets/images/backgrounds/start-bg.png';
+    export const START_SCREEN_PATH: string = './Assets/images/backgrounds/start-bg.png';
+    export const SLOTMACHINE_PATH: string = './Assets/images/backgrounds/game-bg.png';
+    export const END_SCREEN_PATH: string = './Assets/images/backgrounds/end-bg.png';
+    export const WINNING_RULE_PATH: string = './Assets/images/backgrounds/winning-rule.png';
     //buttons
     export const BTN_PLAY_PATH: string = './Assets/images/buttons/btn-play.png';
     export const BTN_HOME_PATH: string = './Assets/images/buttons/btn-home.png';

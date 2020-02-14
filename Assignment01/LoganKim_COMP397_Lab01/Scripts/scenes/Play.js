@@ -27,11 +27,13 @@ var scenes;
             // initialization
             // background
             this.background = new objects.Image();
+            this.winningRule = new objects.Image();
             // labels
             this.lblQuit = new objects.Label();
             this.lblCredits = new objects.Label();
             this.lblWinnerPaid = new objects.Label();
             this.lblBet = new objects.Label();
+            this.lblJackpot = new objects.Label();
             // buttons
             this.btnReset = new objects.Image();
             this.btnBetOne = new objects.Image();
@@ -69,10 +71,12 @@ var scenes;
         }
         Main() {
             this.addChild(this.background);
+            this.addChild(this.winningRule);
             this.addChild(this.lblQuit);
             this.addChild(this.lblCredits);
             this.addChild(this.lblWinnerPaid);
             this.addChild(this.lblBet);
+            this.addChild(this.lblJackpot);
             this.addChild(this.btnReset);
             this.addChild(this.btnBetOne);
             this.addChild(this.btnBetMax);
@@ -93,11 +97,13 @@ var scenes;
         InitialSetup() {
             // set background
             this.background = new objects.Image(util.SLOTMACHINE_PATH, 0, 0, 840, 480, false);
+            this.winningRule = new objects.Image(util.WINNING_RULE_PATH, 530, 10, 300, 450, false);
             // set labels
-            this.lblQuit = new objects.Label("Please hit \"Q\" to quit the game.", "15px", "Arial", "#00ffff", 685, 467, true);
+            this.lblQuit = new objects.Label("Please hit \"Q\" to quit the game.", "15px", "Arial", "#00FFFF", 685, 467, true);
             this.lblCredits = new objects.Label(this.CREDITS.toString(), "20px", "Arial", "#FFFFFF", 100, 327, true);
             this.lblWinnerPaid = new objects.Label("0", "20px", "Arial", "#FFFFFF", 269, 327, true);
             this.lblBet = new objects.Label(this.BETS.toString(), "20px", "Arial", "#FFFFFF", 437, 327, true);
+            this.lblJackpot = new objects.Label(this.jackpot.toString(), "30px", "Arial", "#00FFFF", 735, 25, true);
             // set buttons
             this.btnReset = new objects.Image(util.BTN_RESET_PATH, 83, 416, 100, 72, true);
             this.btnBetOne = new objects.Image(util.BTN_BET_ONE_PATH, 206, 416, 100, 72, true);
@@ -223,7 +229,7 @@ var scenes;
                 else if (this.deathlyHallows == 3) {
                     this.winnings = this.jackpot;
                     alert("You Won the $" + this.jackpot + " Jackpot!!");
-                    if (this.jackpot >= 3000) {
+                    if (this.jackpot > 3000) {
                         this.jackpot -= 2000;
                     }
                 }
@@ -262,6 +268,7 @@ var scenes;
             this.balance += this.winnings;
             this.lblCredits.setText(this.balance.toString());
             this.lblWinnerPaid.setText(this.winnings.toString());
+            this.lblJackpot.setText(this.jackpot.toString());
             this.resetTally();
             this.ButtonsOn();
             // set jackpot flag to false

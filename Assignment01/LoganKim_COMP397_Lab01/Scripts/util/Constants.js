@@ -3,9 +3,10 @@ var util;
 (function (util) {
     // image paths
     // background
-    util.START_SCREEN_PATH = './Assets/images/backgrounds/background.png';
-    util.SLOTMACHINE_PATH = './Assets/images/backgrounds/slotmachine.png';
-    util.END_SCREEN_PATH = './Assets/images/backgrounds/start-bg.png';
+    util.START_SCREEN_PATH = './Assets/images/backgrounds/start-bg.png';
+    util.SLOTMACHINE_PATH = './Assets/images/backgrounds/game-bg.png';
+    util.END_SCREEN_PATH = './Assets/images/backgrounds/end-bg.png';
+    util.WINNING_RULE_PATH = './Assets/images/backgrounds/winning-rule.png';
     //buttons
     util.BTN_PLAY_PATH = './Assets/images/buttons/btn-play.png';
     util.BTN_HOME_PATH = './Assets/images/buttons/btn-home.png';
