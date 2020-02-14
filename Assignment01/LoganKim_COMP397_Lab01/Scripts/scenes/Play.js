@@ -54,6 +54,7 @@ var scenes;
             // initialize sounds
             this.buttonSound = createjs.Sound.play("");
             this.beepSound = createjs.Sound.play("");
+            this.jackpotSound = createjs.Sound.play("");
             // jackpot keydown cheat function
             window.addEventListener('keydown', e => {
                 if (e.keyCode == 80 /* P */) {
@@ -133,6 +134,10 @@ var scenes;
         BeepSound() {
             this.beepSound = createjs.Sound.play("beepSound");
             this.beepSound.volume = 0.2;
+        }
+        JackpotSound() {
+            this.jackpotSound = createjs.Sound.play("jackpotSound");
+            this.jackpotSound.volume = 0.5;
         }
         // enable buttons
         ButtonsOn() {
@@ -228,6 +233,7 @@ var scenes;
                 }
                 else if (this.deathlyHallows == 3) {
                     this.winnings = this.jackpot;
+                    this.JackpotSound();
                     alert("You Won the $" + this.jackpot + " Jackpot!!");
                     if (this.jackpot > 3000) {
                         this.jackpot -= 2000;

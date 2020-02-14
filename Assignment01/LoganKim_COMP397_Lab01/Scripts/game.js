@@ -12,7 +12,8 @@ let Game = (function () {
     let assetManifest = [
         { id: "backgroundSound", src: "./Assets/audio/background.mp3" },
         { id: "buttonSound", src: "./Assets/audio/button.mp3" },
-        { id: "beepSound", src: "./Assets/audio/beep.mp3" }
+        { id: "beepSound", src: "./Assets/audio/beep.mp3" },
+        { id: "jackpotSound", src: "./Assets/audio/jackpot.mp3" }
     ];
     // start function
     function Start() {

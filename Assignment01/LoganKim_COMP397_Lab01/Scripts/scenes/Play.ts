@@ -44,6 +44,7 @@ module scenes {
         private engineSound: createjs.AbstractSoundInstance;
         private buttonSound: createjs.AbstractSoundInstance;
         private beepSound: createjs.AbstractSoundInstance;
+        private jackpotSound: createjs.AbstractSoundInstance;
         // PUBLIC PROPERTIES
 
         // CONSTRUCTOR
@@ -85,6 +86,7 @@ module scenes {
             // initialize sounds
             this.buttonSound = createjs.Sound.play("");
             this.beepSound = createjs.Sound.play("");
+            this.jackpotSound = createjs.Sound.play("");
 
             // jackpot keydown cheat function
             window.addEventListener('keydown', e => {
@@ -180,6 +182,11 @@ module scenes {
         public BeepSound():void {
             this.beepSound = createjs.Sound.play("beepSound");
             this.beepSound.volume = 0.2;
+        }
+
+        public JackpotSound():void {
+            this.jackpotSound = createjs.Sound.play("jackpotSound");
+            this.jackpotSound.volume = 0.5;
         }
 
         // enable buttons
@@ -284,6 +291,7 @@ module scenes {
                 }
                 else if (this.deathlyHallows == 3) {
                     this.winnings = this.jackpot;
+                    this.JackpotSound();
                     alert("You Won the $" + this.jackpot + " Jackpot!!");
 
                     if (this.jackpot > 3000) {
