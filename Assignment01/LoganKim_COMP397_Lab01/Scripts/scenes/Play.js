@@ -170,6 +170,7 @@ var scenes;
         BtnQuit() {
             config.Game.SCENE_STATE = scenes.State.END;
             this.backgroundSound.stop();
+            this.ButtonClickSound();
         }
         // reset button function
         BtnReset() {
