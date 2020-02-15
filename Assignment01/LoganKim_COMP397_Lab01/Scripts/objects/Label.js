@@ -19,10 +19,6 @@ var objects;
         // constructor
         constructor(labelString = "empty label", fontSize = "12px", fontFamily = "Consolas", fontColour = "#000000", x = 0, y = 0, isCentered = false) {
             super(labelString, fontSize + " " + fontFamily, fontColour);
-            this.labelString = labelString;
-            this.fontSize = fontSize;
-            this.fontFamily = fontFamily;
-            this.fontColour = fontColour;
             this.isCentered = isCentered;
             if (isCentered) {
                 this.regX = this.getBounds().width * 0.5;

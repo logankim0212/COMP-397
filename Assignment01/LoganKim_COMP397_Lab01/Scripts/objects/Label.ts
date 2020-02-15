@@ -16,10 +16,10 @@ module objects {
     export class Label extends createjs.Text {
         // constructor
         constructor(
-            public labelString: string = "empty label",
-            public fontSize: string = "12px",
-            public fontFamily: string = "Consolas",
-            public fontColour: string = "#000000",
+            labelString: string = "empty label",
+            fontSize: string = "12px",
+            fontFamily: string = "Consolas",
+            fontColour: string = "#000000",
             x: number = 0, y: number = 0, public isCentered: boolean = false) {
             super(labelString, fontSize + " " + fontFamily, fontColour);
 

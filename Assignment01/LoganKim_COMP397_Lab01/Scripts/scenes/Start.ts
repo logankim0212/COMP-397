@@ -17,10 +17,10 @@ module scenes
     export class Start extends objects.Scene
     {
         // PRIVATE INSTANCE MEMBERS
-        private background:objects.Image;
-        private startLabelCasino:objects.Label;
-        private startLabelGame:objects.Label;
-        private startButton:objects.Image;
+        private _background:objects.Image;
+        private _startLabelCasino:objects.Label;
+        private _startLabelGame:objects.Label;
+        private _startButton:objects.Image;
 
         // PUBLIC PROPERTIES
 
@@ -30,10 +30,10 @@ module scenes
             super();
 
             // initialization
-            this.background = new objects.Image();
-            this.startLabelCasino = new objects.Label();
-            this.startLabelGame = new objects.Label();
-            this.startButton = new objects.Image();
+            this._background = new objects.Image();
+            this._startLabelCasino = new objects.Label();
+            this._startLabelGame = new objects.Label();
+            this._startButton = new objects.Image();
 
             this.Start();
         }
@@ -42,11 +42,11 @@ module scenes
 
         public Start(): void 
         {
-            this.background = new objects.Image(config.START_SCREEN_PATH, 0, 0, config.STAGE_W, config.STAGE_H, false)
-            this.startLabelCasino = new objects.Label("Casino Royale", "40px","Arial", "#ffff00", config.STAGE_HALF_W, 50, true);
-            this.startLabelGame = new objects.Label("Wingardium Luckiosa Slot Machine", "30px","Arial", "#00ffff", config.STAGE_HALF_W, 100, true);
-            this.startButton = new objects.Image(config.BTN_PLAY_PATH, config.STAGE_HALF_W, 440, 200, 100, true);
-            this.startButton.HoverOn();
+            this._background = new objects.Image(config.START_SCREEN_PATH, 0, 0, config.STAGE_W, config.STAGE_H, false)
+            this._startLabelCasino = new objects.Label("Casino Royale", "40px","Arial", "#ffff00", config.STAGE_HALF_W, 50, true);
+            this._startLabelGame = new objects.Label("Wingardium Luckiosa Slot Machine", "30px","Arial", "#00ffff", config.STAGE_HALF_W, 100, true);
+            this._startButton = new objects.Image(config.BTN_PLAY_PATH, config.STAGE_HALF_W, 440, 200, 100, true);
+            this._startButton.HoverOn();
 
             this.Main();
         }        
@@ -57,12 +57,12 @@ module scenes
         }
         
         public Main(): void { 
-            this.addChild(this.background);
-            this.addChild(this.startLabelCasino);
-            this.addChild(this.startLabelGame);
-            this.addChild(this.startButton);
+            this.addChild(this._background);
+            this.addChild(this._startLabelCasino);
+            this.addChild(this._startLabelGame);
+            this.addChild(this._startButton);
     
-            this.startButton.on("click", function() {
+            this._startButton.on("click", function() {
                config.Game.SCENE_STATE = scenes.State.PLAY;
             });
         }

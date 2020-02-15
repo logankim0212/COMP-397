@@ -21,29 +21,29 @@ var scenes;
         constructor() {
             super();
             // initialization
-            this.background = new objects.Image();
-            this.startLabelCasino = new objects.Label();
-            this.startLabelGame = new objects.Label();
-            this.startButton = new objects.Image();
+            this._background = new objects.Image();
+            this._startLabelCasino = new objects.Label();
+            this._startLabelGame = new objects.Label();
+            this._startButton = new objects.Image();
             this.Start();
         }
         // PUBLIC METHODS
         Start() {
-            this.background = new objects.Image(config.START_SCREEN_PATH, 0, 0, config.STAGE_W, config.STAGE_H, false);
-            this.startLabelCasino = new objects.Label("Casino Royale", "40px", "Arial", "#ffff00", config.STAGE_HALF_W, 50, true);
-            this.startLabelGame = new objects.Label("Wingardium Luckiosa Slot Machine", "30px", "Arial", "#00ffff", config.STAGE_HALF_W, 100, true);
-            this.startButton = new objects.Image(config.BTN_PLAY_PATH, config.STAGE_HALF_W, 440, 200, 100, true);
-            this.startButton.HoverOn();
+            this._background = new objects.Image(config.START_SCREEN_PATH, 0, 0, config.STAGE_W, config.STAGE_H, false);
+            this._startLabelCasino = new objects.Label("Casino Royale", "40px", "Arial", "#ffff00", config.STAGE_HALF_W, 50, true);
+            this._startLabelGame = new objects.Label("Wingardium Luckiosa Slot Machine", "30px", "Arial", "#00ffff", config.STAGE_HALF_W, 100, true);
+            this._startButton = new objects.Image(config.BTN_PLAY_PATH, config.STAGE_HALF_W, 440, 200, 100, true);
+            this._startButton.HoverOn();
             this.Main();
         }
         Update() {
         }
         Main() {
-            this.addChild(this.background);
-            this.addChild(this.startLabelCasino);
-            this.addChild(this.startLabelGame);
-            this.addChild(this.startButton);
-            this.startButton.on("click", function () {
+            this.addChild(this._background);
+            this.addChild(this._startLabelCasino);
+            this.addChild(this._startLabelGame);
+            this.addChild(this._startButton);
+            this._startButton.on("click", function () {
                 config.Game.SCENE_STATE = scenes.State.PLAY;
             });
         }
