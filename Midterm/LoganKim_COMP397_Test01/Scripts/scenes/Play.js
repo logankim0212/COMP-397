@@ -102,6 +102,8 @@ var scenes;
                         break;
                 }
             }
+            // beeping sound
+            this.BeepSound();
         };
         // PUBLIC METHODS
         /**
@@ -151,6 +153,10 @@ var scenes;
                 default:
                     break;
             }
+        };
+        Play.prototype.BeepSound = function () {
+            this._beepSound = createjs.Sound.play("beepSound");
+            this._beepSound.volume = 0.2;
         };
         /**
          * Initialize and instatiate

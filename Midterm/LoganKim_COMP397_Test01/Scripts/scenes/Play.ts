@@ -17,6 +17,7 @@ module scenes {
         private _diceOneNumber: number = 0;
         private _diceTwoNumber: number = 0;
         private _diceValue: Array<number> = [0, 0];
+        private _beepSound: createjs.AbstractSoundInstance;
 
         // PUBLIC PROPERTIES
 
@@ -101,6 +102,9 @@ module scenes {
                         break;
                 }
             }
+
+            // beeping sound
+            this.BeepSound();
         }
 
         // PUBLIC METHODS
@@ -158,6 +162,11 @@ module scenes {
                 default:
                     break;
             }
+        }
+
+        public BeepSound(): void {
+            this._beepSound = createjs.Sound.play("beepSound");
+            this._beepSound.volume = 0.2;
         }
 
         /**

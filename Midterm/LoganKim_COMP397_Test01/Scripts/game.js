@@ -28,7 +28,8 @@ var Game = (function () {
         { id: "diceThree", src: "./Assets/images/3.png" },
         { id: "diceFour", src: "./Assets/images/4.png" },
         { id: "diceFive", src: "./Assets/images/5.png" },
-        { id: "diceSix", src: "./Assets/images/6.png" }
+        { id: "diceSix", src: "./Assets/images/6.png" },
+        { id: "beepSound", src: "./Assets/audio/beep.mp3" }
     ];
     function Preload() {
         assets = new createjs.LoadQueue(); // asset container
