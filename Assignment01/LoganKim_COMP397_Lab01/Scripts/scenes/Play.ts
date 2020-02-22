@@ -393,7 +393,7 @@ module scenes {
             for (let spin: number = 0; spin < 5; spin++) {
                 // check jackpot cheat
                 if (!this._jackpotFlag) {
-                    outCome[spin] = Math.floor((Math.random() * 65) + 1);
+                    outCome[spin] = Math.floor((Math.random() * 100) + 1);
                 } else {
                     outCome[spin] = 100;
                 }
