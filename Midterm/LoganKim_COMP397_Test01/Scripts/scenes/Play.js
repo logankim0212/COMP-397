@@ -74,7 +74,7 @@ var scenes;
          * @memberof Play
          */
         Play.prototype._RollDice = function () {
-            var outCome = [0, 0];
+            var outCome = [1, 1];
             for (var spin = 0; spin < 2; spin++) {
                 outCome[spin] = Math.floor((Math.random() * 60) + 1);
                 switch (outCome[spin]) {

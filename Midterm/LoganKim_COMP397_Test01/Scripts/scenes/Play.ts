@@ -74,7 +74,7 @@ module scenes {
          * @memberof Play
          */
         private _RollDice(): void {
-            let outCome: Array<number> = [0, 0];
+            let outCome: Array<number> = [1, 1];
 
             for (let spin: number = 0; spin < 2; spin++) {
                 outCome[spin] = Math.floor((Math.random() * 60) + 1);
