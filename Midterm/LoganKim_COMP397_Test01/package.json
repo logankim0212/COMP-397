@@ -1,9 +1,9 @@
 {
-  "name": "comp397-w2020-lesson6c",
+  "name": "logankim_comp397_test01",
   "version": "1.0.0",
-  "description": "demo for Lesson 6",
+  "description": "Logan's midterm work for COMP397 W2020.",
   "main": "game.js",
-  "author": "Tom Tsiliopoulos",
+  "author": "Logan Kim",
   "license": "MIT",
   "dependencies": {
     "createjs": "^1.0.1",

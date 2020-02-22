@@ -19,7 +19,15 @@ let Game = (function(){
         {id:"nextButton", src:"./Assets/images/nextButton.png"},
         {id:"backButton", src:"./Assets/images/backButton.png"},
         {id:"ocean", src:"./Assets/images/ocean.gif"},
-        {id:"plane", src:"./Assets/images/plane.png"}
+        {id:"plane", src:"./Assets/images/plane.png"},
+        {id:"rollButton", src:"./Assets/images/rollButton.png"},
+        {id:"diceBlank", src:"./Assets/images/blank.png"},
+        {id:"diceOne", src:"./Assets/images/1.png"},
+        {id:"diceTwo", src:"./Assets/images/2.png"},
+        {id:"diceThree", src:"./Assets/images/3.png"},
+        {id:"diceFour", src:"./Assets/images/4.png"},
+        {id:"diceFive", src:"./Assets/images/5.png"},
+        {id:"diceSix", src:"./Assets/images/6.png"}
     ];
 
     function Preload():void
