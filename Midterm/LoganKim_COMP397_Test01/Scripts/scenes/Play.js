@@ -14,10 +14,23 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
+    /**
+     * Logan Junhwi Kim
+     * February 22, 2020
+     * This is a dice rolling game developed for COMP397 midterm test.
+     *
+     * @export
+     * @class Play
+     * @extends {objects.Scene}
+     */
     var Play = /** @class */ (function (_super) {
         __extends(Play, _super);
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
+        /**
+         * Creates an instance of Play.
+         * @memberof Play
+         */
         function Play() {
             var _this = _super.call(this) || this;
             _this._diceOneNumber = 0;
@@ -27,6 +40,12 @@ var scenes;
             return _this;
         }
         // PRIVATE METHODS
+        /**
+         * Setup initial value for each variable
+         *
+         * @private
+         * @memberof Play
+         */
         Play.prototype._InitialSetup = function () {
             // create dice
             this._dice = new Array();
@@ -44,6 +63,12 @@ var scenes;
             this._lblDiceTwo = new objects.Label(this._diceTwoNumber.toString(), "30px", "Arial", "#000000", 430, 300, true);
             this._btnRoll.on("click", this._RollDice, this);
         };
+        /**
+         * Roll dice randomly with math.random function
+         *
+         * @private
+         * @memberof Play
+         */
         Play.prototype._RollDice = function () {
             var outCome = [0, 0];
             for (var spin = 0; spin < 2; spin++) {
@@ -79,7 +104,15 @@ var scenes;
             }
         };
         // PUBLIC METHODS
-        // check range
+        /**
+         * Check the range of given data
+         *
+         * @param {number} value
+         * @param {number} lowerBounds
+         * @param {number} upperBounds
+         * @returns {number}
+         * @memberof Play
+         */
         Play.prototype.CheckRange = function (value, lowerBounds, upperBounds) {
             if (value >= lowerBounds && value <= upperBounds) {
                 return value;
@@ -88,6 +121,13 @@ var scenes;
                 return -1;
             }
         };
+        /**
+         * Set dice images and labels
+         *
+         * @param {number} location
+         * @param {Object} path
+         * @memberof Play
+         */
         Play.prototype.SetDice = function (location, path) {
             switch (location) {
                 case 0:
@@ -112,13 +152,27 @@ var scenes;
                     break;
             }
         };
-        //initialize and instatiate
+        /**
+         * Initialize and instatiate
+         *
+         * @memberof Play
+         */
         Play.prototype.Start = function () {
             this._InitialSetup();
             this.Main();
         };
+        /**
+         * Update scene
+         *
+         * @memberof Play
+         */
         Play.prototype.Update = function () {
         };
+        /**
+         * Main function
+         *
+         * @memberof Play
+         */
         Play.prototype.Main = function () {
             this.addChild(this._btnRoll);
             this.addChild(this._lblDiceOne);

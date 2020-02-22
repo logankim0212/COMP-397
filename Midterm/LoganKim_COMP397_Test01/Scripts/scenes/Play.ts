@@ -1,4 +1,13 @@
 module scenes {
+    /**
+     * Logan Junhwi Kim
+     * February 22, 2020
+     * This is a dice rolling game developed for COMP397 midterm test.
+     *
+     * @export
+     * @class Play
+     * @extends {objects.Scene}
+     */
     export class Play extends objects.Scene {
         // PRIVATE INSTANCE MEMBERS
         private _dice: createjs.Bitmap[];
@@ -12,6 +21,10 @@ module scenes {
         // PUBLIC PROPERTIES
 
         // CONSTRUCTOR
+        /**
+         * Creates an instance of Play.
+         * @memberof Play
+         */
         constructor() {
             super();
 
@@ -19,6 +32,12 @@ module scenes {
         }
 
         // PRIVATE METHODS
+        /**
+         * Setup initial value for each variable
+         *
+         * @private
+         * @memberof Play
+         */
         private _InitialSetup(): void {
             // create dice
             this._dice = new Array<createjs.Bitmap>();
@@ -41,6 +60,12 @@ module scenes {
             this._btnRoll.on("click", this._RollDice, this);
         }
 
+        /**
+         * Roll dice randomly with math.random function
+         *
+         * @private
+         * @memberof Play
+         */
         private _RollDice(): void {
             let outCome: Array<number> = [0, 0];
 
@@ -79,7 +104,15 @@ module scenes {
         }
 
         // PUBLIC METHODS
-        // check range
+        /**
+         * Check the range of given data
+         *
+         * @param {number} value
+         * @param {number} lowerBounds
+         * @param {number} upperBounds
+         * @returns {number}
+         * @memberof Play
+         */
         public CheckRange(value: number, lowerBounds: number, upperBounds: number): number {
             if (value >= lowerBounds && value <= upperBounds) {
                 return value;
@@ -89,8 +122,14 @@ module scenes {
             }
         }
 
+        /**
+         * Set dice images and labels
+         *
+         * @param {number} location
+         * @param {Object} path
+         * @memberof Play
+         */
         public SetDice(location: number, path: Object): void {
-
             switch (location) {
                 case 0:
                     this.removeChild(this._dice[0]);
@@ -121,17 +160,31 @@ module scenes {
             }
         }
 
-        //initialize and instatiate
+        /**
+         * Initialize and instatiate
+         *
+         * @memberof Play
+         */
         public Start(): void {
             this._InitialSetup();
 
             this.Main();
         }
 
+        /**
+         * Update scene
+         *
+         * @memberof Play
+         */
         public Update(): void {
 
         }
 
+        /**
+         * Main function
+         *
+         * @memberof Play
+         */
         public Main(): void {
             this.addChild(this._btnRoll);
             this.addChild(this._lblDiceOne);

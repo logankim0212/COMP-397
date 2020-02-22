@@ -1,5 +1,10 @@
 //IIFE - Immediately Invoked Function Expression
 //means -> self-executing anonymous function
+/**
+ * Logan Junhwi Kim
+ * February 22, 2020
+ * This is a dice rolling game developed for COMP397 midterm test.
+ */
 let Game = (function(){
 
     // variable declarations
