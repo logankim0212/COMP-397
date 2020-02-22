@@ -20,7 +20,24 @@ var scenes;
         // CONSTRUCTOR
         function Play() {
             var _this = _super.call(this) || this;
-            _this._rollButton = new objects.Button(config.Game.ASSETS.getResult("rollButton"), 320, 430, true);
+            _this._diceOneText = "0";
+            _this._diceTwoText = "0";
+            // create dice
+            _this._dice = new Array();
+            for (var dice = 0; dice < 2; dice++) {
+                _this._dice[dice] = new createjs.Bitmap(config.Game.ASSETS.getResult("diceBlank"));
+                _this._dice[dice].x = 110 + (dice * 220);
+                _this._dice[dice].y = 80;
+                _this.addChild(_this._dice[dice]);
+            }
+            // create roll button
+            _this._btnRoll = new objects.Button(config.Game.ASSETS.getResult("rollButton"), 320, 430, true);
+            // create dice one label
+            _this._lblDiceOne = new objects.Label(_this._diceOneText, "30px", "Arial", "#000000", 210, 300, true);
+            _this.addChild(_this._lblDiceOne);
+            // create dice two label
+            _this._lblDiceTwo = new objects.Label(_this._diceTwoText, "30px", "Arial", "#000000", 430, 300, true);
+            _this.addChild(_this._lblDiceTwo);
             _this.Start();
             return _this;
         }
@@ -33,7 +50,7 @@ var scenes;
         Play.prototype.Update = function () {
         };
         Play.prototype.Main = function () {
-            this.addChild(this._rollButton);
+            this.addChild(this._btnRoll);
         };
         return Play;
     }(objects.Scene));

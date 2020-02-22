@@ -4,11 +4,11 @@ module scenes
     {
         // PRIVATE INSTANCE MEMBERS
         private _dice: createjs.Bitmap[];
-        private _rollButton: objects.Button;
-        private _diceOneLabel: objects.Label;
-        private _diceTwoLabel: objects.Label;
-        private _diceOneText: string;
-        private _diceTwoText: string;
+        private _btnRoll: objects.Button;
+        private _lblDiceOne: objects.Label;
+        private _lblDiceTwo: objects.Label;
+        private _diceOneText: string = "0";
+        private _diceTwoText: string = "0";
 
         // PUBLIC PROPERTIES
 
@@ -16,8 +16,26 @@ module scenes
         constructor()
         {
             super();
+
+            // create dice
+            this._dice = new Array<createjs.Bitmap>();
+            for (var dice: number = 0; dice < 2; dice++) {
+                this._dice[dice] = new createjs.Bitmap(config.Game.ASSETS.getResult("diceBlank"));
+                this._dice[dice].x = 110 + (dice * 220);
+                this._dice[dice].y = 80;
+                this.addChild(this._dice[dice]);
+            }
             
-            this._rollButton = new objects.Button(config.Game.ASSETS.getResult("rollButton"), 320, 430, true);
+            // create roll button
+            this._btnRoll = new objects.Button(config.Game.ASSETS.getResult("rollButton"), 320, 430, true);
+
+            // create dice one label
+            this._lblDiceOne = new objects.Label(this._diceOneText, "30px", "Arial", "#000000", 210, 300, true);
+            this.addChild(this._lblDiceOne);
+
+            // create dice two label
+            this._lblDiceTwo = new objects.Label(this._diceTwoText, "30px", "Arial", "#000000", 430, 300, true);
+            this.addChild(this._lblDiceTwo);
 
             this.Start();
         }
@@ -42,7 +60,7 @@ module scenes
         
         public Main(): void 
         {
-            this.addChild(this._rollButton);
+            this.addChild(this._btnRoll);
 
 
         }
