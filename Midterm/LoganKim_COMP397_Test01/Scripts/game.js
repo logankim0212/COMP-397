@@ -29,6 +29,8 @@ var Game = (function () {
         { id: "diceFour", src: "./Assets/images/4.png" },
         { id: "diceFive", src: "./Assets/images/5.png" },
         { id: "diceSix", src: "./Assets/images/6.png" },
+        // https://pxhere.com/en/photo/1370487
+        { id: "table", src: "./Assets/images/table.jpg" },
         { id: "beepSound", src: "./Assets/audio/beep.mp3" }
     ];
     function Preload() {

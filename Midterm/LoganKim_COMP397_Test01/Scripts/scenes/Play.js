@@ -53,14 +53,18 @@ var scenes;
                 this._dice[dice] = new createjs.Bitmap(config.Game.ASSETS.getResult("diceBlank"));
                 this._dice[dice].x = 110 + (dice * 220);
                 this._dice[dice].y = 80;
-                this.addChild(this._dice[dice]);
             }
+            // background images
+            this._table = new createjs.Bitmap(config.Game.ASSETS.getResult("table"));
+            this._table.x = 0;
+            this._table.y = 0;
             // create roll button
             this._btnRoll = new objects.Button(config.Game.ASSETS.getResult("rollButton"), 320, 430, true);
             // create dice one label
-            this._lblDiceOne = new objects.Label(this._diceOneNumber.toString(), "30px", "Arial", "#000000", 210, 300, true);
+            this._lblDiceOne = new objects.Label(this._diceOneNumber.toString(), "30px", "Arial", "#ffffff", 210, 300, true);
             // create dice two label
-            this._lblDiceTwo = new objects.Label(this._diceTwoNumber.toString(), "30px", "Arial", "#000000", 430, 300, true);
+            this._lblDiceTwo = new objects.Label(this._diceTwoNumber.toString(), "30px", "Arial", "#ffffff", 430, 300, true);
+            // onclick event
             this._btnRoll.on("click", this._RollDice, this);
         };
         /**
@@ -154,6 +158,11 @@ var scenes;
                     break;
             }
         };
+        /**
+         * Playing beep sound
+         *
+         * @memberof Play
+         */
         Play.prototype.BeepSound = function () {
             this._beepSound = createjs.Sound.play("beepSound");
             this._beepSound.volume = 0.2;
@@ -180,6 +189,9 @@ var scenes;
          * @memberof Play
          */
         Play.prototype.Main = function () {
+            this.addChild(this._table);
+            this.addChild(this._dice[0]);
+            this.addChild(this._dice[1]);
             this.addChild(this._btnRoll);
             this.addChild(this._lblDiceOne);
             this.addChild(this._lblDiceTwo);
