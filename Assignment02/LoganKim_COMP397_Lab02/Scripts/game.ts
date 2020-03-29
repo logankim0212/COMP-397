@@ -13,6 +13,7 @@ let Game = (function () {
     let assetManifest =
         [
             { id: "road", src: "./Assets/images/road.png" }, // own creation
+            { id: "avatar", src: "./Assets/images/avatar.png" }, // from https://webstockreview.net/pict/getfirst
             { id: "splash", src: "./Assets/images/splash.png" }, // own creation
             { id: "button", src: "./Assets/images/button.png" }, // from Tom Tsiliopoulos
             { id: "placeholder", src: "./Assets/images/placeholder.png" }, // from Tom Tsiliopoulos

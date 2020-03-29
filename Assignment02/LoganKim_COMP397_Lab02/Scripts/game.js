@@ -10,6 +10,7 @@ let Game = (function () {
     let assets;
     let assetManifest = [
         { id: "road", src: "./Assets/images/road.png" },
+        { id: "avatar", src: "./Assets/images/avatar.png" },
         { id: "splash", src: "./Assets/images/splash.png" },
         { id: "button", src: "./Assets/images/button.png" },
         { id: "placeholder", src: "./Assets/images/placeholder.png" },
