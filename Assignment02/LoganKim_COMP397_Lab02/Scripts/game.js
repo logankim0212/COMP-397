@@ -12,7 +12,9 @@ let Game = (function () {
         { id: "road", src: "./Assets/images/road.png" },
         { id: "button", src: "./Assets/images/button.png" },
         { id: "placeholder", src: "./Assets/images/placeholder.png" },
-        { id: "startButton", src: "./Assets/images/startButton.png" }
+        { id: "btnStart", src: "./Assets/images/btnStart.png" },
+        { id: "btnInstruction", src: "./Assets/images/btnInstruction.png" },
+        { id: "btnExit", src: "./Assets/images/btnExit.png" } // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj
     ];
     /**
      * This method preloads assets

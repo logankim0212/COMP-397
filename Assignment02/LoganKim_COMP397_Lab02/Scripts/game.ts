@@ -12,10 +12,12 @@ let Game = (function () {
 
     let assetManifest =
         [
-            { id: "road", src: "./Assets/images/road.png" },
-            { id: "button", src: "./Assets/images/button.png" },
-            { id: "placeholder", src: "./Assets/images/placeholder.png" },
-            { id: "startButton", src: "./Assets/images/startButton.png" }
+            { id: "road", src: "./Assets/images/road.png" }, // own creation
+            { id: "button", src: "./Assets/images/button.png" }, // from Tom Tsiliopoulos
+            { id: "placeholder", src: "./Assets/images/placeholder.png" }, // from Tom Tsiliopoulos
+            { id: "btnStart", src: "./Assets/images/btnStart.png" }, // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj
+            { id: "btnInstruction", src: "./Assets/images/btnInstruction.png" }, // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj
+            { id: "btnExit", src: "./Assets/images/btnExit.png" } // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj
         ];
 
     /**
