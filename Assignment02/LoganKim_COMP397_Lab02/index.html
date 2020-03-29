@@ -3,16 +3,13 @@
 <!--
     Logan J. Kim
     300973239
-    February 6, 2020
+    April 4, 2020
     
     Description:
-    Wingardium Luckiosa is a single players single-screen slot machine game designed with Harry Potter theme.
-    This game will contain three screens: start, game and end. Player will lose once they lost all of their credits;
-    however, they can continue to play as long as they want if they have enough credit.
+    Zombie Escape is simple scrolling game.
     
     Versions:
-    v2.0 Beta Release - Five reels
-    v1.0 Alpha Release - Three reels
+    v1.0 Simple Scrolling Game
 -->
 <head>
     <meta charset="UTF-8">
@@ -24,7 +21,7 @@
 </head>
 <body>
     <div class="body">
-        <canvas id="canvas" width="640" height="480"></canvas>
+        <canvas id="canvas" width="600" height="600"></canvas>
         <p>Please use full screen for the best gaming experience.</p>
 
         <!-- Script Section -->
@@ -35,10 +32,21 @@
         <script src="./node_modules/preloadjs/lib/preloadjs.min.js"></script>
 
         <!-- Libraries -->
-        
+        <script src="./Scripts/util/Mathf.js"></script>
+        <script src="./Scripts/objects/Vector2.js"></script>
+        <script src="./Scripts/objects/GameObject.js"></script>
+        <script src="./Scripts/objects/Scene.js"></script>
+        <script src="./Scripts/scenes/State.js"></script>
+        <script src="./Scripts/config/game.js"></script>
+
         <!-- Game Script -->
+        <script src="./Scripts/objects/Player.js"></script>
+        <script src="./Scripts/objects/Label.js"></script>
+        <script src="./Scripts/objects/Button.js"></script>
+        <script src="./Scripts/objects/Road.js"></script>
 
         <!-- Scenes -->
+        <script src="./Scripts/scenes/Start.js"></script>
 
         <script src="./Scripts/game.js"></script>
     </div>
