@@ -10,11 +10,13 @@ let Game = (function () {
     let assets;
     let assetManifest = [
         { id: "road", src: "./Assets/images/road.png" },
+        { id: "splash", src: "./Assets/images/splash.png" },
         { id: "button", src: "./Assets/images/button.png" },
         { id: "placeholder", src: "./Assets/images/placeholder.png" },
         { id: "btnStart", src: "./Assets/images/btnStart.png" },
         { id: "btnInstruction", src: "./Assets/images/btnInstruction.png" },
-        { id: "btnExit", src: "./Assets/images/btnExit.png" } // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj
+        { id: "btnExit", src: "./Assets/images/btnExit.png" },
+        { id: "bgInstruction", src: "./Assets/images/bgInstruction.png" } // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj
     ];
     /**
      * This method preloads assets
@@ -66,6 +68,18 @@ let Game = (function () {
             case scenes.State.START:
                 console.log("switch to Start Scene");
                 currentScene = new scenes.Start();
+                break;
+            case scenes.State.PLAY:
+                console.log("switch to Play Scene");
+                currentScene = new scenes.Play();
+                break;
+            case scenes.State.INSTRUCTION:
+                console.log("switch to Instruction Scene");
+                currentScene = new scenes.Instruction();
+                break;
+            case scenes.State.EXIT:
+                console.log("switch to Exit Scene");
+                currentScene = new scenes.Splash();
                 break;
         }
         currentSceneState = config.Game.SCENE;
