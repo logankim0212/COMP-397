@@ -26,6 +26,7 @@ module objects {
 
         // PUBLIC METHODS
         public Start(): void {
+            this.type = enums.GameObjectType.ROAD;
             this._verticalSpeed = 5; // 5 px per frame
             this.velocity = new Vector2(0, this._verticalSpeed);
             this.Reset();
@@ -37,7 +38,7 @@ module objects {
         }
 
         public Reset(): void {
-            this.position = new Vector2(0, -245);
+            this.position = new Vector2(0, -580);
         }
     }
 }

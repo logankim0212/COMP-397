@@ -18,11 +18,13 @@ var scenes;
         Start() {
             //instantiate a new Text object
             let txtOne = "Instruction";
-            let txtTwo = "- Use WASD key to move your player\n\n" +
-                "- Use space key to shoot bullet\n\n\n\n\n\n" +
-                "- Heart symbol gives you extra health\n\n" +
-                "- Hitting zombie reduce health\n\n\n\n\n\n" +
-                "- You can shoot to remove object\n\n\n\n\n\n";
+            let txtTwo = "- Movement: Use \"WASD\" key for 4 directions\n\n" +
+                "- Shooting: Use \"Space\" key\n\n\n\n" +
+                "- Hitting an object: 5 seconds movement penalty\n\n" +
+                "- Heart symbol: Health +1\n\n" +
+                "- Hitting zombie: Health -1\n\n" +
+                "- Recharge your bullet: \"R\" key\n\n" +
+                "- Shoot to remove object or zombie";
             let txtThree = "* Test your limit where you can reach! *";
             this._lblOne = new objects.Label(txtOne, "40px", "Consolas", "#000000", 300, 70, true);
             this._lblTwo = new objects.Label(txtTwo, "20px", "Consolas", "#000000", 300, 150, true);

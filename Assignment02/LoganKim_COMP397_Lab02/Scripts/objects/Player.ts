@@ -32,6 +32,7 @@ module objects {
 
         // PUBLIC METHODS
         public Start(): void {
+            this.type = enums.GameObjectType.PLAYER;
             this.name = "player";
         }
 

@@ -27,6 +27,7 @@ var objects;
         }
         // PUBLIC METHODS
         Start() {
+            this.type = enums.GameObjectType.PLAYER;
             this.name = "player";
         }
         Update() {

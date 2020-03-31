@@ -13,6 +13,7 @@ var objects;
             this._velocity = new objects.Vector2(0, 0);
             this._isColliding = false;
             this._isCentered = false;
+            this._type = enums.GameObjectType.UNDEFINED;
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             if (typeof third == "boolean") {
@@ -80,6 +81,12 @@ var objects;
             if (newState) {
                 this._centerGameObject();
             }
+        }
+        get type() {
+            return this._type;
+        }
+        set type(v) {
+            this._type = v;
         }
         // PRIVATE METHODS
         _computeHalfWidth() {

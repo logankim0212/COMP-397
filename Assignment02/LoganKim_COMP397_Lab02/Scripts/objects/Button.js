@@ -25,6 +25,7 @@ var objects;
          * @memberof Button
          */
         Start() {
+            this.type = enums.GameObjectType.BUTTON;
             this.name = "Button";
         }
         Update() {

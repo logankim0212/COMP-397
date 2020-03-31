@@ -19,6 +19,7 @@ var objects;
         }
         // PUBLIC METHODS
         Start() {
+            this.type = enums.GameObjectType.ROAD;
             this._verticalSpeed = 5; // 5 px per frame
             this.velocity = new objects.Vector2(0, this._verticalSpeed);
             this.Reset();
@@ -28,7 +29,7 @@ var objects;
             this._checkBounds();
         }
         Reset() {
-            this.position = new objects.Vector2(0, -245);
+            this.position = new objects.Vector2(0, -580);
         }
     }
     objects.Road = Road;

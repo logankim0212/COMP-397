@@ -37,6 +37,7 @@ module objects
          * @memberof Button
          */
         public Start(): void {
+            this.type = enums.GameObjectType.BUTTON;
             this.name = "Button";
         }
 
