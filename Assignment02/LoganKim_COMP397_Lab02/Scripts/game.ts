@@ -16,6 +16,7 @@ let Game = (function () {
             { id: "avatar", src: "./Assets/images/avatar.png" }, // from https://webstockreview.net/pict/getfirst
             { id: "bullet", src: "./Assets/images/bullet.png" }, // from https://www.clipart.email/download/7844222.html
             { id: "pothole", src: "./Assets/images/pothole.png" }, // from http://www.pngall.com/hole-png/download/36973
+            { id: "zombie", src: "./Assets/images/zombie.png" }, // from https://opengameart.org/content/animated-top-down-zombie
             { id: "splash", src: "./Assets/images/splash.png" }, // own creation
             { id: "button", src: "./Assets/images/button.png" }, // from Tom Tsiliopoulos
             { id: "placeholder", src: "./Assets/images/placeholder.png" }, // from Tom Tsiliopoulos

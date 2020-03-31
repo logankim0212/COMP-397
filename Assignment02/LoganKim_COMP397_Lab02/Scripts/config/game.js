@@ -7,6 +7,7 @@ var config;
     Game.SCREEN_HEIGHT = 600;
     Game.FPS = 60; // 60 Frames per second
     Game.MOVING_TIME = 0.1;
+    Game.ZOMBIE_NUMBER = 7;
     config.Game = Game;
 })(config || (config = {}));
 //# sourceMappingURL=game.js.map
