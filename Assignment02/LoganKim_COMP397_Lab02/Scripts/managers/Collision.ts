@@ -52,6 +52,8 @@ module managers {
                         // check if lives falls less than 1 and then switch to END scene
                         if (config.Game.LIVES < 1) {
                             config.Game.SCENE_STATE = scenes.State.START; // TODO: Change to end
+                            config.Game.LIVES = 3;
+                            config.Game.SCORE = 0;
                         }
                     }
                     break;
