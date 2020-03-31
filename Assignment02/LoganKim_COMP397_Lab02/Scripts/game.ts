@@ -10,13 +10,15 @@ let Game = (function () {
 
     let assets: createjs.LoadQueue;
 
+    let zombieAtlas: createjs.SpriteSheet;
+
     let assetManifest =
         [
             { id: "road", src: "./Assets/images/road.png" }, // from https://opengameart.org/content/golgotha-textures-tunnelroadjpg
             { id: "avatar", src: "./Assets/images/avatar.png" }, // from https://webstockreview.net/pict/getfirst
             { id: "bullet", src: "./Assets/images/bullet.png" }, // from https://www.clipart.email/download/7844222.html
             { id: "pothole", src: "./Assets/images/pothole.png" }, // from http://www.pngall.com/hole-png/download/36973
-            { id: "zombie", src: "./Assets/images/zombie.png" }, // from https://opengameart.org/content/animated-top-down-zombie
+            { id: "zombie", src: "./Assets/images/zombieSprite.png" }, // from https://opengameart.org/content/animated-top-down-zombie
             { id: "splash", src: "./Assets/images/splash.png" }, // own creation of COSMOS Games
             { id: "button", src: "./Assets/images/button.png" }, // from Tom Tsiliopoulos
             { id: "placeholder", src: "./Assets/images/placeholder.png" }, // from Tom Tsiliopoulos
@@ -26,6 +28,35 @@ let Game = (function () {
             { id: "bgInstruction", src: "./Assets/images/bgInstruction.png" } // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj
         ];
 
+    let zombieData =
+    {
+        "images": {},
+        "frames": [
+            [1, 1, 100, 93],
+            [103, 1, 100, 93],
+            [205, 1, 100, 93],
+            [1, 96, 100, 93],
+            [103, 96, 100, 93],
+            [205, 96, 100, 93],
+            [1, 191, 100, 93],
+            [103, 191, 100, 93],
+            [205, 191, 100, 93],
+            [1, 286, 100, 93],
+            [103, 286, 100, 93],
+            [205, 286, 100, 93],
+            [307, 1, 100, 93],
+            [307, 96, 100, 93],
+            [307, 191, 100, 93],
+            [307, 286, 100, 93],
+            [1, 381, 100, 93]
+        ],
+        "animations": {
+            "zombie": {
+                "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+                "speed": 0.5
+            },
+        }
+    }
     /**
      * This method preloads assets
      */
@@ -47,6 +78,10 @@ let Game = (function () {
         createjs.Ticker.framerate = config.Game.FPS;
         createjs.Ticker.on('tick', Update);
         stage.enableMouseOver(20);
+
+        zombieData.images = [assets.getResult("zombie")];
+        zombieAtlas = new createjs.SpriteSheet(zombieData);
+        config.Game.ZOMBIE_ATLAS = zombieAtlas;
 
         currentSceneState = scenes.State.NO_SCENE;
         config.Game.SCENE_STATE = scenes.State.START;

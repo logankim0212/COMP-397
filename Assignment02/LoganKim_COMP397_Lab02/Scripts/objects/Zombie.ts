@@ -1,5 +1,5 @@
 module objects {
-    export class Zombie extends GameObject {
+    export class Zombie extends GameObjectSprite {
         // PRIVATE INSTANCE MEMBERS
         private _verticalSpeed?: number;
         private _horizontalSpeed?: number;
@@ -8,7 +8,7 @@ module objects {
 
         // CONSTRUCTOR
         constructor() {
-            super(config.Game.ASSETS.getResult("zombie"), new Vector2(), true);
+            super(config.Game.ZOMBIE_ATLAS, "zombie", new Vector2(), true);
 
             this.Start();
         }
@@ -36,7 +36,7 @@ module objects {
         }
 
         public Reset(): void {
-            this._verticalSpeed = util.Mathf.RandomRange(10, 12);
+            this._verticalSpeed = util.Mathf.RandomRange(10, 13);
             this._horizontalSpeed = util.Mathf.RandomRange(-1, 1);
             this.velocity = new Vector2(this._horizontalSpeed, this._verticalSpeed);
             let randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);

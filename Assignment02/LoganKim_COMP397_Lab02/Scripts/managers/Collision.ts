@@ -1,6 +1,6 @@
 module managers {
     export class Collision {
-        public static AABBCheck(object1: objects.GameObject, object2: objects.GameObject): boolean {
+        public static AABBCheck(object1: objects.GameObject, object2: objects.GameObject | objects.GameObjectSprite): boolean {
             let object1Offset = (!object1.isCentered) ? new objects.Vector2(0, 0) : new objects.Vector2(object1.halfWidth, object1.halfHeight);
             let object2Offset = (!object2.isCentered) ? new objects.Vector2(0, 0) : new objects.Vector2(object2.halfWidth, object2.halfHeight);
 
@@ -32,7 +32,7 @@ module managers {
          * @param {objects.GameObject} object2
          * @memberof Collision
          */
-        private static _collisionResponse(object2: objects.GameObject) {
+        private static _collisionResponse(object2: objects.GameObject | objects.GameObjectSprite) {
             switch (object2.type) {
                 case enums.GameObjectType.POTHOLE:
                     {

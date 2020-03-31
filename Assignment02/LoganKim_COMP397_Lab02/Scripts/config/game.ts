@@ -13,5 +13,6 @@ module config
         public static SCORE: number = 0;
         public static HIGH_SCORE: number = 0;
         public static SCORE_BOARD: managers.ScoreBoard;
+        public static ZOMBIE_ATLAS: createjs.SpriteSheet;
     }
 }

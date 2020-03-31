@@ -1,11 +1,11 @@
 "use strict";
 var objects;
 (function (objects) {
-    class Zombie extends objects.GameObject {
+    class Zombie extends objects.GameObjectSprite {
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         constructor() {
-            super(config.Game.ASSETS.getResult("zombie"), new objects.Vector2(), true);
+            super(config.Game.ZOMBIE_ATLAS, "zombie", new objects.Vector2(), true);
             this.Start();
         }
         // PRIVATE METHODS
@@ -27,7 +27,7 @@ var objects;
             this._checkBounds();
         }
         Reset() {
-            this._verticalSpeed = util.Mathf.RandomRange(10, 12);
+            this._verticalSpeed = util.Mathf.RandomRange(10, 13);
             this._horizontalSpeed = util.Mathf.RandomRange(-1, 1);
             this.velocity = new objects.Vector2(this._horizontalSpeed, this._verticalSpeed);
             let randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);
