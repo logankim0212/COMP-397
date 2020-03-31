@@ -13,6 +13,7 @@ var objects;
             this._velocity = new objects.Vector2(0, 0);
             this._isColliding = false;
             this._isCentered = false;
+            this._isActive = false;
             this._type = enums.GameObjectType.UNDEFINED;
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
@@ -81,6 +82,12 @@ var objects;
             if (newState) {
                 this._centerGameObject();
             }
+        }
+        get isActive() {
+            return this._isActive;
+        }
+        set isActive(v) {
+            this._isActive = v;
         }
         get type() {
             return this._type;

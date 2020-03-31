@@ -1,5 +1,5 @@
 module objects {
-    export class Road extends GameObject {
+    export class Pothole extends GameObject {
         // PRIVATE INSTANCE MEMBERS
         private _verticalSpeed?: number;
 
@@ -7,7 +7,7 @@ module objects {
 
         // CONSTRUCTOR
         constructor() {
-            super(config.Game.ASSETS.getResult("road"));
+            super(config.Game.ASSETS.getResult("pothole"), new Vector2(), true);
 
             this.Start();
         }
@@ -15,7 +15,7 @@ module objects {
         // PRIVATE METHODS
 
         protected _checkBounds(): void {
-            if (this.y >= 0) {
+            if (this.y >= config.Game.SCREEN_HEIGHT + this.height) {
                 this.Reset();
             }
         }
@@ -26,7 +26,7 @@ module objects {
 
         // PUBLIC METHODS
         public Start(): void {
-            this.type = enums.GameObjectType.ROAD;
+            this.type = enums.GameObjectType.POTHOLE;
             this._verticalSpeed = 10; // 10 px per frame
             this.velocity = new Vector2(0, this._verticalSpeed);
             this.Reset();
@@ -38,7 +38,10 @@ module objects {
         }
 
         public Reset(): void {
-            this.position = new Vector2(0, -580);
+            let randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);
+            this.position = new Vector2(randomX, -this.height);
         }
+
+
     }
 }

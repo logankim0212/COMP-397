@@ -2,6 +2,7 @@ module scenes {
     export class Play extends objects.Scene {
         // PRIVATE INSTANCE MEMBERS
         private _road: objects.Road;
+        private _pothole: objects.Pothole;
         private _player: objects.Player;
 
         // PUBLIC PROPERTIES
@@ -10,6 +11,7 @@ module scenes {
         constructor() {
             super();
             this._road = new objects.Road();
+            this._pothole = new objects.Pothole();
             this._player = new objects.Player();
 
             this.Start();
@@ -24,11 +26,13 @@ module scenes {
 
         public Update(): void {
             this._road.Update();
+            this._pothole.Update();
             this._player.Update();
         }
 
         public Main(): void {
             this.addChild(this._road);
+            this.addChild(this._pothole);
             this.addChild(this._player);
         }
 

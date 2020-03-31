@@ -14,6 +14,8 @@ let Game = (function () {
         [
             { id: "road", src: "./Assets/images/road.png" }, // own creation
             { id: "avatar", src: "./Assets/images/avatar.png" }, // from https://webstockreview.net/pict/getfirst
+            { id: "bullet", src: "./Assets/images/bullet.png" }, // from https://www.clipart.email/download/7844222.html
+            { id: "pothole", src: "./Assets/images/pothole.png" }, // from http://www.pngall.com/hole-png/download/36973
             { id: "splash", src: "./Assets/images/splash.png" }, // own creation
             { id: "button", src: "./Assets/images/button.png" }, // from Tom Tsiliopoulos
             { id: "placeholder", src: "./Assets/images/placeholder.png" }, // from Tom Tsiliopoulos
