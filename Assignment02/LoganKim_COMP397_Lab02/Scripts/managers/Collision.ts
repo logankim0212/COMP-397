@@ -37,11 +37,22 @@ module managers {
                 case enums.GameObjectType.POTHOLE:
                     {
                         console.log("Collision with Pothole!");
+                        config.Game.MOVING_TIME = 0.02;
+
+                        setTimeout(() => {
+                            config.Game.MOVING_TIME = 0.1;
+                        }, 1000);
                     }
                     break;
                 case enums.GameObjectType.ZOMBIE:
                     {
                         console.log("Collision with Zombie!");
+                        config.Game.SCORE_BOARD.Lives -= 1;
+
+                        // check if lives falls less than 1 and then switch to END scene
+                        if (config.Game.LIVES < 1) {
+                            config.Game.SCENE_STATE = scenes.State.START; // TODO: Change to end
+                        }
                     }
                     break;
             }

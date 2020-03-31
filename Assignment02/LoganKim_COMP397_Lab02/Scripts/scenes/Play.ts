@@ -5,6 +5,7 @@ module scenes {
         private _pothole: objects.Pothole;
         private _player: objects.Player;
         private _zombies: Array<objects.Zombie>;
+        private _scoreBoard: managers.ScoreBoard;
 
         // PUBLIC PROPERTIES
 
@@ -15,6 +16,7 @@ module scenes {
             this._pothole = new objects.Pothole();
             this._player = new objects.Player();
             this._zombies = new Array<objects.Zombie>(); // empty container
+            this._scoreBoard = new managers.ScoreBoard();
 
             this.Start();
         }
@@ -26,6 +28,8 @@ module scenes {
             for (let index = 0; index < config.Game.ZOMBIE_NUMBER; index++) {
                 this._zombies.push(new objects.Zombie());
             }
+
+            config.Game.SCORE_BOARD = this._scoreBoard;
 
             this.Main();
         }
@@ -50,6 +54,9 @@ module scenes {
                 this.addChild(zombie);
             }
             this.addChild(this._player);
+
+            this.addChild(this._scoreBoard.LivesLabel);
+            this.addChild(this._scoreBoard.ScoreLabel);
         }
 
         public Clean(): void {

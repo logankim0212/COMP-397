@@ -47,15 +47,15 @@ module scenes {
             this.addChild(this._btnExit);
 
             this._btnStart.on("click", () => {
-                config.Game.SCENE = scenes.State.PLAY;
+                config.Game.SCENE_STATE = scenes.State.PLAY;
             });
 
             this._btnInstruction.on("click", () => {
-                config.Game.SCENE = scenes.State.INSTRUCTION;
+                config.Game.SCENE_STATE = scenes.State.INSTRUCTION;
             });
 
             this._btnExit.on("click", () => {
-                config.Game.SCENE = scenes.State.EXIT;
+                config.Game.SCENE_STATE = scenes.State.EXIT;
             });
         }
 

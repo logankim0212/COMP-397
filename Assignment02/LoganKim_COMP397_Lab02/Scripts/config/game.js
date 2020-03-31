@@ -8,6 +8,9 @@ var config;
     Game.FPS = 60; // 60 Frames per second
     Game.MOVING_TIME = 0.1;
     Game.ZOMBIE_NUMBER = 6;
+    Game.LIVES = 3;
+    Game.SCORE = 0;
+    Game.HIGH_SCORE = 0;
     config.Game = Game;
 })(config || (config = {}));
 //# sourceMappingURL=game.js.map
