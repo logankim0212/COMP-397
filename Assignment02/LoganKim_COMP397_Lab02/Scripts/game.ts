@@ -12,12 +12,12 @@ let Game = (function () {
 
     let assetManifest =
         [
-            { id: "road", src: "./Assets/images/road.png" }, // own creation
+            { id: "road", src: "./Assets/images/road.png" }, // from https://opengameart.org/content/golgotha-textures-tunnelroadjpg
             { id: "avatar", src: "./Assets/images/avatar.png" }, // from https://webstockreview.net/pict/getfirst
             { id: "bullet", src: "./Assets/images/bullet.png" }, // from https://www.clipart.email/download/7844222.html
             { id: "pothole", src: "./Assets/images/pothole.png" }, // from http://www.pngall.com/hole-png/download/36973
             { id: "zombie", src: "./Assets/images/zombie.png" }, // from https://opengameart.org/content/animated-top-down-zombie
-            { id: "splash", src: "./Assets/images/splash.png" }, // own creation
+            { id: "splash", src: "./Assets/images/splash.png" }, // own creation of COSMOS Games
             { id: "button", src: "./Assets/images/button.png" }, // from Tom Tsiliopoulos
             { id: "placeholder", src: "./Assets/images/placeholder.png" }, // from Tom Tsiliopoulos
             { id: "btnStart", src: "./Assets/images/btnStart.png" }, // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj

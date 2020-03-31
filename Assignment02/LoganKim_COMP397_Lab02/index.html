@@ -11,6 +11,7 @@
     Versions:
     v1.0 Simple Scrolling Game
 -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@
     <link rel="stylesheet" href="./Content/style.css">
     <title>Simple Scrolling Game</title>
 </head>
+
 <body>
     <div class="body">
         <canvas id="canvas" width="600" height="600"></canvas>
@@ -31,7 +33,7 @@
         <script src="./node_modules/soundjs/lib/soundjs.min.js"></script>
         <script src="./node_modules/preloadjs/lib/preloadjs.min.js"></script>
 
-        <!-- Libraries -->
+        <!-- Component Scripts -->
         <script src="./Scripts/util/Mathf.js"></script>
         <script src="./Scripts/objects/Vector2.js"></script>
         <script src="./Scripts/enums/GameObjectType.js"></script>
@@ -39,6 +41,9 @@
         <script src="./Scripts/objects/Scene.js"></script>
         <script src="./Scripts/scenes/State.js"></script>
         <script src="./Scripts/config/game.js"></script>
+
+        <!-- Managers -->
+        <script src="./Scripts/managers/Collision.js"></script>
 
         <!-- Game Script -->
         <script src="./Scripts/objects/Player.js"></script>
@@ -57,4 +62,5 @@
         <script src="./Scripts/game.js"></script>
     </div>
 </body>
+
 </html>

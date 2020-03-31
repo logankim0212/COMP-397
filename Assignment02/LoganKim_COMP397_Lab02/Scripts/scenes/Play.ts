@@ -35,8 +35,11 @@ module scenes {
             this._pothole.Update();
             this._player.Update();
 
+            managers.Collision.AABBCheck(this._player, this._pothole);
+
             this._zombies.forEach(zombie => {
                 zombie.Update();
+                managers.Collision.AABBCheck(this._player, zombie);
             });
         }
 
