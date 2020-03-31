@@ -29,7 +29,7 @@ var objects;
             this._checkBounds();
         }
         Reset() {
-            this.position = new objects.Vector2(0, -580);
+            this.position = new objects.Vector2(0, -1200);
         }
     }
     objects.Road = Road;

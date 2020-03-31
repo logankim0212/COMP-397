@@ -8,6 +8,6 @@ module config
         public static MOVING_TIME: number = 0.1;
         public static ASSETS: createjs.LoadQueue;
         public static SCENE: scenes.State;
-        public static ZOMBIE_NUMBER: number = 7;
+        public static ZOMBIE_NUMBER: number = 8;
     }
 }
