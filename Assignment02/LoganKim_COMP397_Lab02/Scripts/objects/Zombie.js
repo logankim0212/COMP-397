@@ -27,7 +27,7 @@ var objects;
             this._checkBounds();
         }
         Reset() {
-            this._verticalSpeed = util.Mathf.RandomRange(3, 8);
+            this._verticalSpeed = util.Mathf.RandomRange(10, 12);
             this._horizontalSpeed = util.Mathf.RandomRange(-1, 1);
             this.velocity = new objects.Vector2(this._horizontalSpeed, this._verticalSpeed);
             let randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);
