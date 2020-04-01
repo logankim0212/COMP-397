@@ -14,5 +14,6 @@ module config
         public static HIGH_SCORE: number = 0;
         public static SCORE_BOARD: managers.ScoreBoard;
         public static ZOMBIE_ATLAS: createjs.SpriteSheet;
+        public static COLLISION_STATUS: boolean = false;
     }
 }

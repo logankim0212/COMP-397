@@ -13,7 +13,11 @@ var managers;
                 object1TopLeft.y < object2TopLeft.y + object2.height &&
                 object1TopLeft.y + object1.height > object2TopLeft.y) {
                 if (!object2.isColliding) {
+                    object1.alpha = 0.5;
                     Collision._collisionResponse(object2);
+                    setTimeout(() => {
+                        object1.alpha = 1;
+                    }, 500);
                     object2.isColliding = true;
                     return true;
                 }
@@ -45,7 +49,12 @@ var managers;
                 case enums.GameObjectType.ZOMBIE:
                     {
                         console.log("Collision with Zombie!");
-                        config.Game.SCORE_BOARD.Lives -= 1;
+                        if (!config.Game.COLLISION_STATUS) {
+                            config.Game.SCORE_BOARD.Lives -= 1;
+                        }
+                        setTimeout(() => {
+                            config.Game.COLLISION_STATUS = false;
+                        }, 500);
                         // check if lives falls less than 1 and then switch to END scene
                         if (config.Game.LIVES < 1) {
                             config.Game.SCENE_STATE = scenes.State.START; // TODO: Change to end
