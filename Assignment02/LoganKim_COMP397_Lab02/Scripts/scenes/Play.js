@@ -11,6 +11,7 @@ var scenes;
             this._zombies = new Array(); // empty container
             this._scoreBoard = new managers.ScoreBoard();
             this._bulletManager = new managers.BulletManager();
+            this._isReloading = false;
             this.keyPressedStates = [];
             this.Start();
         }
@@ -65,14 +66,18 @@ var scenes;
             else if (this.keyPressedStates[68 /* D */]) {
                 this._player.moveRight();
             }
-            if (this.keyPressedStates[32 /* SPACE */]) {
-                this._player.FireBullet();
+            if (!this._isReloading) {
+                if (this.keyPressedStates[32 /* SPACE */]) {
+                    this._player.FireBullet();
+                }
             }
-            if (this.keyPressedStates[82 /* R */]) {
+            if (this.keyPressedStates[77 /* M */]) {
+                this._isReloading = true;
                 setTimeout(() => {
                     // config.Game.BULLET_NUMBER = 10;
                     config.Game.SCORE_BOARD.Bullet = 10;
-                }, 500);
+                    this._isReloading = false;
+                }, 1000);
             }
         }
     }

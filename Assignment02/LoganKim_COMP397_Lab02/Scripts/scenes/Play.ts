@@ -7,6 +7,7 @@ module scenes {
         private _zombies: Array<objects.Zombie>;
         private _scoreBoard: managers.ScoreBoard;
         private _bulletManager: managers.BulletManager;
+        private _isReloading: boolean;
 
         // PUBLIC PROPERTIES
         public keyPressedStates: boolean[]; // to detect which keys are down
@@ -20,6 +21,7 @@ module scenes {
             this._zombies = new Array<objects.Zombie>(); // empty container
             this._scoreBoard = new managers.ScoreBoard();
             this._bulletManager = new managers.BulletManager();
+            this._isReloading = false;
 
             this.keyPressedStates = [];
 
@@ -92,16 +94,19 @@ module scenes {
                 this._player.moveRight();
             }
 
-
-            if (this.keyPressedStates[enums.Key.SPACE]) {
-                this._player.FireBullet();
+            if (!this._isReloading) {
+                if (this.keyPressedStates[enums.Key.SPACE]) {
+                    this._player.FireBullet();
+                }
             }
 
-            if (this.keyPressedStates[enums.Key.R]) {
+            if (this.keyPressedStates[enums.Key.M]) {
+                this._isReloading = true;
                 setTimeout(() => {
                     // config.Game.BULLET_NUMBER = 10;
                     config.Game.SCORE_BOARD.Bullet = 10;
-                }, 500);
+                    this._isReloading = false;
+                }, 1000);
             }
         }
 

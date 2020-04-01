@@ -31,11 +31,11 @@ module scenes {
             let txtOne: string = "Instruction";
             let txtTwo: string = "- Movement: Use \"WASD\" key for 4 directions\n\n" +
                 "- Shooting: Use \"Space\" key\n\n\n\n" +
-                "- Hitting an object: 5 seconds movement penalty\n\n" +
+                "- Hitting an pothole: 0.5s movement penalty\n\n" +
                 "- Heart symbol: Health +1\n\n" +
                 "- Hitting zombie: Health -1\n\n" + 
-                "- Recharge your bullet: \"R\" key\n\n" + 
-                "- Shoot to remove object or zombie";
+                "- Recharge your bullet: \"M\" key\n\n" + 
+                "- Shoot to kill zombie and get +100 points";
             let txtThree: string = "* Test your limit where you can reach! *";
 
             this._lblOne = new objects.Label(txtOne, "40px", "Consolas", "#000000", 300, 70, true);
