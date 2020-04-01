@@ -5,6 +5,7 @@ module enums
         PLAYER,
         ZOMBIE,
         POTHOLE,
+        HEART,
         ROAD,
         BUTTON,
         BULLET,

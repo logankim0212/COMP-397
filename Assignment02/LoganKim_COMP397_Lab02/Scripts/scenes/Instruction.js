@@ -20,10 +20,11 @@ var scenes;
             //instantiate a new Text object
             let txtOne = "Instruction";
             let txtTwo = "- Movement: Use \"WASD\" key for 4 directions\n\n" +
-                "- Shooting: Use \"Space\" key\n\n\n\n" +
+                "- Shooting: Use \"Space\" key\n\n" +
+                "- Reload bullet: \"M\" key\n\n\n\n" +
                 "- Hitting an pothole: 0.5s movement penalty\n\n" +
-                "- Hitting zombie: Health -1\n\n" +
-                "- Recharge your bullet: \"M\" key\n\n\n\n" +
+                "- Hitting heart: Health +1\n\n" +
+                "- Hitting zombie: Health -1\n\n\n\n" +
                 "- Shoot to kill zombie and get 100 points";
             let txtThree = "* Test your limit where you can reach! *";
             this._lblOne = new objects.Label(txtOne, "40px", "Consolas", "#000000", 300, 70, true);

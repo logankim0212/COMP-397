@@ -87,6 +87,16 @@ module managers {
                         object2.Reset();
                     }
                     break;
+                case enums.GameObjectType.HEART:
+                    {
+                        config.Game.SCORE_BOARD.Lives += 1;
+
+                        let heartSound = createjs.Sound.play("heartSound");
+                        heartSound.volume = 0.1; // 10% volume
+                        
+                        object2.Reset();
+                    }
+                    break;
             }
         }
     }

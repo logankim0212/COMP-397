@@ -18,6 +18,7 @@ let Game = (function () {
         { id: "bullet", src: "./Assets/images/bullet.png" },
         { id: "pothole", src: "./Assets/images/pothole.png" },
         { id: "zombie", src: "./Assets/images/zombieSprite.png" },
+        { id: "heart", src: "./Assets/images/heart.png" },
         { id: "splash", src: "./Assets/images/splash.png" },
         { id: "button", src: "./Assets/images/button.png" },
         { id: "placeholder", src: "./Assets/images/placeholder.png" },
@@ -36,6 +37,7 @@ let Game = (function () {
         { id: "shootingSound", src: "./Assets/audio/shooting.mp3" },
         { id: "reloadingSound", src: "./Assets/audio/reloading.mp3" },
         { id: "potholeSound", src: "./Assets/audio/pothole.mp3" },
+        { id: "heartSound", src: "./Assets/audio/heart.mp3" },
         { id: "hitZombieSound", src: "./Assets/audio/hit_zombie.mp3" },
         { id: "zombieDeathSound", src: "./Assets/audio/zombie_death.mp3" } // from https://freesound.org/people/bigmonmulgrew/sounds/346626/
     ];

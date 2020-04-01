@@ -7,6 +7,7 @@ var scenes;
             super();
             this._road = new objects.Road();
             this._pothole = new objects.Pothole();
+            this._heart = new objects.Heart();
             this._player = new objects.Player();
             this._zombies = new Array(); // empty container
             this._scoreBoard = new managers.ScoreBoard();
@@ -30,9 +31,11 @@ var scenes;
             this.detectPressedKeys();
             this._road.Update();
             this._pothole.Update();
+            this._heart.Update();
             this._player.Update();
             this._bulletManager.Update();
             managers.Collision.AABBCheck(this._player, this._pothole);
+            managers.Collision.AABBCheck(this._player, this._heart);
             this._zombies.forEach(zombie => {
                 zombie.Update();
                 managers.Collision.AABBCheck(this._player, zombie);
@@ -44,6 +47,7 @@ var scenes;
         Main() {
             this.addChild(this._road);
             this.addChild(this._pothole);
+            this.addChild(this._heart);
             for (const zombie of this._zombies) {
                 this.addChild(zombie);
             }

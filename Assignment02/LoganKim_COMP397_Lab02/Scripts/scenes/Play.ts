@@ -3,6 +3,7 @@ module scenes {
         // PRIVATE INSTANCE MEMBERS
         private _road: objects.Road;
         private _pothole: objects.Pothole;
+        private _heart: objects.Heart;
         private _player: objects.Player;
         private _zombies: Array<objects.Zombie>;
         private _scoreBoard: managers.ScoreBoard;
@@ -18,6 +19,7 @@ module scenes {
             super();
             this._road = new objects.Road();
             this._pothole = new objects.Pothole();
+            this._heart = new objects.Heart();
             this._player = new objects.Player();
             this._zombies = new Array<objects.Zombie>(); // empty container
             this._scoreBoard = new managers.ScoreBoard();
@@ -51,11 +53,13 @@ module scenes {
 
             this._road.Update();
             this._pothole.Update();
+            this._heart.Update();
             this._player.Update();
 
             this._bulletManager.Update();
 
             managers.Collision.AABBCheck(this._player, this._pothole);
+            managers.Collision.AABBCheck(this._player, this._heart);
 
             this._zombies.forEach(zombie => {
                 zombie.Update();
@@ -63,14 +67,15 @@ module scenes {
 
                 for (let i = 0; i < this._bulletManager.BulletPool.length; i++) {
                     managers.Collision.AABBCheck(zombie, this._bulletManager.BulletPool[i]);
-
                 }
             });
+
         }
 
         public Main(): void {
             this.addChild(this._road);
             this.addChild(this._pothole);
+            this.addChild(this._heart);
             for (const zombie of this._zombies) {
                 this.addChild(zombie);
             }
@@ -108,7 +113,7 @@ module scenes {
                 if (this.keyPressedStates[enums.Key.M]) {
                     this._isReloading = true;
                     this.PlayReloadingSound();
-    
+
                     setTimeout(() => {
                         // config.Game.BULLET_NUMBER = 10;
                         config.Game.SCORE_BOARD.Bullet = 20;
