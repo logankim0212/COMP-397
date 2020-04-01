@@ -1,0 +1,22 @@
+{
+  "name": "logankim_comp397_lab02",
+  "version": "1.0.0",
+  "description": "Simple scrolling game developed for the assginment 2 of COMP397.",
+  "main": "game.js",
+  "repository": "https://github.com/logankim0212/COMP-397",
+  "author": "Logan J. Kim - 300973239",
+  "license": "MIT",
+  "dependencies": {
+    "createjs": "^1.0.1",
+    "easeljs": "^1.0.2",
+    "preloadjs": "^1.0.1",
+    "soundjs": "^1.0.1",
+    "tweenjs": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/easeljs": "^1.0.0",
+    "@types/preloadjs": "^0.6.32",
+    "@types/soundjs": "^0.6.27",
+    "@types/tweenjs": "^1.0.0"
+  }
+}

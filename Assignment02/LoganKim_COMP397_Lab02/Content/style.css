@@ -1,0 +1,57 @@
+/**
+ * Logan J. Kim
+ * 300973239
+ * April 4, 2020
+ * 
+ * Description:
+ * Zombie Escape is simple scrolling game.
+ *
+ * Versions:
+ * v1.0 Simple Scrolling Game
+ */
+ html {
+    background-color: #000000;
+    color: #FAFAFA;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.body {
+    background-color: rgba(50, 50, 50, 0.7);
+    border-radius: 50px;
+    text-align: center;
+    width: 800px;
+    padding-top: 60px;
+    padding-bottom: 20px;
+    color: #00FFFF;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+canvas {
+    border-radius: 20px;
+}
+
+/** Image Reference
+ * Retrieved March 29, 2020, from https://pxhere.com/en/photo/971454
+ */
+.background {
+    background: url(../Assets/images/abandoned.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
