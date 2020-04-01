@@ -55,6 +55,7 @@ module managers {
                             config.Game.SCORE_BOARD.Lives -= 1;
                         }
 
+                        config.Game.COLLISION_STATUS = true
                         setTimeout(() => {
                             config.Game.COLLISION_STATUS = false
                         }, 500);

@@ -22,6 +22,16 @@ module objects {
             if (this.position.x >= config.Game.SCREEN_WIDTH - this.halfWidth) {
                 this.position = new Vector2(config.Game.SCREEN_WIDTH - this.halfWidth, this.position.y);
             }
+
+            // top boundary
+            if (this.position.y <= this.halfHeight) {
+                this.position = new Vector2(this.position.x, this.halfHeight);
+            }
+
+            // bottom boundary
+            if (this.position.y >= config.Game.SCREEN_HEIGHT - this.halfHeight) {
+                this.position = new Vector2(this.position.x, config.Game.SCREEN_HEIGHT - this.halfHeight);
+            }
         }
 
         private _move(): void {
