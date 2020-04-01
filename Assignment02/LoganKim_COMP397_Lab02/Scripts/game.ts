@@ -15,6 +15,7 @@ let Game = (function () {
 
     let assetManifest =
         [
+            // images
             { id: "road", src: "./Assets/images/road.png" }, // from https://opengameart.org/content/golgotha-textures-tunnelroadjpg
             { id: "avatar", src: "./Assets/images/avatar.png" }, // from https://webstockreview.net/pict/getfirst
             { id: "bullet", src: "./Assets/images/bullet.png" }, // from https://www.clipart.email/download/7844222.html
@@ -30,8 +31,9 @@ let Game = (function () {
             { id: "btnExit", src: "./Assets/images/btnExit.png" }, // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj
             { id: "bgStart", src: "./Assets/images/bgStart.png" }, // from https://www.playstationlifestyle.net/2019/04/21/days-gone-title-meaning/
             { id: "bgInstruction", src: "./Assets/images/bgInstruction.png" }, // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj
-            { id: "bgGameOver", src: "./Assets/images/bgGameOver.png" } // from https://www.playstationlifestyle.net/2019/04/21/days-gone-title-meaning/
-
+            { id: "bgGameOver", src: "./Assets/images/bgGameOver.png" }, // from https://www.playstationlifestyle.net/2019/04/21/days-gone-title-meaning/
+            // sound
+            { id: "splashSound", src: "./Assets/audio/splash.mp3" } // from https://freesound.org/people/original_sound/sounds/494978/
         ];
 
     let zombieData =

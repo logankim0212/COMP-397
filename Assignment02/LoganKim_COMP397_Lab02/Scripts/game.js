@@ -11,6 +11,7 @@ let Game = (function () {
     let assets;
     let zombieAtlas;
     let assetManifest = [
+        // images
         { id: "road", src: "./Assets/images/road.png" },
         { id: "avatar", src: "./Assets/images/avatar.png" },
         { id: "bullet", src: "./Assets/images/bullet.png" },
@@ -26,7 +27,9 @@ let Game = (function () {
         { id: "btnExit", src: "./Assets/images/btnExit.png" },
         { id: "bgStart", src: "./Assets/images/bgStart.png" },
         { id: "bgInstruction", src: "./Assets/images/bgInstruction.png" },
-        { id: "bgGameOver", src: "./Assets/images/bgGameOver.png" } // from https://www.playstationlifestyle.net/2019/04/21/days-gone-title-meaning/
+        { id: "bgGameOver", src: "./Assets/images/bgGameOver.png" },
+        // sound
+        { id: "splashSound", src: "./Assets/audio/splash.mp3" } // from https://freesound.org/people/original_sound/sounds/494978/
     ];
     let zombieData = {
         "images": {},

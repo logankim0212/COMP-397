@@ -2,6 +2,7 @@ module scenes {
     export class Splash extends objects.Scene {
         // PRIVATE INSTANCE MEMEBERS
         private _splashScreen: createjs.Bitmap;
+        private _splashSound : createjs.AbstractSoundInstance;
 
         // PUBLIC PROPERTIES
 
@@ -20,7 +21,7 @@ module scenes {
             this.Main();
             setTimeout(() => {
                 config.Game.SCENE_STATE = scenes.State.START;
-            }, 2000);
+            }, 2500);
         }
 
         public Update(): void {
@@ -30,6 +31,8 @@ module scenes {
         // TODO:consolidate stage cleared scene
         public Main(): void {
             this.addChild(this._splashScreen);
+            this._splashSound = createjs.Sound.play("splashSound");
+            this._splashSound.volume = 0.2; // 10% volume
         }
 
         public Clean(): void {
