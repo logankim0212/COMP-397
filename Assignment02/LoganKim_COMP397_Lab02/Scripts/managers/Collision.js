@@ -63,6 +63,7 @@ var managers;
                             config.Game.SCENE_STATE = scenes.State.START; // TODO: Change to end
                             config.Game.LIVES = 3;
                             config.Game.SCORE = 0;
+                            config.Game.BULLET_NUMBER = 10;
                         }
                     }
                     break;

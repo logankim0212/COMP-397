@@ -25,6 +25,8 @@ module scenes {
 
         // PUBLIC METHODS
         public Start(): void {
+            config.Game.CURRENT_SCENE = this;
+
             //instantiate a new Text object
             this._welcomeLabel = new objects.Label("Zombie Escape", "40px", "Consolas", "red", 300, 180, true);
             // buttons

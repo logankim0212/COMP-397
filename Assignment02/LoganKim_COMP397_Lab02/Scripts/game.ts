@@ -134,6 +134,7 @@ let Game = (function () {
                 break;
         }
 
+        config.Game.CURRENT_SCENE = currentScene;
         currentSceneState = config.Game.SCENE_STATE;
         stage.addChild(currentScene);
     }

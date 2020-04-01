@@ -16,6 +16,7 @@ var scenes;
         // PRIVATE METHODS
         // PUBLIC METHODS
         Start() {
+            config.Game.CURRENT_SCENE = this;
             //instantiate a new Text object
             let txtOne = "Instruction";
             let txtTwo = "- Movement: Use \"WASD\" key for 4 directions\n\n" +

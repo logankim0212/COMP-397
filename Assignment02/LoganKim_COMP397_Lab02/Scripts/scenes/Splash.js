@@ -11,6 +11,7 @@ var scenes;
         }
         // PUBLIC METHODS
         Start() {
+            config.Game.CURRENT_SCENE = this;
             this.Main();
             setTimeout(() => { this.Clean(); }, 2000);
         }

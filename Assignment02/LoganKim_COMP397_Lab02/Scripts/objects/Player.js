@@ -2,7 +2,6 @@
 var objects;
 (function (objects) {
     class Player extends objects.GameObject {
-        // PRIVATE INSTANCE MEMBERS
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         constructor() {
@@ -33,6 +32,7 @@ var objects;
             // let newPositionY = util.Mathf.Lerp(this.position.y, this.stage.mouseY, config.Game.MOVING_TIME);
             // this.position = new Vector2(newPositionX, newPositionY);
             this.position = new objects.Vector2(this.position.x, this.position.y);
+            this._bulletSpawn = new objects.Vector2(this.position.x, this.position.y - this.halfHeight - 10);
         }
         // PUBLIC METHODS
         Start() {
@@ -56,6 +56,20 @@ var objects;
         }
         moveDown() {
             this.position.add(objects.Vector2.scale(objects.Vector2.down(), config.Game.MOVING_TIME));
+        }
+        FireBullet() {
+            if (config.Game.BULLET_NUMBER > 0) {
+                if (!config.Game.SHOOTING_STATUS) {
+                    config.Game.SHOOTING_STATUS = true;
+                    config.Game.SCORE_BOARD.Bullet -= 1;
+                    let bullet = config.Game.BULLET_MANAGER.GetBullet();
+                    bullet.isActive = true;
+                    bullet.position = this._bulletSpawn;
+                    setTimeout(() => {
+                        config.Game.SHOOTING_STATUS = false;
+                    }, 100);
+                }
+            }
         }
     }
     objects.Player = Player;

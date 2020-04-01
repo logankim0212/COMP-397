@@ -2,9 +2,11 @@ module managers {
     export class ScoreBoard {
         // private  instance members
         private _lives: number;
+        private _bullet: number;
         private _score: number;
         private _highScore: number;
         private _livesLabel: objects.Label;
+        private _bulletLabel: objects.Label;
         private _scoreLabel: objects.Label;
         private _highScoreLabel: objects.Label;
 
@@ -18,6 +20,16 @@ module managers {
             this._lives = v;
             config.Game.LIVES = this._lives;
             this.LivesLabel.text = "Lives: " + this._lives;
+        }
+
+        public get Bullet(): number {
+            return this._bullet;
+        }
+
+        public set Bullet(v: number) {
+            this._bullet = v;
+            config.Game.BULLET_NUMBER = this._bullet;
+            this.BulletLabel.text = "Bullet: " + this._bullet;
         }
 
         public get Score(): number {
@@ -43,6 +55,10 @@ module managers {
             return this._livesLabel;
         }
 
+        public get BulletLabel(): objects.Label {
+            return this._bulletLabel;
+        }
+
         public get ScoreLabel(): objects.Label {
             return this._scoreLabel;
         }
@@ -54,10 +70,12 @@ module managers {
         // constructor
         constructor() {
             this._lives = config.Game.LIVES;
+            this._bullet = config.Game.BULLET_NUMBER;
             this._score = config.Game.SCORE;
             this._highScore = config.Game.HIGH_SCORE;
             this._livesLabel = new objects.Label("Lives: " + this._lives, "20px", "Consolas", "#FFFF00", 30, 20);
-            this._scoreLabel = new objects.Label("Score: " + this._score, "20px", "Consolas", "#FFFF00", 450, 20);
+            this._bulletLabel = new objects.Label("Bullets: " + this._bullet, "20px", "Consolas", "#FFFF00", 165, 20);
+            this._scoreLabel = new objects.Label("Score: " + this._score, "20px", "Consolas", "#FFFF00", 460, 20);
             this._highScoreLabel = new objects.Label("High Score: " + this._highScore, "40px", "Consolas", "#FFFF00", 300, 300, true);
         }
 

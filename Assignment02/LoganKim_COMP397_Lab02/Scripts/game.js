@@ -120,6 +120,7 @@ let Game = (function () {
                 currentScene = new scenes.Splash();
                 break;
         }
+        config.Game.CURRENT_SCENE = currentScene;
         currentSceneState = config.Game.SCENE_STATE;
         stage.addChild(currentScene);
     }

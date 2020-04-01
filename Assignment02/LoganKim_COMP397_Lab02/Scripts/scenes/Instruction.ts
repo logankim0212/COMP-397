@@ -25,6 +25,8 @@ module scenes {
 
         // PUBLIC METHODS
         public Start(): void {
+            config.Game.CURRENT_SCENE = this;
+
             //instantiate a new Text object
             let txtOne: string = "Instruction";
             let txtTwo: string = "- Movement: Use \"WASD\" key for 4 directions\n\n" +
