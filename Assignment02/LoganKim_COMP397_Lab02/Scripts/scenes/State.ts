@@ -7,7 +7,7 @@ module scenes
         INSTRUCTION,
         EXIT,
         PLAY,
-        END,
+        GAMEOVER,
         NUM_OF_SCENES
     }
 }

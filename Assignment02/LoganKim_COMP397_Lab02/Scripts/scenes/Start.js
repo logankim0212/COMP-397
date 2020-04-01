@@ -18,7 +18,7 @@ var scenes;
         Start() {
             config.Game.CURRENT_SCENE = this;
             //instantiate a new Text object
-            this._welcomeLabel = new objects.Label("Zombie Escape", "40px", "Consolas", "red", 300, 180, true);
+            this._welcomeLabel = new objects.Label("Zombie Escape", "40px", "Consolas", "red", 300, 150, true);
             // buttons
             this._btnStart = new objects.Button(config.Game.ASSETS.getResult("btnStart"), 300, 400, true);
             this._btnInstruction = new objects.Button(config.Game.ASSETS.getResult("btnInstruction"), 300, 460, true);

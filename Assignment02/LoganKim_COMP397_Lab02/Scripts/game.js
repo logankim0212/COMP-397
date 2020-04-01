@@ -20,6 +20,8 @@ let Game = (function () {
         { id: "button", src: "./Assets/images/button.png" },
         { id: "placeholder", src: "./Assets/images/placeholder.png" },
         { id: "btnStart", src: "./Assets/images/btnStart.png" },
+        { id: "btnRestart", src: "./Assets/images/btnRestart.png" },
+        { id: "btnMain", src: "./Assets/images/btnMain.png" },
         { id: "btnInstruction", src: "./Assets/images/btnInstruction.png" },
         { id: "btnExit", src: "./Assets/images/btnExit.png" },
         { id: "bgInstruction", src: "./Assets/images/bgInstruction.png" } // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj
@@ -110,6 +112,10 @@ let Game = (function () {
                 console.log("switch to Play Scene");
                 playScene = new scenes.Play();
                 currentScene = playScene;
+                break;
+            case scenes.State.GAMEOVER:
+                console.log("switch to Game Over Scene");
+                currentScene = new scenes.GameOver();
                 break;
             case scenes.State.INSTRUCTION:
                 console.log("switch to Instruction Scene");

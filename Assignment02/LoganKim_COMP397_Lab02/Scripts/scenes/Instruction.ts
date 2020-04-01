@@ -42,7 +42,7 @@ module scenes {
             this._lblTwo = new objects.Label(txtTwo, "20px", "Consolas", "#000000", 300, 150, true);
             this._lblThree = new objects.Label(txtThree, "20px", "Consolas", "GREEN", 300, 450, true);
             // buttons
-            this._btnMain = new objects.Button(config.Game.ASSETS.getResult("btnExit"), 300, 520, true);
+            this._btnMain = new objects.Button(config.Game.ASSETS.getResult("btnMain"), 300, 520, true);
 
             this.Main();
         }

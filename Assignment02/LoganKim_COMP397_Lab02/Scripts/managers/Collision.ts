@@ -63,7 +63,10 @@ module managers {
 
                         // check if lives falls less than 1 and then switch to END scene
                         if (config.Game.LIVES < 1) {
-                            config.Game.SCENE_STATE = scenes.State.START; // TODO: Change to end
+                            if (config.Game.HIGH_SCORE <= config.Game.SCORE) {
+                                config.Game.HIGH_SCORE = config.Game.SCORE;
+                            }
+                            config.Game.SCENE_STATE = scenes.State.GAMEOVER;
                             config.Game.LIVES = 3;
                             config.Game.SCORE = 0;
                             config.Game.BULLET_NUMBER = 10;

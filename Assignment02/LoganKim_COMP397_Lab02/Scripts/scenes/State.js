@@ -8,7 +8,7 @@ var scenes;
         State[State["INSTRUCTION"] = 1] = "INSTRUCTION";
         State[State["EXIT"] = 2] = "EXIT";
         State[State["PLAY"] = 3] = "PLAY";
-        State[State["END"] = 4] = "END";
+        State[State["GAMEOVER"] = 4] = "GAMEOVER";
         State[State["NUM_OF_SCENES"] = 5] = "NUM_OF_SCENES";
     })(State = scenes.State || (scenes.State = {}));
 })(scenes || (scenes = {}));
