@@ -47,31 +47,36 @@ var managers;
                     break;
                 case enums.GameObjectType.ZOMBIE:
                     {
-                        if (!config.Game.CHEAT_ENABLED) {
+                        if (!config.Game.CHEAT_ENABLED && !config.Game.INVINCIBLE_ENABLED) {
                             if (!config.Game.COLLISION_STATUS) {
                                 config.Game.SCORE_BOARD.Lives -= 1;
                             }
-                        }
-                        let hitZombieSound = createjs.Sound.play("hitZombieSound");
-                        hitZombieSound.volume = 0.1; // 10% volume
-                        object1.alpha = 0.5;
-                        config.Game.COLLISION_STATUS = true;
-                        setTimeout(() => {
-                            object1.alpha = 1;
-                            config.Game.COLLISION_STATUS = false;
-                        }, 500);
-                        // check if lives falls less than 1 and then switch to END scene
-                        if (config.Game.LIVES < 1) {
-                            if (config.Game.HIGH_SCORE <= config.Game.SCORE) {
-                                config.Game.HIGH_SCORE = config.Game.SCORE;
+                            let hitZombieSound = createjs.Sound.play("hitZombieSound");
+                            hitZombieSound.volume = 0.1; // 10% volume
+                            object1.alpha = 0.5;
+                            config.Game.COLLISION_STATUS = true;
+                            setTimeout(() => {
+                                object1.alpha = 1;
+                                config.Game.COLLISION_STATUS = false;
+                            }, 500);
+                            // check if lives falls less than 1 and then switch to END scene
+                            if (config.Game.LIVES < 1) {
+                                if (config.Game.HIGH_SCORE <= config.Game.SCORE) {
+                                    config.Game.HIGH_SCORE = config.Game.SCORE;
+                                }
+                                config.Game.SCENE_STATE = scenes.State.GAMEOVER;
                             }
-                            config.Game.SCENE_STATE = scenes.State.GAMEOVER;
                         }
                     }
                     break;
                 case enums.GameObjectType.BULLET:
                     {
-                        config.Game.SCORE_BOARD.Score += 100;
+                        if (!config.Game.SPECIAL_ENABLED) {
+                            config.Game.SCORE_BOARD.Score += 100;
+                        }
+                        else {
+                            config.Game.SCORE_BOARD.Score += 200;
+                        }
                         let zombieDeathSound = createjs.Sound.play("zombieDeathSound");
                         zombieDeathSound.volume = 0.1; // 10% volume
                         object1.Reset();
@@ -83,6 +88,22 @@ var managers;
                         config.Game.SCORE_BOARD.Lives += 1;
                         let heartSound = createjs.Sound.play("heartSound");
                         heartSound.volume = 0.1; // 10% volume
+                        object2.Reset();
+                    }
+                    break;
+                case enums.GameObjectType.POWERUP:
+                    {
+                        let powerupSound = createjs.Sound.play("powerupSound");
+                        powerupSound.volume = 0.2; // 20% volume
+                        config.Game.SCORE_BOARD.Bullet = 20;
+                        config.Game.INVINCIBLE_ENABLED = true;
+                        object1.alpha = 0.5;
+                        config.Game.SPECIAL_ENABLED = true;
+                        setTimeout(() => {
+                            object1.alpha = 1;
+                            config.Game.INVINCIBLE_ENABLED = false;
+                            config.Game.SPECIAL_ENABLED = false;
+                        }, 4600);
                         object2.Reset();
                     }
                     break;

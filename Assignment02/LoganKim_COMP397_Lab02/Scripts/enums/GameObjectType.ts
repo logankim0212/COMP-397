@@ -6,6 +6,7 @@ module enums
         ZOMBIE,
         POTHOLE,
         HEART,
+        POWERUP,
         ROAD,
         BUTTON,
         BULLET,

@@ -63,7 +63,9 @@ var objects;
                     let shootingSound = createjs.Sound.play("shootingSound");
                     shootingSound.volume = 0.1; // 10% volume
                     config.Game.SHOOTING_STATUS = true;
-                    config.Game.SCORE_BOARD.Bullet -= 1;
+                    if (!config.Game.SPECIAL_ENABLED) {
+                        config.Game.SCORE_BOARD.Bullet -= 1;
+                    }
                     let bullet = config.Game.BULLET_MANAGER.GetBullet();
                     bullet.isActive = true;
                     bullet.position = this._bulletSpawn;

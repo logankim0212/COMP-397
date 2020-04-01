@@ -19,6 +19,8 @@ var config;
     Game.SHOOTING_STATUS = false;
     Game.BGM_STATUS = false;
     Game.CHEAT_ENABLED = false;
+    Game.INVINCIBLE_ENABLED = false;
+    Game.SPECIAL_ENABLED = false;
     config.Game = Game;
 })(config || (config = {}));
 //# sourceMappingURL=game.js.map

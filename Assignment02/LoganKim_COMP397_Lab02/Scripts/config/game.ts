@@ -24,5 +24,7 @@ module config
         public static BULLET_MANAGER: managers.BulletManager;
         public static BGM_STATUS: boolean = false;
         public static CHEAT_ENABLED: boolean = false;
+        public static INVINCIBLE_ENABLED: boolean = false;
+        public static SPECIAL_ENABLED: boolean = false;
     }
 }

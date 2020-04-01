@@ -26,9 +26,6 @@ var managers;
             this._bulletPool.push(bullet);
             return bullet;
         }
-        ReturnBullet(bullet) {
-            this._bulletPool.push(bullet);
-        }
         AddBulletsToScene() {
             console.log("bullet manager: " + config.Game.CURRENT_SCENE);
             this._bulletPool.forEach(bullet => {

@@ -1,5 +1,5 @@
 module objects {
-    export class Heart extends GameObject {
+    export class Powerup extends GameObject {
         // PRIVATE INSTANCE MEMBERS
         private _verticalSpeed?: number;
 
@@ -7,13 +7,12 @@ module objects {
 
         // CONSTRUCTOR
         constructor() {
-            super(config.Game.ASSETS.getResult("heart"), new Vector2(), true);
+            super(config.Game.ASSETS.getResult("powerup"), new Vector2(), true);
 
             this.Start();
         }
 
         // PRIVATE METHODS
-
         protected _checkBounds(): void {
             if (this.y >= config.Game.SCREEN_HEIGHT * 2 + this.height) {
                 this.Reset();
@@ -27,11 +26,11 @@ module objects {
         // PUBLIC METHODS
         public Start(): void {
             setTimeout(() => {
-                this.type = enums.GameObjectType.HEART;
+                this.type = enums.GameObjectType.POWERUP;
                 this._verticalSpeed = config.Game.VERTICAL_SPEED; // 10 px per frame
                 this.velocity = new Vector2(0, this._verticalSpeed);
                 this.Reset();
-            }, 300);
+            }, 1300);
         }
 
         public Update(): void {
@@ -41,7 +40,7 @@ module objects {
 
         public Reset(): void {
             let randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);
-            let y = -(config.Game.SCREEN_HEIGHT * 7 + this.height);
+            let y = -(config.Game.SCREEN_HEIGHT * 5 + this.height);
             this.position = new Vector2(randomX, y);
         }
     }

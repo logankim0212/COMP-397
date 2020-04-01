@@ -22,7 +22,8 @@ let Game = (function () {
             { id: "bullet", src: "./Assets/images/bullet.png" }, // from https://www.clipart.email/download/7844222.html
             { id: "pothole", src: "./Assets/images/pothole.png" }, // from http://www.pngall.com/hole-png/download/36973
             { id: "zombie", src: "./Assets/images/zombieSprite.png" }, // from https://opengameart.org/content/animated-top-down-zombie
-            { id: "heart", src: "./Assets/images/heart.png" }, // from https://opengameart.org/content/animated-top-down-zombie
+            { id: "heart", src: "./Assets/images/heart.png" }, // from https://www.stickpng.com/img/people/hearts/heart-clipart-side
+            { id: "powerup", src: "./Assets/images/powerup.png" }, // from https://ya-webdesign.com/imgdownload.html
             { id: "splash", src: "./Assets/images/splash.png" }, // own creation of COSMOS Games
             { id: "button", src: "./Assets/images/button.png" }, // from Tom Tsiliopoulos
             { id: "placeholder", src: "./Assets/images/placeholder.png" }, // from Tom Tsiliopoulos
@@ -41,7 +42,8 @@ let Game = (function () {
             { id: "shootingSound", src: "./Assets/audio/shooting.mp3" }, // from https://freesound.org/people/Yap_Audio_Production/sounds/218480/
             { id: "reloadingSound", src: "./Assets/audio/reloading.mp3" }, // from https://www.youtube.com/watch?v=c-BKVzTLqlc
             { id: "potholeSound", src: "./Assets/audio/pothole.mp3" }, // from https://freesound.org/people/TROLlox_78/sounds/274119/
-            { id: "heartSound", src: "./Assets/audio/heart.mp3" }, // from https://freesound.org/people/TROLlox_78/sounds/274119/
+            { id: "heartSound", src: "./Assets/audio/heart.mp3" }, // from https://freesound.org/people/shinephoenixstormcrow/sounds/337049/
+            { id: "powerupSound", src: "./Assets/audio/powerup.mp3" }, // from https://freesound.org/people/kantouth/sounds/104401/
             { id: "hitZombieSound", src: "./Assets/audio/hit_zombie.mp3" }, // from https://freesound.org/people/animationIsaac/sounds/149899/
             { id: "zombieDeathSound", src: "./Assets/audio/zombie_death.mp3" } // from https://freesound.org/people/bigmonmulgrew/sounds/346626/
         ];
