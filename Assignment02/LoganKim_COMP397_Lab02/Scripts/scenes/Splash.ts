@@ -17,8 +17,10 @@ module scenes {
         public Start(): void {
             config.Game.CURRENT_SCENE = this;
 
-            this.Main()
-            setTimeout(() => { this.Clean() }, 2000);
+            this.Main();
+            setTimeout(() => {
+                config.Game.SCENE_STATE = scenes.State.START;
+            }, 2000);
         }
 
         public Update(): void {

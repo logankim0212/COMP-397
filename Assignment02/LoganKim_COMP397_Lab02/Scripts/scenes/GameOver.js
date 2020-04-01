@@ -6,10 +6,10 @@ var scenes;
         // CONSTRUCTOR
         constructor() {
             super();
-            this._gameOverLabel = new objects.Label("Game Over", "40px", "Consolas", "red", 300, 150, true);
+            this._gameOverLabel = new objects.Label("Game Over", "40px", "Consolas", "red", 300, 80, true);
             this._btnRestart = new objects.Button(config.Game.ASSETS.getResult("btnRestart"), 300, 460, true);
             this._btnMain = new objects.Button(config.Game.ASSETS.getResult("btnMain"), 300, 520, true);
-            this._road = new objects.Road();
+            this._background = new createjs.Bitmap(config.Game.ASSETS.getResult("bgGameOver"));
             this._scoreBoard = new managers.ScoreBoard();
             this.Start();
         }
@@ -21,10 +21,9 @@ var scenes;
             this.Main();
         }
         Update() {
-            this._road.Update();
         }
         Main() {
-            this.addChild(this._road);
+            this.addChild(this._background);
             this.addChild(this._gameOverLabel);
             this.addChild(this._btnRestart);
             this.addChild(this._btnMain);

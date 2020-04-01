@@ -35,7 +35,6 @@ var managers;
             switch (object2.type) {
                 case enums.GameObjectType.POTHOLE:
                     {
-                        console.log("Collision with Pothole!");
                         // config.Game.MOVING_TIME = 0.02; // when using mouse
                         config.Game.MOVING_TIME = 2; // when using keyboard
                         setTimeout(() => {
@@ -46,7 +45,6 @@ var managers;
                     break;
                 case enums.GameObjectType.ZOMBIE:
                     {
-                        console.log("Collision with Zombie!");
                         if (!config.Game.COLLISION_STATUS) {
                             config.Game.SCORE_BOARD.Lives -= 1;
                         }
@@ -70,7 +68,6 @@ var managers;
                     break;
                 case enums.GameObjectType.BULLET:
                     {
-                        console.log("Collision with Bullet!");
                         config.Game.SCORE_BOARD.Score += 100;
                         object1.Reset();
                         object2.Reset();

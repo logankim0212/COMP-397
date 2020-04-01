@@ -5,7 +5,7 @@ module scenes {
         private _btnStart: objects.Button;
         private _btnInstruction: objects.Button;
         private _btnExit: objects.Button;
-        private _road: objects.Road;
+        private _background: createjs.Bitmap;
 
         // PUBLIC PROPERTIES
 
@@ -16,7 +16,7 @@ module scenes {
             this._btnStart = new objects.Button();
             this._btnInstruction = new objects.Button();
             this._btnExit = new objects.Button();
-            this._road = new objects.Road();
+            this._background = new createjs.Bitmap(config.Game.ASSETS.getResult("bgStart"));
 
             this.Start();
         }
@@ -28,7 +28,7 @@ module scenes {
             config.Game.CURRENT_SCENE = this;
 
             //instantiate a new Text object
-            this._welcomeLabel = new objects.Label("Zombie Escape", "40px", "Consolas", "red", 300, 150, true);
+            this._welcomeLabel = new objects.Label("Zombie Rider", "40px", "Consolas", "red", 300, 80, true);
             // buttons
             this._btnStart = new objects.Button(config.Game.ASSETS.getResult("btnStart"), 300, 400, true);
             this._btnInstruction = new objects.Button(config.Game.ASSETS.getResult("btnInstruction"), 300, 460, true);
@@ -38,11 +38,11 @@ module scenes {
         }
 
         public Update(): void {
-            this._road.Update();
+
         }
 
         public Main(): void {
-            this.addChild(this._road);
+            this.addChild(this._background);
             this.addChild(this._welcomeLabel);
             this.addChild(this._btnStart);
             this.addChild(this._btnInstruction);

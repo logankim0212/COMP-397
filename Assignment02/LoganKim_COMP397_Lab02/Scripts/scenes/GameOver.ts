@@ -4,7 +4,7 @@ module scenes {
         private _gameOverLabel: objects.Label;
         private _btnRestart: objects.Button;
         private _btnMain: objects.Button;
-        private _road: objects.Road;
+        private _background: createjs.Bitmap;
 
         private _scoreBoard: managers.ScoreBoard;
 
@@ -13,10 +13,10 @@ module scenes {
         // CONSTRUCTOR
         constructor() {
             super();
-            this._gameOverLabel = new objects.Label("Game Over", "40px", "Consolas", "red", 300, 150, true);
+            this._gameOverLabel = new objects.Label("Game Over", "40px", "Consolas", "red", 300, 80, true);
             this._btnRestart = new objects.Button(config.Game.ASSETS.getResult("btnRestart"), 300, 460, true);
             this._btnMain = new objects.Button(config.Game.ASSETS.getResult("btnMain"), 300, 520, true);
-            this._road = new objects.Road();
+            this._background = new createjs.Bitmap(config.Game.ASSETS.getResult("bgGameOver"));
             this._scoreBoard = new managers.ScoreBoard();
 
             this.Start();
@@ -33,11 +33,11 @@ module scenes {
         }
 
         public Update(): void {
-            this._road.Update();
+
         }
 
         public Main(): void {
-            this.addChild(this._road);
+            this.addChild(this._background);
             this.addChild(this._gameOverLabel);
             this.addChild(this._btnRestart);
             this.addChild(this._btnMain);

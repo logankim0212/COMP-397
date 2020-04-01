@@ -24,7 +24,9 @@ let Game = (function () {
         { id: "btnMain", src: "./Assets/images/btnMain.png" },
         { id: "btnInstruction", src: "./Assets/images/btnInstruction.png" },
         { id: "btnExit", src: "./Assets/images/btnExit.png" },
-        { id: "bgInstruction", src: "./Assets/images/bgInstruction.png" } // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj
+        { id: "bgStart", src: "./Assets/images/bgStart.png" },
+        { id: "bgInstruction", src: "./Assets/images/bgInstruction.png" },
+        { id: "bgGameOver", src: "./Assets/images/bgGameOver.png" } // from https://www.playstationlifestyle.net/2019/04/21/days-gone-title-meaning/
     ];
     let zombieData = {
         "images": {},
@@ -78,7 +80,7 @@ let Game = (function () {
         zombieAtlas = new createjs.SpriteSheet(zombieData);
         config.Game.ZOMBIE_ATLAS = zombieAtlas;
         currentSceneState = scenes.State.NO_SCENE;
-        config.Game.SCENE_STATE = scenes.State.START;
+        config.Game.SCENE_STATE = scenes.State.SPLASH;
     }
     /**
      * This function is triggered every frame (16ms)
@@ -104,6 +106,10 @@ let Game = (function () {
         }
         // switch to the new scene
         switch (config.Game.SCENE_STATE) {
+            case scenes.State.SPLASH:
+                console.log("switch to Splash Scene");
+                currentScene = new scenes.Splash();
+                break;
             case scenes.State.START:
                 console.log("switch to Start Scene");
                 currentScene = new scenes.Start();
