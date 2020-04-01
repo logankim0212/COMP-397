@@ -32,7 +32,7 @@ module scenes {
         public Main(): void {
             this.addChild(this._splashScreen);
             this._splashSound = createjs.Sound.play("splashSound");
-            this._splashSound.volume = 0.2; // 10% volume
+            this._splashSound.volume = 0.4; // 10% volume
         }
 
         public Clean(): void {

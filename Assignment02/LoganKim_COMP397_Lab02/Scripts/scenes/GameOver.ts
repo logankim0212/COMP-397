@@ -43,11 +43,15 @@ module scenes {
             this.addChild(this._btnMain);
 
             this._btnRestart.on("click", () => {
+                let buttonSound = createjs.Sound.play("buttonSound");
+                buttonSound.volume = 0.2; // 20% volume
                 config.Game.SCENE_STATE = scenes.State.PLAY;
             });
 
             this._btnMain.on("click", () => {
-                config.Game.SCENE_STATE = scenes.State.START;
+                let buttonSound = createjs.Sound.play("buttonSound");
+                buttonSound.volume = 0.2; // 20% volume
+                config.Game.SCENE_STATE = scenes.State.MAIN;
             });
 
             this.addChild(this._scoreBoard.highScoreLabel);

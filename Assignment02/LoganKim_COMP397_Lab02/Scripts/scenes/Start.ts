@@ -6,8 +6,14 @@ module scenes {
         private _btnInstruction: objects.Button;
         private _btnExit: objects.Button;
         private _background: createjs.Bitmap;
+        private _BGM : createjs.AbstractSoundInstance;
+        private _buttonSound : createjs.AbstractSoundInstance;
 
         // PUBLIC PROPERTIES
+        public get BGM() : createjs.AbstractSoundInstance 
+        {
+            return this._BGM;
+        }
 
         // CONSTRUCTOR
         constructor() {
@@ -48,21 +54,36 @@ module scenes {
             this.addChild(this._btnInstruction);
             this.addChild(this._btnExit);
 
+            if (!config.Game.BGM_STATUS) {
+                config.Game.BGM_STATUS = true;
+                this._BGM = createjs.Sound.play("bgm");
+                this._BGM.loop = -1; // loop forever
+                this._BGM.volume = 0.1; // 10% volume
+            }
+
             this._btnStart.on("click", () => {
+                this.PlayButtonSound();
                 config.Game.SCENE_STATE = scenes.State.PLAY;
             });
 
             this._btnInstruction.on("click", () => {
+                this.PlayButtonSound();
                 config.Game.SCENE_STATE = scenes.State.INSTRUCTION;
             });
 
             this._btnExit.on("click", () => {
+                this.PlayButtonSound();
                 config.Game.SCENE_STATE = scenes.State.EXIT;
             });
         }
 
         public Clean(): void {
             this.removeAllChildren();
+        }
+
+        public PlayButtonSound(): void {
+            this._buttonSound = createjs.Sound.play("buttonSound");
+            this._buttonSound.volume = 0.2; // 20% volume
         }
     }
 }

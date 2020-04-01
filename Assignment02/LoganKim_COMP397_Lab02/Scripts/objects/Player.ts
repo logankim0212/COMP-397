@@ -76,6 +76,8 @@ module objects {
         public FireBullet() {
             if (config.Game.BULLET_NUMBER > 0) {
                 if (!config.Game.SHOOTING_STATUS) {
+                    let shootingSound = createjs.Sound.play("shootingSound");
+                    shootingSound.volume = 0.1; // 10% volume
                     config.Game.SHOOTING_STATUS = true;
                     config.Game.SCORE_BOARD.Bullet -= 1;
     

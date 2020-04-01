@@ -8,6 +8,7 @@ module scenes {
         private _scoreBoard: managers.ScoreBoard;
         private _bulletManager: managers.BulletManager;
         private _isReloading: boolean;
+        private _reloadingSound: createjs.AbstractSoundInstance;
 
         // PUBLIC PROPERTIES
         public keyPressedStates: boolean[]; // to detect which keys are down
@@ -107,6 +108,8 @@ module scenes {
 
             if (this.keyPressedStates[enums.Key.M]) {
                 this._isReloading = true;
+                this.PlayReloadingSound();
+
                 setTimeout(() => {
                     // config.Game.BULLET_NUMBER = 10;
                     config.Game.SCORE_BOARD.Bullet = 10;
@@ -115,5 +118,9 @@ module scenes {
             }
         }
 
+        public PlayReloadingSound(): void {
+            this._reloadingSound = createjs.Sound.play("reloadingSound");
+            this._reloadingSound.volume = 0.2; // 20% volume
+        }
     }
 }

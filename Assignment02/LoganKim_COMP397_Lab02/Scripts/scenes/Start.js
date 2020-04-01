@@ -2,7 +2,6 @@
 var scenes;
 (function (scenes) {
     class Start extends objects.Scene {
-        // PUBLIC PROPERTIES
         // CONSTRUCTOR
         constructor() {
             super();
@@ -12,6 +11,10 @@ var scenes;
             this._btnExit = new objects.Button();
             this._background = new createjs.Bitmap(config.Game.ASSETS.getResult("bgStart"));
             this.Start();
+        }
+        // PUBLIC PROPERTIES
+        get BGM() {
+            return this._BGM;
         }
         // PRIVATE METHODS
         // PUBLIC METHODS
@@ -33,18 +36,31 @@ var scenes;
             this.addChild(this._btnStart);
             this.addChild(this._btnInstruction);
             this.addChild(this._btnExit);
+            if (!config.Game.BGM_STATUS) {
+                config.Game.BGM_STATUS = true;
+                this._BGM = createjs.Sound.play("bgm");
+                this._BGM.loop = -1; // loop forever
+                this._BGM.volume = 0.1; // 10% volume
+            }
             this._btnStart.on("click", () => {
+                this.PlayButtonSound();
                 config.Game.SCENE_STATE = scenes.State.PLAY;
             });
             this._btnInstruction.on("click", () => {
+                this.PlayButtonSound();
                 config.Game.SCENE_STATE = scenes.State.INSTRUCTION;
             });
             this._btnExit.on("click", () => {
+                this.PlayButtonSound();
                 config.Game.SCENE_STATE = scenes.State.EXIT;
             });
         }
         Clean() {
             this.removeAllChildren();
+        }
+        PlayButtonSound() {
+            this._buttonSound = createjs.Sound.play("buttonSound");
+            this._buttonSound.volume = 0.2; // 20% volume
         }
     }
     scenes.Start = Start;

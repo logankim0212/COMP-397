@@ -20,5 +20,6 @@ module config
         public static COLLISION_STATUS: boolean = false;
         public static SHOOTING_STATUS: boolean = false;
         public static BULLET_MANAGER: managers.BulletManager;
+        public static BGM_STATUS: boolean = false;
     }
 }

@@ -37,6 +37,9 @@ module managers {
             switch (object2.type) {
                 case enums.GameObjectType.POTHOLE:
                     {
+                        let potholeSound = createjs.Sound.play("potholeSound");
+                        potholeSound.volume = 0.1; // 10% volume
+
                         // config.Game.MOVING_TIME = 0.02; // when using mouse
                         config.Game.MOVING_TIME = 2; // when using keyboard
 
@@ -51,6 +54,9 @@ module managers {
                         if (!config.Game.COLLISION_STATUS) {
                             config.Game.SCORE_BOARD.Lives -= 1;
                         }
+
+                        let hitZombieSound = createjs.Sound.play("hitZombieSound");
+                        hitZombieSound.volume = 0.1; // 10% volume
 
                         object1.alpha = 0.5;
                         config.Game.COLLISION_STATUS = true
@@ -74,6 +80,9 @@ module managers {
                 case enums.GameObjectType.BULLET:
                     {
                         config.Game.SCORE_BOARD.Score += 100;
+
+                        let zombieDeathSound = createjs.Sound.play("zombieDeathSound");
+                        zombieDeathSound.volume = 0.1; // 10% volume
 
                         object1.Reset();
                         object2.Reset();

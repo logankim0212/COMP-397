@@ -76,12 +76,17 @@ var scenes;
             }
             if (this.keyPressedStates[77 /* M */]) {
                 this._isReloading = true;
+                this.PlayReloadingSound();
                 setTimeout(() => {
                     // config.Game.BULLET_NUMBER = 10;
                     config.Game.SCORE_BOARD.Bullet = 10;
                     this._isReloading = false;
                 }, 1000);
             }
+        }
+        PlayReloadingSound() {
+            this._reloadingSound = createjs.Sound.play("reloadingSound");
+            this._reloadingSound.volume = 0.2; // 20% volume
         }
     }
     scenes.Play = Play;

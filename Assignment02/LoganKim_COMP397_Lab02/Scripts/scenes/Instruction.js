@@ -22,10 +22,9 @@ var scenes;
             let txtTwo = "- Movement: Use \"WASD\" key for 4 directions\n\n" +
                 "- Shooting: Use \"Space\" key\n\n\n\n" +
                 "- Hitting an pothole: 0.5s movement penalty\n\n" +
-                "- Heart symbol: Health +1\n\n" +
                 "- Hitting zombie: Health -1\n\n" +
-                "- Recharge your bullet: \"M\" key\n\n" +
-                "- Shoot to kill zombie and get +100 points";
+                "- Recharge your bullet: \"M\" key\n\n\n\n" +
+                "- Shoot to kill zombie and get 100 points";
             let txtThree = "* Test your limit where you can reach! *";
             this._lblOne = new objects.Label(txtOne, "40px", "Consolas", "#000000", 300, 70, true);
             this._lblTwo = new objects.Label(txtTwo, "20px", "Consolas", "#000000", 300, 150, true);
@@ -43,7 +42,9 @@ var scenes;
             this.addChild(this._lblThree);
             this.addChild(this._btnMain);
             this._btnMain.on("click", () => {
-                config.Game.SCENE_STATE = scenes.State.START;
+                let buttonSound = createjs.Sound.play("buttonSound");
+                buttonSound.volume = 0.2; // 20% volume
+                config.Game.SCENE_STATE = scenes.State.MAIN;
             });
         }
         Clean() {

@@ -7,6 +7,7 @@ let Game = (function () {
     let stage;
     let currentSceneState;
     let currentScene;
+    let startScene;
     let playScene;
     let assets;
     let zombieAtlas;
@@ -29,7 +30,14 @@ let Game = (function () {
         { id: "bgInstruction", src: "./Assets/images/bgInstruction.png" },
         { id: "bgGameOver", src: "./Assets/images/bgGameOver.png" },
         // sound
-        { id: "splashSound", src: "./Assets/audio/splash.mp3" } // from https://freesound.org/people/original_sound/sounds/494978/
+        { id: "splashSound", src: "./Assets/audio/splash.mp3" },
+        { id: "bgm", src: "./Assets/audio/bgm.mp3" },
+        { id: "buttonSound", src: "./Assets/audio/button.mp3" },
+        { id: "shootingSound", src: "./Assets/audio/shooting.mp3" },
+        { id: "reloadingSound", src: "./Assets/audio/reloading.mp3" },
+        { id: "potholeSound", src: "./Assets/audio/pothole.mp3" },
+        { id: "hitZombieSound", src: "./Assets/audio/hit_zombie.mp3" },
+        { id: "zombieDeathSound", src: "./Assets/audio/zombie_death.mp3" } // from https://freesound.org/people/bigmonmulgrew/sounds/346626/
     ];
     let zombieData = {
         "images": {},
@@ -115,7 +123,8 @@ let Game = (function () {
                 break;
             case scenes.State.START:
                 console.log("switch to Start Scene");
-                currentScene = new scenes.Start();
+                startScene = new scenes.Start();
+                currentScene = startScene;
                 break;
             case scenes.State.PLAY:
                 console.log("switch to Play Scene");
@@ -126,12 +135,19 @@ let Game = (function () {
                 console.log("switch to Game Over Scene");
                 currentScene = new scenes.GameOver();
                 break;
+            case scenes.State.MAIN:
+                console.log("switch to Main Scene");
+                currentScene = new scenes.Start();
+                break;
             case scenes.State.INSTRUCTION:
                 console.log("switch to Instruction Scene");
                 currentScene = new scenes.Instruction();
                 break;
             case scenes.State.EXIT:
                 console.log("switch to Exit Scene");
+                config.Game.HIGH_SCORE = 0;
+                config.Game.BGM_STATUS = false;
+                startScene.BGM.stop();
                 currentScene = new scenes.Splash();
                 break;
         }

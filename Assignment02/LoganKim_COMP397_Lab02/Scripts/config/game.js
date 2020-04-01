@@ -15,6 +15,7 @@ var config;
     Game.HIGH_SCORE = 0;
     Game.COLLISION_STATUS = false;
     Game.SHOOTING_STATUS = false;
+    Game.BGM_STATUS = false;
     config.Game = Game;
 })(config || (config = {}));
 //# sourceMappingURL=game.js.map
