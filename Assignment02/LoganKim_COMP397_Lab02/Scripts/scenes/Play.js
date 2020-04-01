@@ -2,7 +2,6 @@
 var scenes;
 (function (scenes) {
     class Play extends objects.Scene {
-        // PUBLIC PROPERTIES
         // CONSTRUCTOR
         constructor() {
             super();
@@ -11,6 +10,7 @@ var scenes;
             this._player = new objects.Player();
             this._zombies = new Array(); // empty container
             this._scoreBoard = new managers.ScoreBoard();
+            this.keyPressedStates = [];
             this.Start();
         }
         // PRIVATE METHODS
@@ -23,6 +23,7 @@ var scenes;
             this.Main();
         }
         Update() {
+            this.detectPressedKeys();
             this._road.Update();
             this._pothole.Update();
             this._player.Update();
@@ -44,6 +45,20 @@ var scenes;
         }
         Clean() {
             this.removeAllChildren();
+        }
+        detectPressedKeys() {
+            if (this.keyPressedStates[87 /* W */]) {
+                this._player.moveUp();
+            }
+            else if (this.keyPressedStates[83 /* S */]) {
+                this._player.moveDown();
+            }
+            if (this.keyPressedStates[65 /* A */]) {
+                this._player.moveLeft();
+            }
+            else if (this.keyPressedStates[68 /* D */]) {
+                this._player.moveRight();
+            }
         }
     }
     scenes.Play = Play;

@@ -8,6 +8,7 @@ module scenes {
         private _scoreBoard: managers.ScoreBoard;
 
         // PUBLIC PROPERTIES
+        public keyPressedStates: boolean[]; // to detect which keys are down
 
         // CONSTRUCTOR
         constructor() {
@@ -17,6 +18,7 @@ module scenes {
             this._player = new objects.Player();
             this._zombies = new Array<objects.Zombie>(); // empty container
             this._scoreBoard = new managers.ScoreBoard();
+            this.keyPressedStates = [];
 
             this.Start();
         }
@@ -35,6 +37,8 @@ module scenes {
         }
 
         public Update(): void {
+            this.detectPressedKeys();
+
             this._road.Update();
             this._pothole.Update();
             this._player.Update();
@@ -62,5 +66,20 @@ module scenes {
         public Clean(): void {
             this.removeAllChildren();
         }
+
+        public detectPressedKeys(): void {
+            if (this.keyPressedStates[enums.Key.W]) {
+                this._player.moveUp();
+            } else if (this.keyPressedStates[enums.Key.S]) {
+                this._player.moveDown();
+            }
+
+            if (this.keyPressedStates[enums.Key.A]) {
+                this._player.moveLeft();
+            } else if (this.keyPressedStates[enums.Key.D]) {
+                this._player.moveRight();
+            }
+        }
+
     }
 }

@@ -5,7 +5,8 @@ module config
         public static SCREEN_WIDTH:number = 600;
         public static SCREEN_HEIGHT:number = 600;
         public static FPS: number = 60; // 60 Frames per second
-        public static MOVING_TIME: number = 0.1;
+        // public static MOVING_TIME: number = 0.1; // when using mouse
+        public static MOVING_TIME: number = 7; // when using keyboard
         public static ASSETS: createjs.LoadQueue;
         public static SCENE_STATE: scenes.State;
         public static ZOMBIE_NUMBER: number = 6;

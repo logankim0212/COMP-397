@@ -7,6 +7,7 @@ let Game = (function () {
 
     let currentSceneState: scenes.State;
     let currentScene: objects.Scene;
+    let playScene: scenes.Play;
 
     let assets: createjs.LoadQueue;
 
@@ -120,7 +121,8 @@ let Game = (function () {
                 break;
             case scenes.State.PLAY:
                 console.log("switch to Play Scene");
-                currentScene = new scenes.Play();
+                playScene = new scenes.Play();
+                currentScene = playScene;
                 break;
             case scenes.State.INSTRUCTION:
                 console.log("switch to Instruction Scene");
@@ -135,6 +137,19 @@ let Game = (function () {
         currentSceneState = config.Game.SCENE_STATE;
         stage.addChild(currentScene);
     }
+
+    // attach keydown and keyup event to the window
+    window.addEventListener("keyup", (event: KeyboardEvent) => {
+        if (playScene && playScene.keyPressedStates) {
+            playScene.keyPressedStates[event.keyCode] = false;
+        }
+    });
+
+    window.addEventListener("keydown", (event: KeyboardEvent) => {
+        if (playScene && playScene.keyPressedStates) {
+            playScene.keyPressedStates[event.keyCode] = true;
+        }
+    });
 
     window.addEventListener('load', Preload);
 })();

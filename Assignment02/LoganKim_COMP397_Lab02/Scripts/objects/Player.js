@@ -6,7 +6,7 @@ var objects;
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         constructor() {
-            super(config.Game.ASSETS.getResult("avatar"), 0, 0, true);
+            super(config.Game.ASSETS.getResult("avatar"), 300, 500, true);
             this.Start();
         }
         // PRIVATE METHODS
@@ -29,9 +29,10 @@ var objects;
             }
         }
         _move() {
-            let newPositionX = util.Mathf.Lerp(this.position.x, this.stage.mouseX, config.Game.MOVING_TIME);
-            let newPositionY = util.Mathf.Lerp(this.position.y, this.stage.mouseY, config.Game.MOVING_TIME);
-            this.position = new objects.Vector2(newPositionX, newPositionY);
+            // let newPositionX = util.Mathf.Lerp(this.position.x, this.stage.mouseX, config.Game.MOVING_TIME);
+            // let newPositionY = util.Mathf.Lerp(this.position.y, this.stage.mouseY, config.Game.MOVING_TIME);
+            // this.position = new Vector2(newPositionX, newPositionY);
+            this.position = new objects.Vector2(this.position.x, this.position.y);
         }
         // PUBLIC METHODS
         Start() {
@@ -43,6 +44,18 @@ var objects;
             this._checkBounds();
         }
         Reset() {
+        }
+        moveLeft() {
+            this.position.add(objects.Vector2.scale(objects.Vector2.left(), config.Game.MOVING_TIME));
+        }
+        moveRight() {
+            this.position.add(objects.Vector2.scale(objects.Vector2.right(), config.Game.MOVING_TIME));
+        }
+        moveUp() {
+            this.position.add(objects.Vector2.scale(objects.Vector2.up(), config.Game.MOVING_TIME));
+        }
+        moveDown() {
+            this.position.add(objects.Vector2.scale(objects.Vector2.down(), config.Game.MOVING_TIME));
         }
     }
     objects.Player = Player;

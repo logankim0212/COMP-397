@@ -7,6 +7,7 @@ let Game = (function () {
     let stage;
     let currentSceneState;
     let currentScene;
+    let playScene;
     let assets;
     let zombieAtlas;
     let assetManifest = [
@@ -107,7 +108,8 @@ let Game = (function () {
                 break;
             case scenes.State.PLAY:
                 console.log("switch to Play Scene");
-                currentScene = new scenes.Play();
+                playScene = new scenes.Play();
+                currentScene = playScene;
                 break;
             case scenes.State.INSTRUCTION:
                 console.log("switch to Instruction Scene");
@@ -121,6 +123,17 @@ let Game = (function () {
         currentSceneState = config.Game.SCENE_STATE;
         stage.addChild(currentScene);
     }
+    // attach keydown and keyup event to the window
+    window.addEventListener("keyup", (event) => {
+        if (playScene && playScene.keyPressedStates) {
+            playScene.keyPressedStates[event.keyCode] = false;
+        }
+    });
+    window.addEventListener("keydown", (event) => {
+        if (playScene && playScene.keyPressedStates) {
+            playScene.keyPressedStates[event.keyCode] = true;
+        }
+    });
     window.addEventListener('load', Preload);
 })();
 //# sourceMappingURL=game.js.map

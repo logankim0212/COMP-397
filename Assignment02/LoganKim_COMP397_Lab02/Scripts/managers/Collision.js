@@ -40,10 +40,12 @@ var managers;
                 case enums.GameObjectType.POTHOLE:
                     {
                         console.log("Collision with Pothole!");
-                        config.Game.MOVING_TIME = 0.02;
+                        // config.Game.MOVING_TIME = 0.02; // when using mouse
+                        config.Game.MOVING_TIME = 2; // when using keyboard
                         setTimeout(() => {
-                            config.Game.MOVING_TIME = 0.1;
-                        }, 1000);
+                            // config.Game.MOVING_TIME = 0.1; // when using mouse
+                            config.Game.MOVING_TIME = 7; // when using keyboard
+                        }, 500);
                     }
                     break;
                 case enums.GameObjectType.ZOMBIE:

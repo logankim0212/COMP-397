@@ -155,6 +155,12 @@ var objects;
         static angle(from, to) {
             return Math.acos(util.Mathf.Clamp(Vector2.dot(from.normalized(), to.normalized()), -1, 1)) * 57.29578;
         }
+        static scale(lhs, scaler) {
+            // dot x & dot y
+            let theXs = lhs.x * scaler;
+            let theYs = lhs.y * scaler;
+            return new Vector2(theXs, theYs);
+        }
     }
     objects.Vector2 = Vector2;
 })(objects || (objects = {}));
