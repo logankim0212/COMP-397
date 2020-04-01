@@ -1,6 +1,6 @@
 module managers {
     export class Collision {
-        public static AABBCheck(object1: objects.GameObject, object2: objects.GameObject | objects.GameObjectSprite): boolean {
+        public static AABBCheck(object1: objects.GameObject | objects.GameObjectSprite, object2: objects.GameObject | objects.GameObjectSprite): boolean {
             let object1Offset = (!object1.isCentered) ? new objects.Vector2(0, 0) : new objects.Vector2(object1.halfWidth, object1.halfHeight);
             let object2Offset = (!object2.isCentered) ? new objects.Vector2(0, 0) : new objects.Vector2(object2.halfWidth, object2.halfHeight);
 
@@ -13,11 +13,8 @@ module managers {
                 object1TopLeft.y < object2TopLeft.y + object2.height &&
                 object1TopLeft.y + object1.height > object2TopLeft.y) {
                 if (!object2.isColliding) {
-                    object1.alpha = 0.5;
-                    Collision._collisionResponse(object2);
-                    setTimeout(() => {
-                        object1.alpha = 1;
-                    }, 500);
+                    Collision._collisionResponse(object1, object2);
+
                     object2.isColliding = true;
                     return true;
                 }
@@ -36,7 +33,7 @@ module managers {
          * @param {objects.GameObject} object2
          * @memberof Collision
          */
-        private static _collisionResponse(object2: objects.GameObject | objects.GameObjectSprite) {
+        private static _collisionResponse(object1: objects.GameObject | objects.GameObjectSprite, object2: objects.GameObject | objects.GameObjectSprite) {
             switch (object2.type) {
                 case enums.GameObjectType.POTHOLE:
                     {
@@ -57,8 +54,10 @@ module managers {
                             config.Game.SCORE_BOARD.Lives -= 1;
                         }
 
+                        object1.alpha = 0.5;
                         config.Game.COLLISION_STATUS = true
                         setTimeout(() => {
+                            object1.alpha = 1;
                             config.Game.COLLISION_STATUS = false
                         }, 500);
 
@@ -69,6 +68,15 @@ module managers {
                             config.Game.SCORE = 0;
                             config.Game.BULLET_NUMBER = 10;
                         }
+                    }
+                    break;
+                case enums.GameObjectType.BULLET:
+                    {
+                        console.log("Collision with Bullet!");
+                        config.Game.SCORE_BOARD.Score += 100;
+
+                        object1.Reset();
+                        object2.Reset();
                     }
                     break;
             }

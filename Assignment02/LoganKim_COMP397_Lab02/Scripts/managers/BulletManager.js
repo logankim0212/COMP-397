@@ -2,13 +2,16 @@
 var managers;
 (function (managers) {
     class BulletManager {
-        // TODO: bullet sound
-        // PUBLIC PROPERTIES
         // CONSTRUCTOR
         constructor() {
             this._bulletNumber = 10;
             this._bulletPool = new Array();
             this._buildBulletPool();
+        }
+        // TODO: bullet sound
+        // PUBLIC PROPERTIES
+        get BulletPool() {
+            return this._bulletPool;
         }
         // PRIVATE METHODS
         _buildBulletPool() {

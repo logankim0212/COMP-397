@@ -7,7 +7,9 @@ module managers {
         // TODO: bullet sound
 
         // PUBLIC PROPERTIES
-
+        get BulletPool(): Array<objects.Bullet> {
+            return this._bulletPool;
+        }
         // CONSTRUCTOR
         constructor() {
             this._bulletNumber = 10;

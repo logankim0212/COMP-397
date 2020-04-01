@@ -13,11 +13,7 @@ var managers;
                 object1TopLeft.y < object2TopLeft.y + object2.height &&
                 object1TopLeft.y + object1.height > object2TopLeft.y) {
                 if (!object2.isColliding) {
-                    object1.alpha = 0.5;
-                    Collision._collisionResponse(object2);
-                    setTimeout(() => {
-                        object1.alpha = 1;
-                    }, 500);
+                    Collision._collisionResponse(object1, object2);
                     object2.isColliding = true;
                     return true;
                 }
@@ -35,7 +31,7 @@ var managers;
          * @param {objects.GameObject} object2
          * @memberof Collision
          */
-        static _collisionResponse(object2) {
+        static _collisionResponse(object1, object2) {
             switch (object2.type) {
                 case enums.GameObjectType.POTHOLE:
                     {
@@ -54,8 +50,10 @@ var managers;
                         if (!config.Game.COLLISION_STATUS) {
                             config.Game.SCORE_BOARD.Lives -= 1;
                         }
+                        object1.alpha = 0.5;
                         config.Game.COLLISION_STATUS = true;
                         setTimeout(() => {
+                            object1.alpha = 1;
                             config.Game.COLLISION_STATUS = false;
                         }, 500);
                         // check if lives falls less than 1 and then switch to END scene
@@ -65,6 +63,14 @@ var managers;
                             config.Game.SCORE = 0;
                             config.Game.BULLET_NUMBER = 10;
                         }
+                    }
+                    break;
+                case enums.GameObjectType.BULLET:
+                    {
+                        console.log("Collision with Bullet!");
+                        config.Game.SCORE_BOARD.Score += 100;
+                        object1.Reset();
+                        object2.Reset();
                     }
                     break;
             }

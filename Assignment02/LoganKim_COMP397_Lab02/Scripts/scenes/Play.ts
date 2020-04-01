@@ -59,6 +59,11 @@ module scenes {
             this._zombies.forEach(zombie => {
                 zombie.Update();
                 managers.Collision.AABBCheck(this._player, zombie);
+
+                for (let i = 0; i < this._bulletManager.BulletPool.length; i++) {
+                    managers.Collision.AABBCheck(zombie, this._bulletManager.BulletPool[i]);
+
+                }
             });
         }
 
