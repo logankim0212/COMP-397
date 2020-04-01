@@ -12,7 +12,7 @@ module managers {
         }
         // CONSTRUCTOR
         constructor() {
-            this._bulletNumber = 10;
+            this._bulletNumber = 50;
             this._bulletPool = new Array<objects.Bullet>();
 
             this._buildBulletPool();

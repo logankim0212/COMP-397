@@ -4,7 +4,7 @@ var managers;
     class BulletManager {
         // CONSTRUCTOR
         constructor() {
-            this._bulletNumber = 10;
+            this._bulletNumber = 50;
             this._bulletPool = new Array();
             this._buildBulletPool();
         }

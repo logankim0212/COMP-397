@@ -47,8 +47,10 @@ var managers;
                     break;
                 case enums.GameObjectType.ZOMBIE:
                     {
-                        if (!config.Game.COLLISION_STATUS) {
-                            config.Game.SCORE_BOARD.Lives -= 1;
+                        if (!config.Game.CHEAT_ENABLED) {
+                            if (!config.Game.COLLISION_STATUS) {
+                                config.Game.SCORE_BOARD.Lives -= 1;
+                            }
                         }
                         let hitZombieSound = createjs.Sound.play("hitZombieSound");
                         hitZombieSound.volume = 0.1; // 10% volume
@@ -64,9 +66,6 @@ var managers;
                                 config.Game.HIGH_SCORE = config.Game.SCORE;
                             }
                             config.Game.SCENE_STATE = scenes.State.GAMEOVER;
-                            config.Game.LIVES = 3;
-                            config.Game.SCORE = 0;
-                            config.Game.BULLET_NUMBER = 10;
                         }
                     }
                     break;

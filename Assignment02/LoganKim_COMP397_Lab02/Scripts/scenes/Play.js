@@ -73,15 +73,23 @@ var scenes;
                 if (this.keyPressedStates[32 /* SPACE */]) {
                     this._player.FireBullet();
                 }
+                if (this.keyPressedStates[77 /* M */]) {
+                    this._isReloading = true;
+                    this.PlayReloadingSound();
+                    setTimeout(() => {
+                        // config.Game.BULLET_NUMBER = 10;
+                        config.Game.SCORE_BOARD.Bullet = 20;
+                        this._isReloading = false;
+                    }, 1000);
+                }
             }
-            if (this.keyPressedStates[77 /* M */]) {
-                this._isReloading = true;
-                this.PlayReloadingSound();
-                setTimeout(() => {
-                    // config.Game.BULLET_NUMBER = 10;
-                    config.Game.SCORE_BOARD.Bullet = 10;
-                    this._isReloading = false;
-                }, 1000);
+            if (this.keyPressedStates[80 /* P */]) {
+                if (config.Game.CHEAT_ENABLED) {
+                    config.Game.CHEAT_ENABLED = false;
+                }
+                else {
+                    config.Game.CHEAT_ENABLED = true;
+                }
             }
         }
         PlayReloadingSound() {

@@ -63,7 +63,11 @@ module managers {
             return this._scoreLabel;
         }
 
-        public get highScoreLabel(): objects.Label {
+        public get CurrentScoreLabel(): objects.Label {
+            return new objects.Label("This Round Score: " + this._score, "20px", "Consolas", "#FFFF00", 300, 190, true);
+        }
+
+        public get HighScoreLabel(): objects.Label {
             return this._highScoreLabel;
         }
 
@@ -76,7 +80,7 @@ module managers {
             this._livesLabel = new objects.Label("Lives: " + this._lives, "20px", "Consolas", "#FFFF00", 30, 20);
             this._bulletLabel = new objects.Label("Bullets: " + this._bullet, "20px", "Consolas", "#FFFF00", 165, 20);
             this._scoreLabel = new objects.Label("Score: " + this._score, "20px", "Consolas", "#FFFF00", 460, 20);
-            this._highScoreLabel = new objects.Label("High Score: " + this._highScore, "30px", "Consolas", "#FF4500", 300, 190, true);
+            this._highScoreLabel = new objects.Label("High Score: " + this._highScore, "30px", "Consolas", "#FF4500", 300, 135, true);
         }
 
         // private methods

@@ -2,6 +2,7 @@
 var objects;
 (function (objects) {
     class Bullet extends objects.GameObject {
+        // PRIVATE INSTANCE MEMBERS
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
         constructor() {
@@ -25,8 +26,7 @@ var objects;
         // PUBLIC METHODS
         Start() {
             this.type = enums.GameObjectType.BULLET;
-            this._verticalSpeed = 5; // 5 px per frame
-            this.velocity = new objects.Vector2(0, -this._verticalSpeed);
+            this.velocity = new objects.Vector2(0, config.Game.BULLET_SPEED);
             this.position = new objects.Vector2(-1000, -1000);
         }
         Update() {
@@ -38,7 +38,6 @@ var objects;
         Reset() {
             this.position = new objects.Vector2(-1000, -1000);
             this.isActive = false;
-            config.Game.BULLET_MANAGER.ReturnBullet(this);
         }
     }
     objects.Bullet = Bullet;

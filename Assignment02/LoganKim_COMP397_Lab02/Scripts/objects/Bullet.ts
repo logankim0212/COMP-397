@@ -1,7 +1,6 @@
 module objects {
     export class Bullet extends objects.GameObject {
         // PRIVATE INSTANCE MEMBERS
-        private _verticalSpeed?: number;
 
         // PUBLIC PROPERTIES
 
@@ -32,8 +31,7 @@ module objects {
         // PUBLIC METHODS
         public Start(): void {
             this.type = enums.GameObjectType.BULLET;
-            this._verticalSpeed = 5; // 5 px per frame
-            this.velocity = new Vector2(0, -this._verticalSpeed);
+            this.velocity = new Vector2(0, config.Game.BULLET_SPEED);
             this.position = new Vector2(-1000, -1000);
         }
 
@@ -47,7 +45,6 @@ module objects {
         public Reset(): void {
             this.position = new Vector2(-1000, -1000);
             this.isActive = false;
-            config.Game.BULLET_MANAGER.ReturnBullet(this);
         }
     }
 }
