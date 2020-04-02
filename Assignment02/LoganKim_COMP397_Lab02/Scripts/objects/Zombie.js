@@ -20,14 +20,19 @@ var objects;
         // PUBLIC METHODS
         Start() {
             this.type = enums.GameObjectType.ZOMBIE;
-            this.Reset();
+            let randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);
+            let randomY = util.Mathf.RandomRange(-this.height * 3, -this.height);
+            this.position = new objects.Vector2(randomX, randomY);
+            setTimeout(() => {
+                this.Reset();
+            }, 2000);
         }
         Update() {
             this._move();
             this._checkBounds();
         }
         Reset() {
-            this._verticalSpeed = util.Mathf.RandomRange(10, 13);
+            this._verticalSpeed = util.Mathf.RandomRange(10, 12);
             this._horizontalSpeed = util.Mathf.RandomRange(-1, 1);
             this.velocity = new objects.Vector2(this._horizontalSpeed, this._verticalSpeed);
             let randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);

@@ -18,6 +18,7 @@ var scenes;
         // Initializing and Instantiating
         Start() {
             this._scoreBoard.HighScore = config.Game.HIGH_SCORE;
+            this._scoreBoard.Score = config.Game.SCORE;
             this.Main();
         }
         Update() {
@@ -28,16 +29,24 @@ var scenes;
             this.addChild(this._btnRestart);
             this.addChild(this._btnMain);
             this._btnRestart.on("click", () => {
+                this.ResetValues();
                 let buttonSound = createjs.Sound.play("buttonSound");
                 buttonSound.volume = 0.2; // 20% volume
                 config.Game.SCENE_STATE = scenes.State.PLAY;
             });
             this._btnMain.on("click", () => {
+                this.ResetValues();
                 let buttonSound = createjs.Sound.play("buttonSound");
                 buttonSound.volume = 0.2; // 20% volume
                 config.Game.SCENE_STATE = scenes.State.MAIN;
             });
-            this.addChild(this._scoreBoard.highScoreLabel);
+            this.addChild(this._scoreBoard.HighScoreLabel);
+            this.addChild(this._scoreBoard.CurrentScoreLabel);
+        }
+        ResetValues() {
+            config.Game.LIVES = 3;
+            config.Game.SCORE = 0;
+            config.Game.BULLET_NUMBER = 20;
         }
         Clean() {
             this.removeAllChildren();

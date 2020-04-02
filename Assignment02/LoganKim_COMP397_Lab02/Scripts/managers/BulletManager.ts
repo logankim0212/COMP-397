@@ -10,9 +10,10 @@ module managers {
         get BulletPool(): Array<objects.Bullet> {
             return this._bulletPool;
         }
+
         // CONSTRUCTOR
         constructor() {
-            this._bulletNumber = 10;
+            this._bulletNumber = 50;
             this._bulletPool = new Array<objects.Bullet>();
 
             this._buildBulletPool();
@@ -33,10 +34,6 @@ module managers {
             this._bulletPool.push(bullet);
 
             return bullet;
-        }
-
-        public ReturnBullet(bullet: objects.Bullet): void {
-            this._bulletPool.push(bullet);
         }
 
         public AddBulletsToScene(): void {

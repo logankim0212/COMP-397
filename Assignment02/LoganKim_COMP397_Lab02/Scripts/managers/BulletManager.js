@@ -4,7 +4,7 @@ var managers;
     class BulletManager {
         // CONSTRUCTOR
         constructor() {
-            this._bulletNumber = 10;
+            this._bulletNumber = 50;
             this._bulletPool = new Array();
             this._buildBulletPool();
         }
@@ -25,9 +25,6 @@ var managers;
             let bullet = this._bulletPool.shift();
             this._bulletPool.push(bullet);
             return bullet;
-        }
-        ReturnBullet(bullet) {
-            this._bulletPool.push(bullet);
         }
         AddBulletsToScene() {
             console.log("bullet manager: " + config.Game.CURRENT_SCENE);
