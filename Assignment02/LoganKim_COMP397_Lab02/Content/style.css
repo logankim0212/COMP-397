@@ -4,12 +4,19 @@
  * April 4, 2020
  * 
  * Description:
- * Zombie Rider is simple scrolling game.
+ * Zombie Rider is a 2-dimensional top-down single player scrolling game designed with Days Gone theme.
+ * This game contains 5 different scenes: splash, start, instruction, play and game over.
+ * Player will lose once their health goes down to 0; however, player can replay the game
+ * again and again until they reach their desired score.
  *
  * Versions:
- * v1.0 Simple Scrolling Game
+ * v1.0 Zombie Rider Alpha Release
  */
- html {
+
+/**
+ * General
+ */
+html {
     background-color: #000000;
     color: #FAFAFA;
     margin: 0;
@@ -28,6 +35,9 @@ a {
     color: #000000;
 }
 
+/**
+ * Content
+ */
 .body {
     background-color: rgba(50, 50, 50, 0.7);
     border-radius: 50px;
@@ -45,9 +55,10 @@ canvas {
     border-radius: 20px;
 }
 
-/** Image Reference
- * Retrieved March 29, 2020, from https://pxhere.com/en/photo/971454
+/**
+ * Background
  */
+/* Image Reference: Retrieved March 29, 2020, from https://pxhere.com/en/photo/971454 */
 .background {
     background: url(../Assets/images/abandoned.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;

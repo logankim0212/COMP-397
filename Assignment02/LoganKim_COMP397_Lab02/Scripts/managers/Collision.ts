@@ -1,5 +1,35 @@
+/**
+ * Logan J. Kim
+ * 300973239
+ * April 4, 2020
+ * 
+ * Description:
+ * Zombie Rider is a 2-dimensional top-down single player scrolling game designed with Days Gone theme.
+ * This game contains 5 different scenes: splash, start, instruction, play and game over.
+ * Player will lose once their health goes down to 0; however, player can replay the game
+ * again and again until they reach their desired score.
+ *
+ * Versions:
+ * v1.0 Zombie Rider Alpha Release
+ */
+
 module managers {
+    /**
+     * Class to manage all collision
+     *
+     * @export
+     * @class Collision
+     */
     export class Collision {
+        /**
+         * Method to check AABB Collision
+         *
+         * @static
+         * @param {(objects.GameObject | objects.GameObjectSprite)} object1
+         * @param {(objects.GameObject | objects.GameObjectSprite)} object2
+         * @returns {boolean}
+         * @memberof Collision
+         */
         public static AABBCheck(object1: objects.GameObject | objects.GameObjectSprite, object2: objects.GameObject | objects.GameObjectSprite): boolean {
             let object1Offset = (!object1.isCentered) ? new objects.Vector2(0, 0) : new objects.Vector2(object1.halfWidth, object1.halfHeight);
             let object2Offset = (!object2.isCentered) ? new objects.Vector2(0, 0) : new objects.Vector2(object2.halfWidth, object2.halfHeight);
@@ -26,7 +56,7 @@ module managers {
 
 
         /**
-         * Helper method to assist with Collision Response
+         * Helper method to assist with collision response
          *
          * @private
          * @static
