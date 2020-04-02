@@ -1,7 +1,7 @@
 {
   "name": "logankim_comp397_lab02",
   "version": "1.0.0",
-  "description": "Simple scrolling game developed for the assginment 2 of COMP397.",
+  "description": "Zombie Rider is a simple scrolling game developed for the assginment 2 of COMP397 at Centennial College.",
   "main": "game.js",
   "repository": "https://github.com/logankim0212/COMP-397",
   "author": "Logan J. Kim - 300973239",

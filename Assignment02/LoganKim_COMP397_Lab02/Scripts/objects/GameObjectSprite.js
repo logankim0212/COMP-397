@@ -1,6 +1,28 @@
 "use strict";
+/**
+ * Logan J. Kim
+ * 300973239
+ * April 4, 2020
+ *
+ * Description:
+ * Zombie Rider is a 2-dimensional top-down single player scrolling game designed with Days Gone theme.
+ * This game contains 5 different scenes: splash, start, instruction, play and game over.
+ * Player will lose once their health goes down to 0; however, player can replay the game
+ * again and again until they reach their desired score.
+ *
+ * Versions:
+ * v1.0 Zombie Rider Alpha Release
+ */
 var objects;
 (function (objects) {
+    /**
+     * Class for Game Object Sprite
+     *
+     * @export
+     * @abstract
+     * @class GameObjectSprite
+     * @extends {createjs.Sprite}
+     */
     class GameObjectSprite extends createjs.Sprite {
         constructor(first, second = "placeholder", third = 0, fourth = 0, fifth = false) {
             super(first, second);
@@ -17,24 +39,30 @@ var objects;
             this._type = enums.GameObjectType.UNDEFINED;
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
+            // depends on the type of value for fifth, perform different function
             if (fifth != undefined) {
                 this.isCentered = fifth;
             }
+            // depends on the type of value for fourth, perform different function
             if (typeof fourth == "boolean") {
                 this.isCentered = fourth;
             }
+            // depends on the type of value for third and fourth, perform different function
             if ((typeof third == "number") && (typeof fourth == "number")) {
                 this.position = new objects.Vector2(third, fourth, this);
             }
+            // depends on the type of value for third, perform different function
             if (third instanceof objects.Vector2) {
                 this.position = third;
             }
         }
         // PUBLIC PROPERTIES
+        // getters and setters
         get width() {
             return this._width;
         }
         set width(newWidth) {
+            // set width and half width
             this._width = newWidth;
             this._halfWidth = this._computeHalfWidth();
         }
@@ -42,6 +70,7 @@ var objects;
             return this._height;
         }
         set height(newHeight) {
+            // set height and half height
             this._height = newHeight;
             this._halfHeight = this._computeHalfHeight();
         }
@@ -55,6 +84,7 @@ var objects;
             return this._position;
         }
         set position(newPosition) {
+            // set position along with x and y
             this._position = newPosition;
             this.x = newPosition.x;
             this.y = newPosition.y;
@@ -75,6 +105,7 @@ var objects;
             return this._isCentered;
         }
         set isCentered(newState) {
+            // center an object
             this._isCentered = newState;
             if (newState) {
                 this._centerGameObject();
@@ -93,12 +124,32 @@ var objects;
             this._type = v;
         }
         // PRIVATE METHODS
+        /**
+         * Method for calculating half width
+         *
+         * @private
+         * @returns {number}
+         * @memberof GameObjectSprite
+         */
         _computeHalfWidth() {
             return this.width * 0.5;
         }
+        /**
+         * Method for calculating half height
+         *
+         * @private
+         * @returns {number}
+         * @memberof GameObjectSprite
+         */
         _computeHalfHeight() {
             return this.height * 0.5;
         }
+        /**
+         * Method for centering an object
+         *
+         * @private
+         * @memberof GameObjectSprite
+         */
         _centerGameObject() {
             this.regX = this.halfWidth;
             this.regY = this.halfHeight;
