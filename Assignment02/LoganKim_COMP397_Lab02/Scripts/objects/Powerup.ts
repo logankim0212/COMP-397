@@ -40,7 +40,7 @@ module objects {
 
         public Reset(): void {
             let randomX = util.Mathf.RandomRange(this.halfWidth, config.Game.SCREEN_WIDTH - this.halfWidth);
-            let y = -(config.Game.SCREEN_HEIGHT * 5 + this.height);
+            let y = -(config.Game.SCREEN_HEIGHT * 15 + this.height);
             this.position = new Vector2(randomX, y);
         }
     }

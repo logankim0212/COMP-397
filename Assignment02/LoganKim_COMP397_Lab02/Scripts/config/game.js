@@ -9,7 +9,7 @@ var config;
     Game.VERTICAL_SPEED = 10; // 10 Frames per second
     // public static MOVING_TIME: number = 0.1; // when using mouse
     Game.MOVING_TIME = 7; // when using keyboard
-    Game.BULLET_SPEED = -8;
+    Game.BULLET_SPEED = -10;
     Game.ZOMBIE_NUMBER = 7;
     Game.BULLET_NUMBER = 20;
     Game.LIVES = 3;

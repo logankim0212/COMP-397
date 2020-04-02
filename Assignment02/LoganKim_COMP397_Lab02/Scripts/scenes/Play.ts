@@ -78,6 +78,7 @@ module scenes {
 
                 for (let i = 0; i < this._bulletManager.BulletPool.length; i++) {
                     managers.Collision.AABBCheck(zombie, this._bulletManager.BulletPool[i]);
+                    managers.Collision.AABBCheck(zombie, this._bulletManager.SpecialBulletPool[i]);
                 }
             });
         }
@@ -121,15 +122,17 @@ module scenes {
                     this._player.FireBullet();
                 }
 
-                if (this.keyPressedStates[enums.Key.M]) {
-                    this._isReloading = true;
-                    this.PlayReloadingSound();
-
-                    setTimeout(() => {
-                        // config.Game.BULLET_NUMBER = 20;
-                        config.Game.SCORE_BOARD.Bullet = 20;
-                        this._isReloading = false;
-                    }, 1000);
+                if (config.Game.SCORE_BOARD.Bullet != 20) {
+                    if (this.keyPressedStates[enums.Key.M]) {
+                        this._isReloading = true;
+                        this.PlayReloadingSound();
+    
+                        setTimeout(() => {
+                            // config.Game.BULLET_NUMBER = 20;
+                            config.Game.SCORE_BOARD.Bullet = 20;
+                            this._isReloading = false;
+                        }, 1000);
+                    }
                 }
             }
 

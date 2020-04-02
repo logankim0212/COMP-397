@@ -50,6 +50,7 @@ var scenes;
                 managers.Collision.AABBCheck(this._player, zombie);
                 for (let i = 0; i < this._bulletManager.BulletPool.length; i++) {
                     managers.Collision.AABBCheck(zombie, this._bulletManager.BulletPool[i]);
+                    managers.Collision.AABBCheck(zombie, this._bulletManager.SpecialBulletPool[i]);
                 }
             });
         }
@@ -87,14 +88,16 @@ var scenes;
                 if (this.keyPressedStates[32 /* SPACE */]) {
                     this._player.FireBullet();
                 }
-                if (this.keyPressedStates[77 /* M */]) {
-                    this._isReloading = true;
-                    this.PlayReloadingSound();
-                    setTimeout(() => {
-                        // config.Game.BULLET_NUMBER = 20;
-                        config.Game.SCORE_BOARD.Bullet = 20;
-                        this._isReloading = false;
-                    }, 1000);
+                if (config.Game.SCORE_BOARD.Bullet != 20) {
+                    if (this.keyPressedStates[77 /* M */]) {
+                        this._isReloading = true;
+                        this.PlayReloadingSound();
+                        setTimeout(() => {
+                            // config.Game.BULLET_NUMBER = 20;
+                            config.Game.SCORE_BOARD.Bullet = 20;
+                            this._isReloading = false;
+                        }, 1000);
+                    }
                 }
             }
             if (!this._isCheatEnabled) {

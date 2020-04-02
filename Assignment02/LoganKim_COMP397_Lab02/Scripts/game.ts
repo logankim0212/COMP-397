@@ -20,6 +20,7 @@ let Game = (function () {
             { id: "road", src: "./Assets/images/road.png" }, // from https://opengameart.org/content/golgotha-textures-tunnelroadjpg
             { id: "avatar", src: "./Assets/images/avatar.png" }, // from https://webstockreview.net/pict/getfirst
             { id: "bullet", src: "./Assets/images/bullet.png" }, // from https://www.clipart.email/download/7844222.html
+            { id: "specialBullet", src: "./Assets/images/specialBullet.png" }, // from https://ya-webdesign.com/imgdownload.html
             { id: "pothole", src: "./Assets/images/pothole.png" }, // from http://www.pngall.com/hole-png/download/36973
             { id: "zombie", src: "./Assets/images/zombieSprite.png" }, // from https://opengameart.org/content/animated-top-down-zombie
             { id: "heart", src: "./Assets/images/heart.png" }, // from https://www.stickpng.com/img/people/hearts/heart-clipart-side

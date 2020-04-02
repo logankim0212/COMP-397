@@ -5,8 +5,8 @@ var objects;
         // PRIVATE INSTANCE MEMBERS
         // PUBLIC PROPERTIES
         // CONSTRUCTOR
-        constructor() {
-            super(config.Game.ASSETS.getResult("bullet"), 0, 0, true);
+        constructor(imagePath = config.Game.ASSETS.getResult("bullet")) {
+            super(imagePath, 0, 0, true);
             this.Start();
         }
         // PRIVATE METHODS
