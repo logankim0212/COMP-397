@@ -34,6 +34,7 @@ module scenes {
                 "- Reload bullet: \"M\" key\n\n\n\n" + 
                 "- Hitting an pothole: 0.5s movement penalty\n\n" +
                 "- Hitting heart: Health +1\n\n" + 
+                "- Hitting potion: 5s auto shooting + invincible\n\n" + 
                 "- Hitting zombie: Health -1\n\n\n\n" + 
                 "- Shoot to kill zombie and get 100 points";
             let txtThree: string = "* Test your limit where you can reach! *";
