@@ -10,7 +10,7 @@ var managers;
             this._highScore = config.Game.HIGH_SCORE;
             this._livesLabel = new objects.Label("Lives: " + this._lives, "20px", "Consolas", "#FFFF00", 30, 20);
             this._bulletLabel = new objects.Label("Bullets: " + this._bullet, "20px", "Consolas", "#FFFF00", 165, 20);
-            this._scoreLabel = new objects.Label("Score: " + this._score, "20px", "Consolas", "#FFFF00", 460, 20);
+            this._scoreLabel = new objects.Label("Score: " + this._score, "20px", "Consolas", "#FFFF00", 310, 20);
             this._highScoreLabel = new objects.Label("High Score: " + this._highScore, "30px", "Consolas", "#FF4500", 300, 135, true);
         }
         // public properties

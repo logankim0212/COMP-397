@@ -16,6 +16,7 @@ let Game = (function () {
         { id: "road", src: "./Assets/images/road.png" },
         { id: "avatar", src: "./Assets/images/avatar.png" },
         { id: "bullet", src: "./Assets/images/bullet.png" },
+        { id: "specialBullet", src: "./Assets/images/specialBullet.png" },
         { id: "pothole", src: "./Assets/images/pothole.png" },
         { id: "zombie", src: "./Assets/images/zombieSprite.png" },
         { id: "heart", src: "./Assets/images/heart.png" },

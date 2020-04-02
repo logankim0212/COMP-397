@@ -26,10 +26,11 @@ var scenes;
                 "- Hitting heart: Health +1\n\n" +
                 "- Hitting potion: 5s auto shooting + invincible\n\n" +
                 "- Hitting zombie: Health -1\n\n\n\n" +
-                "- Shoot to kill zombie and get 100 points";
+                "- Shoot to kill zombie and get 100 points\n\n" +
+                "- When potion is active, get 200 points";
             let txtThree = "* Test your limit where you can reach! *";
-            this._lblOne = new objects.Label(txtOne, "40px", "Consolas", "#000000", 300, 70, true);
-            this._lblTwo = new objects.Label(txtTwo, "20px", "Consolas", "#000000", 300, 150, true);
+            this._lblOne = new objects.Label(txtOne, "40px", "Consolas", "#000000", 300, 60, true);
+            this._lblTwo = new objects.Label(txtTwo, "20px", "Consolas", "#000000", 300, 130, true);
             this._lblThree = new objects.Label(txtThree, "20px", "Consolas", "GREEN", 300, 450, true);
             // buttons
             this._btnMain = new objects.Button(config.Game.ASSETS.getResult("btnMain"), 300, 520, true);

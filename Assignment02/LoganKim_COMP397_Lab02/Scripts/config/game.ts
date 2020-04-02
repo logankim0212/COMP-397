@@ -8,7 +8,7 @@ module config
         public static VERTICAL_SPEED: number = 10; // 10 Frames per second
         // public static MOVING_TIME: number = 0.1; // when using mouse
         public static MOVING_TIME: number = 7; // when using keyboard
-        public static BULLET_SPEED: number = -8;
+        public static BULLET_SPEED: number = -10;
         public static ASSETS: createjs.LoadQueue;
         public static SCENE_STATE: scenes.State;
         public static CURRENT_SCENE: objects.Scene;
