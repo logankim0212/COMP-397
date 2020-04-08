@@ -12,6 +12,7 @@
  * Versions:
  * v1.0 Zombie Rider Alpha Release
  */
+
 //IIFE - Immediately Invoked Function Expression
 //means -> self-executing anonymous function
 let Game = (function () {
@@ -51,7 +52,7 @@ let Game = (function () {
             { id: "bgStart", src: "./Assets/images/bgStart.png" }, // from https://www.playstationlifestyle.net/2019/04/21/days-gone-title-meaning/
             { id: "bgInstruction", src: "./Assets/images/bgInstruction.png" }, // from https://www.pngguru.com/free-transparent-background-png-clipart-bwqrj
             { id: "bgGameOver", src: "./Assets/images/bgGameOver.png" }, // from https://finance.yahoo.com/news/2-zombie-stocks-coming-back-143100700.html
-            // sound
+            // audio
             { id: "splashSound", src: "./Assets/audio/splash.mp3" }, // from https://freesound.org/people/original_sound/sounds/494978/
             { id: "bgm", src: "./Assets/audio/bgm.mp3" }, // from https://www.youtube.com/watch?v=gQv-D0De2nk
             { id: "buttonSound", src: "./Assets/audio/button.mp3" }, // from http://soundbible.com/1672-Button-Press.html
