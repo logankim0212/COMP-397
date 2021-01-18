@@ -3,7 +3,6 @@ Live Link: [Zombie Rider](https://logankim0212.github.io/Web-Games/Scrolling/Zom
 
 ## Game Overview
 Zombie Rider is a 2-dimensional top-down single player scrolling game designed with Days Gone theme. This game contains 5 different scenes: splash, start, instruction, play and game over. Player will lose once their health goes down to 0; however, player can replay the game again and again until they reach their desired score.
-Zombie Rider is published on GitHub Page with the link below: https://logankim0212.github.io/COMP-397/Assignment02/LoganKim_COMP397_Lab02/.  
 
 ## Game Play Mechanics
 Player has ability to start or end the game unless they are currently playing the game. Once a player goes to start screen after the splash screen, they can choose to play a game, see the instruction or exit the game. Once a player’s avatar dies, player is directed to a game over screen which allows them to replay the game or go to the main screen.
