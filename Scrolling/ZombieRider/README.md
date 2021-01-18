@@ -46,6 +46,18 @@ On the Start screen, a player can use mouse to click play, instruction or exit b
 Once a player goes to Play screen, the one can use “WASD” key to move to 4 different direction, “Space” key to shoot bullet and “M” key to reload their bullets. To cheat, a player can hit “P” key to be invincible for unlimited time.
 On the Game Over screen, player can use mouse to click Replay or Main button.
 
+## Screen Description
+ 
+Splash screen contains developer’s logo, COSMOS Games. This screen is displayed when a player opens game page or exits the game.
+ 
+Start screen contains the game title, start button, instruction button and exit button. Once a player clicks a start, instruction or exit button, the one is directed to the Play, Instruction or Splash screen, respectively.
+ 
+Instruction screen contains a page title, descriptions and main button. Once a player clicks a main button, the one is directed to the Start screen. On the center of this screen, it explains how to control the avatar, description for each object that can be found while playing the game, how to gain points, and the goal of the game.
+ 
+Play screen contains scrolling road image, multiple zombies, potholes, hearts and potions, while displaying player’s lives, bullets and score. Player must avoid hitting zombies so that the one does not lose its health. Bullets are used to kill zombie and gains 100 points. Once bullets run out, the one can reload the bullets. When a player contacts heart, the one will gain 1 extra health while consuming a potion enable auto-shooting special bullets for the next 5 seconds.
+ 
+Game Over screen contains a page title, displays high score achieved in the session and the score of this round, and restart and main button. Once player’s health goes down to 0, player will see this end screen. Once a player clicks a restart or main button, the one is directed to the Play or Start screen, respectively.
+
 ## Game World
 This is a 2D single screen web-based scrolling game is a single player game. This player versus environment (PvE) game leads players to fight against zombies that are walking towards a player.
 
