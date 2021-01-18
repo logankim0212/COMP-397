@@ -1,2 +1,2 @@
-# COMP-397
-Logan Kim's assignments for COMP-397, Web Game Programming.
+# Web-Games
+Logan Kim's collection of web games
