@@ -23,7 +23,7 @@ module scenes
         public Start(): void 
         {
              //instantiate a new Text object
-            this._welcomeLabel = new objects.Label("COMP397 - Midterm Test", "40px", "Consolas", "#000000", 320, 180, true);
+            this._welcomeLabel = new objects.Label("Dice Roller", "40px", "Consolas", "#000000", 320, 180, true);
             // buttons
              this._startButton = new objects.Button(config.Game.ASSETS.getResult("startButton"), 320, 430, true);
 
